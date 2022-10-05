@@ -1,6 +1,11 @@
 {
   "locale": "es",
-  "home" : {
-    "helloWorld": "Hola Mundo"
+  "common": {
+    "airvertise": "Airvertise"
+  },
+  "components": {
+    "navigationBar": {
+      "connectWallet": "Connect Wallet"
+    }
   }
 }

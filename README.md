@@ -33,11 +33,19 @@ This project provides a lot of features out of the box. Here's an overview of th
 
 1. Install the dependencies:
 ```
-npm install
+yarn install
 ```
-2.. Start the development server:
+
+2. Create your .env file:
 ```
-   npm run start:dev
+cp env.example .env
+```
+
+3.  add your API keys to your .env file
+
+4. Start the development server:
+```
+   npm run dev
 ```
 
 To know more about the architecture, please refer to [Pankod guide](https://pankod.github.io/next-boilerplate/docs/structure).

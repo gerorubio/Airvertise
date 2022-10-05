@@ -7,20 +7,42 @@ import { CacheProvider, EmotionCache } from "@emotion/react"
 import createEmotionCache from "../src/Definitions/Styled/createEmotionCache"
 import lightThemeOptions from "../src/Definitions/Styled/theme"
 import { ThemeProvider, CssBaseline, createTheme } from "@mui/material"
-
-// Client-side cache, shared for the whole session of the user in the browser.
-const clientSideEmotionCache = createEmotionCache()
+import { chains, providers } from "@web3modal/ethereum"
+import type { ConfigOptions } from "@web3modal/react"
+import { Web3ModalProvider } from "@web3modal/react"
 
 interface AirvertiseProps extends AppProps {
-    emotionCache?: EmotionCache
+    walletConnectProjectId?: string
+    infuraApiKey?: string
 }
+const serverSideEmotionCache = createEmotionCache()
 
 function WebApp(props: AirvertiseProps) {
-    const { Component, emotionCache = clientSideEmotionCache, pageProps } = props
+    const { Component, pageProps } = props
     const lightTheme = createTheme(lightThemeOptions)
 
+    // Configure web3modal
+    const modalConfig: ConfigOptions = {
+        projectId: props.walletConnectProjectId,
+        theme: "dark",
+        accentColor: "default",
+        ethereum: {
+            appName: "airvertise",
+            autoConnect: true,
+            chains: [chains.polygonMumbai],
+            providers: [
+                providers.walletConnectProvider({
+                    projectId: props.walletConnectProjectId,
+                }),
+                providers.infuraProvider({
+                    apiKey: props.infuraApiKey,
+                }),
+            ],
+        },
+    }
+
     return (
-        <CacheProvider value={emotionCache}>
+        <CacheProvider value={serverSideEmotionCache}>
             <Head>
                 <title>Airvertise</title>
                 <meta name="description" content="Arrocera" />
@@ -29,10 +51,22 @@ function WebApp(props: AirvertiseProps) {
             </Head>
             <ThemeProvider theme={lightTheme}>
                 <CssBaseline />
-                <Component {...pageProps} />
+                <Web3ModalProvider config={modalConfig}>
+                    <Component {...pageProps} />
+                </Web3ModalProvider>
             </ThemeProvider>
         </CacheProvider>
     )
+}
+
+WebApp.getInitialProps = async appContext => {
+    const walletConnectProjectId = process.env.WALLET_CONNECT_PROJECT_ID
+    const infuraApiKey = process.env.INFURA_API_KEY
+
+    return {
+        walletConnectProjectId: walletConnectProjectId,
+        infuraApiKey: infuraApiKey,
+    }
 }
 
 export default appWithTranslation(WebApp)

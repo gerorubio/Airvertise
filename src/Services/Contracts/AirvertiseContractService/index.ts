@@ -1,7 +1,8 @@
 import { Airvertise__factory } from "./../../../../types/ethers-contracts/factories/Airvertise__factory"
-import { BigNumberish } from "ethers"
+import { BigNumberish, PayableOverrides } from "ethers"
 import { Airvertise } from "types/ethers-contracts/Airvertise"
 import { Signer } from "ethers"
+import { PromiseOrValue } from "types/ethers-contracts/common"
 
 export class AirvertiseContractService {
     private contract: Airvertise
@@ -18,17 +19,18 @@ export class AirvertiseContractService {
     /*** Allows user to create ad campaign
      * @param title title meant to be displayed to final users
      * @param name internal campaign identifier meant to be used by customer
-     * @param value value in wei for each individual airdrop
+     * @param airdropValue value in wei for each individual airdrop
      * @param advertisementUri IPFS URI of the advertisement image
      * @param to list of addresses to airdrop
      */
     async createCampaign(
         title: string,
         name: string,
-        value: BigNumberish,
+        airdropValue: BigNumberish,
         advertisementUri: string,
-        to: string[]
+        to: string[],
+        overrides?: PayableOverrides & { from?: PromiseOrValue<string> }
     ): Promise<void> {
-        await this.contract.createCampaign(title, name, value, advertisementUri, to, { gasLimit: 1000508 })
+        await this.contract.createCampaign(title, name, airdropValue, advertisementUri, to, overrides)
     }
 }

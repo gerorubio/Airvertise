@@ -23,7 +23,7 @@ const Home: NextPage<IHomePage.IProps> = () => {
     function getDevelopmentSignerOrDefault(): Signer {
         const isLocalDevelopmentEnabled = process.env.NEXT_PUBLIC_LOCAL_DEVELOPMENT_ENABLED === "true"
         if (isLocalDevelopmentEnabled) {
-            return new ethers.providers.JsonRpcProvider(process.env.NEXT_PUBLIC_URL_RCP_PROVIDER).getSigner(
+            return new ethers.providers.JsonRpcProvider(process.env.NEXT_PUBLIC_URL_RPC_PROVIDER).getSigner(
                 process.env.NEXT_PUBLIC_ADDRESS_SIGNER
             )
         }
@@ -31,7 +31,7 @@ const Home: NextPage<IHomePage.IProps> = () => {
         return walletConnectSigner
     }
 
-    function createCampaign() {
+    async function createCampaign() {
         const signer = getDevelopmentSignerOrDefault()
 
         if (!signer) {
@@ -43,10 +43,17 @@ const Home: NextPage<IHomePage.IProps> = () => {
             process.env.NEXT_PUBLIC_CONTRACT_ADDRESS,
             signer
         )
+        const value = ethers.utils.parseUnits("2500", "wei")
+        const gasLimit = await signer.getGasPrice()
 
-        airvertiseContractService.createCampaign("NFT!", "nftTest", 20000, "https://www.google.com", [
-            "0x8626f6940E2eb28930eFb4CeF49B2d1F2C9C1199",
-        ])
+        await airvertiseContractService.createCampaign(
+            "title",
+            "name",
+            100,
+            "http://www.google.com",
+            ["0x8626f6940E2eb28930eFb4CeF49B2d1F2C9C1199"],
+            { value, gasLimit }
+        )
     }
 
     return (

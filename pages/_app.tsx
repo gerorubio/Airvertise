@@ -9,7 +9,7 @@ import lightThemeOptions from "../src/Definitions/Styled/theme"
 import { ThemeProvider, CssBaseline, createTheme } from "@mui/material"
 import { chains, providers } from "@web3modal/ethereum"
 import type { ConfigOptions } from "@web3modal/react"
-import { Web3ModalProvider } from "@web3modal/react"
+import { Web3Modal } from "@web3modal/react"
 
 interface AirvertiseProps extends AppProps {
     walletConnectProjectId?: string
@@ -51,9 +51,10 @@ function WebApp(props: AirvertiseProps) {
             </Head>
             <ThemeProvider theme={lightTheme}>
                 <CssBaseline />
-                <Web3ModalProvider config={modalConfig}>
+                <>
                     <Component {...pageProps} />
-                </Web3ModalProvider>
+                    <Web3Modal config={modalConfig} />
+                </>
             </ThemeProvider>
         </CacheProvider>
     )

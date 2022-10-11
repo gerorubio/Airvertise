@@ -10,6 +10,7 @@ import { ThemeProvider, CssBaseline, createTheme } from "@mui/material"
 import { chains, providers } from "@web3modal/ethereum"
 import type { ConfigOptions } from "@web3modal/react"
 import { Web3Modal } from "@web3modal/react"
+import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3"
 
 interface AirvertiseProps extends AppProps {
     walletConnectProjectId?: string
@@ -49,13 +50,24 @@ function WebApp(props: AirvertiseProps) {
                 <meta name="robots" content="noodp" />
                 <meta name="keywords" content="" />
             </Head>
-            <ThemeProvider theme={lightTheme}>
-                <CssBaseline />
-                <>
-                    <Component {...pageProps} />
-                    <Web3Modal config={modalConfig} />
-                </>
-            </ThemeProvider>
+            <GoogleReCaptchaProvider
+                reCaptchaKey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
+                useRecaptchaNet
+                useEnterprise={false} //TODO: Review if we will need it for production
+                scriptProps={{
+                    async: true,
+                    defer: true,
+                    appendTo: "body",
+                }}
+            >
+                <ThemeProvider theme={lightTheme}>
+                    <CssBaseline />
+                    <>
+                        <Component {...pageProps} />
+                        <Web3Modal config={modalConfig} />
+                    </>
+                </ThemeProvider>
+            </GoogleReCaptchaProvider>
         </CacheProvider>
     )
 }

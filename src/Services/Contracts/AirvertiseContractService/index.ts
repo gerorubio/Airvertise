@@ -17,20 +17,33 @@ export class AirvertiseContractService {
     }
 
     /*** Allows user to create ad campaign
-     * @param title title meant to be displayed to final users
+     * @param title meant to be displayed to final users
+     * @param description meant to be displayed to final users
      * @param name internal campaign identifier meant to be used by customer
      * @param airdropValue value in wei for each individual airdrop
      * @param advertisementUri IPFS URI of the advertisement image
      * @param to list of addresses to airdrop
+     * @param endDateTime end date for the campaign. 0 for not ending campaign
      */
     async createCampaign(
         title: string,
         name: string,
+        description: string,
         airdropValue: BigNumberish,
         advertisementUri: string,
         to: string[],
+        endDateTime: BigNumberish,
         overrides?: PayableOverrides & { from?: PromiseOrValue<string> }
     ): Promise<void> {
-        await this.contract.createCampaign(title, name, airdropValue, advertisementUri, to, overrides)
+        await this.contract.createCampaign(
+            title,
+            description,
+            name,
+            airdropValue,
+            advertisementUri,
+            to,
+            endDateTime,
+            overrides
+        )
     }
 }

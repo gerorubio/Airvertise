@@ -159,3 +159,5 @@ documentation/website/build
 # Intellj
 .idea/
 
+types/
+types/ethers-contracts/*

@@ -48,14 +48,14 @@ function WebApp(props: AirvertiseProps) {
             <RootStoreProvider>
                 <Head>
                     <title>Airvertise</title>
-                    <meta name="description" content="Arrocera" />
+                    <meta name="description" content="" />
                     <meta name="robots" content="noodp" />
                     <meta name="keywords" content="" />
                 </Head>
                 <GoogleReCaptchaProvider
                     reCaptchaKey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
                     useRecaptchaNet
-                    useEnterprise={false} //TODO: Review if we will need it for production
+                    useEnterprise={false} //TODO: https://trello.com/c/PvuzAlvs/65-check-if-it-is-necessary-googlerecaptchaprovider-enterprise
                     scriptProps={{
                         async: true,
                         defer: true,

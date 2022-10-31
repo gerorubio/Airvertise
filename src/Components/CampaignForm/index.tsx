@@ -13,7 +13,16 @@ import { ICampaignForm } from "./CampaignForm"
 import FormHelperText from "@mui/material/FormHelperText"
 import { useRootStore } from "@mobx/index"
 import { observer } from "mobx-react"
-import { Autocomplete, FormControl, IconButton, InputAdornment } from "@mui/material"
+import {
+    Autocomplete,
+    FormControl,
+    IconButton,
+    InputAdornment,
+    InputLabel,
+    MenuItem,
+    Select,
+    Stack,
+} from "@mui/material"
 import { DateTimePicker } from "@mui/x-date-pickers/DateTimePicker"
 import { AdapterMoment } from "@mui/x-date-pickers/AdapterMoment"
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider"
@@ -22,6 +31,10 @@ import CloudUploadIcon from "@mui/icons-material/CloudUpload"
 const CampaignForm: React.FunctionComponent<ICampaignForm.IProps> = observer(() => {
     const { t } = useTranslation()
     const { campaignStore } = useRootStore()
+
+    const handleStartDateChange = (newDate: any) => {
+        campaignStore.setStartDateTime(newDate)
+    }
 
     const handleEndDateChange = (newDate: any) => {
         campaignStore.setEndDateTime(newDate)
@@ -79,24 +92,6 @@ const CampaignForm: React.FunctionComponent<ICampaignForm.IProps> = observer(() 
                         <TextField
                             margin="normal"
                             onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
-                                campaignStore.setName(event.target.value)
-                            }}
-                            required
-                            fullWidth
-                            id="name"
-                            label={t("campaignForm.name.label")}
-                            value={campaignStore.name}
-                            name="name"
-                            autoFocus
-                        />
-                        <FormHelperText id="campaign-name-helper-text">
-                            {t("campaignForm.name.helperText")}
-                        </FormHelperText>
-                    </Grid>
-                    <Grid xs={12} sm={6}>
-                        <TextField
-                            margin="normal"
-                            onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
                                 campaignStore.setDescription(event.target.value)
                             }}
                             required
@@ -111,7 +106,25 @@ const CampaignForm: React.FunctionComponent<ICampaignForm.IProps> = observer(() 
                             {t("campaignForm.description.helperText")}
                         </FormHelperText>
                     </Grid>
-                    <Grid sx={{ alignItems: "center" }} xs={12} sm={6}>
+                    <Grid xs={12} sm={3}>
+                        <TextField
+                            margin="normal"
+                            onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+                                campaignStore.setName(event.target.value)
+                            }}
+                            required
+                            fullWidth
+                            id="name"
+                            label={t("campaignForm.name.label")}
+                            value={campaignStore.name}
+                            name="name"
+                            autoFocus
+                        />
+                        <FormHelperText id="campaign-name-helper-text">
+                            {t("campaignForm.name.helperText")}
+                        </FormHelperText>
+                    </Grid>
+                    <Grid sx={{ alignItems: "center" }} xs={12} sm={3}>
                         <TextField
                             margin="normal"
                             onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
@@ -124,7 +137,28 @@ const CampaignForm: React.FunctionComponent<ICampaignForm.IProps> = observer(() 
                             value={campaignStore.airdropValue}
                             name="airdropValue"
                             InputProps={{
-                                startAdornment: <InputAdornment position="start">{t("common.wei")}</InputAdornment>,
+                                startAdornment: (
+                                    <InputAdornment position="start">
+                                        <Select
+                                            labelId="demo-simple-select-label"
+                                            id="demo-simple-select"
+                                            value={10}
+                                            variant="standard"
+                                            onChange={_ => console.log()}
+                                        >
+                                            <MenuItem value={10}>{t("common.chains.matic")}</MenuItem>
+                                            <MenuItem disabled value={20}>
+                                                {t("common.chains.optimism")}
+                                            </MenuItem>
+                                            <MenuItem disabled value={30}>
+                                                {t("common.chains.arbitrum")}
+                                            </MenuItem>
+                                            <MenuItem disabled value={30}>
+                                                {t("common.chains.skale")}
+                                            </MenuItem>
+                                        </Select>
+                                    </InputAdornment>
+                                ),
                             }}
                             autoFocus
                         />
@@ -132,27 +166,7 @@ const CampaignForm: React.FunctionComponent<ICampaignForm.IProps> = observer(() 
                             {t("campaignForm.airdropValue.helperText")}
                         </FormHelperText>
                     </Grid>
-                    <Grid sx={{ alignItems: "center" }} sm={6} lg={3}>
-                        <DateTimePicker
-                            label={t("campaignForm.endDateTime.label")}
-                            value={campaignStore.endDateTime}
-                            disabled={campaignStore.isCampaignEndlessSelected}
-                            onChange={handleEndDateChange}
-                            renderInput={params => <TextField margin="normal" {...params} fullWidth />}
-                        />
-                        <FormHelperText id="campaign-endDateTime-helper-text">
-                            {t("campaignForm.endDateTime.helperText")}
-                        </FormHelperText>
-                    </Grid>
-                    <Grid sx={{ alignSelf: "center" }} sm={6} marginBottom={3} lg={3}>
-                        <FormControlLabel
-                            control={<Checkbox checked={campaignStore.isCampaignEndlessSelected} />}
-                            onChange={(_, checked) => campaignStore.setIsCampaignEndlessSelected(checked)}
-                            label={t("campaignForm.endCampaign.label")}
-                            id="endCampaignchecker"
-                        />
-                    </Grid>
-                    <Grid sx={{ alignItems: "center" }} sm={12} lg={6}>
+                    <Grid sx={{ alignItems: "center" }} xs={12} sm={6}>
                         <TextField
                             margin="normal"
                             required
@@ -164,12 +178,12 @@ const CampaignForm: React.FunctionComponent<ICampaignForm.IProps> = observer(() 
                             InputProps={{
                                 endAdornment: (
                                     <InputAdornment position="start">
-                                        <IconButton
-                                            aria-label="toggle password visibility"
-                                            onClick={handleClickUploadFile}
-                                        >
-                                            <CloudUploadIcon />
-                                        </IconButton>
+                                        <Stack direction="row" alignItems="center" spacing={2}>
+                                            <Button variant="contained" component="label">
+                                                {t("campaignForm.upload.button")}
+                                                <input hidden accept="image/*" multiple type="file" />
+                                            </Button>
+                                        </Stack>
                                     </InputAdornment>
                                 ),
                             }}
@@ -178,6 +192,37 @@ const CampaignForm: React.FunctionComponent<ICampaignForm.IProps> = observer(() 
                         <FormHelperText id="campaign-upload-helper-text">
                             {t("campaignForm.upload.helperText")}
                         </FormHelperText>
+                    </Grid>
+                    <Grid sx={{ alignItems: "center" }} xs={12} sm={6}>
+                        <DateTimePicker
+                            label={t("campaignForm.startDateTime.label")}
+                            value={campaignStore.startDateTime}
+                            onChange={handleStartDateChange}
+                            renderInput={params => <TextField margin="normal" {...params} fullWidth />}
+                        />
+                        <FormHelperText id="campaign-startDateTime-helper-text">
+                            {t("campaignForm.startDateTime.helperText")}
+                        </FormHelperText>
+                    </Grid>
+                    <Grid sx={{ alignItems: "center" }} xs={12} sm={3}>
+                        <DateTimePicker
+                            label={t("campaignForm.endDateTime.label")}
+                            value={campaignStore.endDateTime}
+                            disabled={campaignStore.isCampaignEndlessSelected}
+                            onChange={handleEndDateChange}
+                            renderInput={params => <TextField margin="normal" {...params} fullWidth />}
+                        />
+                        <FormHelperText id="campaign-endDateTime-helper-text">
+                            {t("campaignForm.endDateTime.helperText")}
+                        </FormHelperText>
+                    </Grid>
+                    <Grid sx={{ alignSelf: "center" }} xs={12} sm={3} marginBottom={3}>
+                        <FormControlLabel
+                            control={<Checkbox checked={campaignStore.isCampaignEndlessSelected} />}
+                            onChange={(_, checked) => campaignStore.setIsCampaignEndlessSelected(checked)}
+                            label={t("campaignForm.endCampaign.label")}
+                            id="endCampaignchecker"
+                        />
                     </Grid>
                     <Grid sx={{ alignItems: "center" }} xs={12} sm={12}>
                         <Autocomplete

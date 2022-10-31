@@ -2,7 +2,12 @@
   "locale": "en",
   "common": {
     "airvertise": "Airvertise",
-    "wei": "Wei"
+    "chains": {
+      "matic": "Matic",
+      "optimism": "Optimism",
+      "arbitrum": "Arbitrum",
+      "skale": "Skale"
+    }
   },
   "components": {
     "navigationBar": {
@@ -23,6 +28,10 @@
       "label": "Description",
       "helperText": "The campaign description, to be displayed when users claim the airdrop. You can include additional information about your ad."
     },
+    "startDateTime": {
+      "label": "Campaign start date",
+      "helperText": "Your campaign audience will be able to claim airdrops after this date time."
+    }, 
     "endDateTime": {
       "label": "Campaign end date",
       "helperText": "Your campaign audience won't be able to claim airdrops after this date time."
@@ -31,6 +40,7 @@
       "label": "Do not end the campaign for now"
     },
     "upload": {
+      "button": "Upload",
       "label": "Upload an image",
       "helperText": "Your advertisement flyer, in png/jpeg format."
     },
@@ -40,7 +50,7 @@
     },
     "airdropValue": {
       "label": "Value",
-      "helperText": "value (in wei) for each individual airdrop."
+      "helperText": "value (in matic) for each individual airdrop."
     },
     "createCampaign": "Create Campaign"
   }

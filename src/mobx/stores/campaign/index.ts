@@ -3,19 +3,22 @@ import { BigNumberish, ethers } from "ethers"
 import { makeAutoObservable } from "mobx"
 import { ICampaignStore } from "./campaign"
 import moment, { now } from "moment"
+import { number } from "mobx-state-tree/dist/internal"
 
 /**
  * Store to save campaign information
  */
 
 export class CampaignStore implements ICampaignStore {
+    maticWeiValue = 1_000_000_000_000_000_000
     title = ""
     name = ""
     description = ""
-    airdropValue = "0"
+    airdropValue = 0
     advertisementUri = ""
     destinations = []
     endDateTime = moment().toDate()
+    startDateTime = moment().toDate()
     isCampaignEndlessSelected = true
 
     constructor() {
@@ -31,7 +34,7 @@ export class CampaignStore implements ICampaignStore {
     }
 
     setAirdropValue = (value: string) => {
-        this.airdropValue = value
+        this.airdropValue = Number(value)
     }
 
     setDescription = (value: string) => {
@@ -50,6 +53,10 @@ export class CampaignStore implements ICampaignStore {
         this.destinations = value
     }
 
+    setStartDateTime = (value: Date) => {
+        this.startDateTime = value
+    }
+
     setEndDateTime = (value: Date) => {
         this.endDateTime = value
     }
@@ -63,7 +70,7 @@ export class CampaignStore implements ICampaignStore {
         return {
             title: this.title,
             description: this.description,
-            airdropValue: ethers.utils.parseUnits(this.airdropValue, "wei"),
+            airdropValue: ethers.utils.parseUnits((this.airdropValue * this.maticWeiValue).toString(), "wei"),
             name: this.name,
             advertisementUri: "TODO: https://trello.com/c/Z86PX7sk/4-implement-ipfs",
             destinations: this.destinations,

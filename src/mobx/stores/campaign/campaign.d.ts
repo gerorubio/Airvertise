@@ -3,17 +3,19 @@ export interface ICampaignStore {
     title: string
     name: string
     description: string
-    airdropValue: string
+    airdropValue: number
     advertisementUri: string
     destinations: string[]
+    startDateTime: Date
     endDateTime: Date
     isCampaignEndlessSelected: boolean
-    setTitle: (string) => void
-    setName: (string) => void
-    setDescription: (string) => void
-    setAirdropValue: (string) => void
+    setTitle: (value: string) => void
+    setName: (value: string) => void
+    setDescription: (value: string) => void
+    setAirdropValue: (value: string) => void
     setIsCampaignEndlessSelected: (checked: boolean) => void
     setEndDateTime: (date: Date) => void
+    setStartDateTime: (date: Date) => void
     createCampaignData(): CampaignRequest
     setDestinations: (destinations: string[]) => void
 }

@@ -136,30 +136,6 @@ const CampaignForm: React.FunctionComponent<ICampaignForm.IProps> = observer(() 
                             label={t("campaignForm.airdropValue.label")}
                             value={campaignStore.airdropValue}
                             name="airdropValue"
-                            InputProps={{
-                                startAdornment: (
-                                    <InputAdornment position="start">
-                                        <Select
-                                            labelId="demo-simple-select-label"
-                                            id="demo-simple-select"
-                                            value={10}
-                                            variant="standard"
-                                            onChange={_ => console.log()}
-                                        >
-                                            <MenuItem value={10}>{t("common.chains.matic")}</MenuItem>
-                                            <MenuItem disabled value={20}>
-                                                {t("common.chains.optimism")}
-                                            </MenuItem>
-                                            <MenuItem disabled value={30}>
-                                                {t("common.chains.arbitrum")}
-                                            </MenuItem>
-                                            <MenuItem disabled value={30}>
-                                                {t("common.chains.skale")}
-                                            </MenuItem>
-                                        </Select>
-                                    </InputAdornment>
-                                ),
-                            }}
                             autoFocus
                         />
                         <FormHelperText id="campaign-airdropValue-helper-text">

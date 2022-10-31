@@ -3,7 +3,7 @@
   "common": {
     "airvertise": "Airvertise",
     "chains": {
-      "matic": "Matic",
+      "polygon": "Polygon",
       "optimism": "Optimism",
       "arbitrum": "Arbitrum",
       "skale": "Skale"

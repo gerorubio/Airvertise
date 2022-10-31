@@ -54,6 +54,12 @@
       ],
       "@Test/*": [
         "test/*"
+      ],
+      "@mobx/*": [
+        "src/mobx/*"
+      ],
+      "@mobx": [
+        "src/mobx"
       ]
     },
     "incremental": true

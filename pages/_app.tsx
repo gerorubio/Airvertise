@@ -11,6 +11,7 @@ import { chains, providers } from "@web3modal/ethereum"
 import type { ConfigOptions } from "@web3modal/react"
 import { Web3Modal } from "@web3modal/react"
 import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3"
+import { RootStoreProvider } from "src/mobx"
 
 interface AirvertiseProps extends AppProps {
     walletConnectProjectId?: string
@@ -44,30 +45,32 @@ function WebApp(props: AirvertiseProps) {
 
     return (
         <CacheProvider value={serverSideEmotionCache}>
-            <Head>
-                <title>Airvertise</title>
-                <meta name="description" content="Arrocera" />
-                <meta name="robots" content="noodp" />
-                <meta name="keywords" content="" />
-            </Head>
-            <GoogleReCaptchaProvider
-                reCaptchaKey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
-                useRecaptchaNet
-                useEnterprise={false} //TODO: Review if we will need it for production
-                scriptProps={{
-                    async: true,
-                    defer: true,
-                    appendTo: "body",
-                }}
-            >
-                <ThemeProvider theme={lightTheme}>
-                    <CssBaseline />
-                    <>
-                        <Component {...pageProps} />
-                        <Web3Modal config={modalConfig} />
-                    </>
-                </ThemeProvider>
-            </GoogleReCaptchaProvider>
+            <RootStoreProvider>
+                <Head>
+                    <title>Airvertise</title>
+                    <meta name="description" content="" />
+                    <meta name="robots" content="noodp" />
+                    <meta name="keywords" content="" />
+                </Head>
+                <GoogleReCaptchaProvider
+                    reCaptchaKey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
+                    useRecaptchaNet
+                    useEnterprise={false} //TODO: https://trello.com/c/PvuzAlvs/65-check-if-it-is-necessary-googlerecaptchaprovider-enterprise
+                    scriptProps={{
+                        async: true,
+                        defer: true,
+                        appendTo: "body",
+                    }}
+                >
+                    <ThemeProvider theme={lightTheme}>
+                        <CssBaseline />
+                        <>
+                            <Component {...pageProps} />
+                            <Web3Modal config={modalConfig} />
+                        </>
+                    </ThemeProvider>
+                </GoogleReCaptchaProvider>
+            </RootStoreProvider>
         </CacheProvider>
     )
 }

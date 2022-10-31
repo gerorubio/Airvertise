@@ -12,6 +12,7 @@ import { useAccount } from "@web3modal/react"
 import { AirvertiseContractService } from "@Services/Contracts/AirvertiseContractService"
 import { ethers } from "ethers"
 import { Signer } from "ethers"
+import CampaignForm from "@Components/CampaignForm"
 
 const Home: NextPage<IHomePage.IProps> = () => {
     const router = useRouter()
@@ -48,10 +49,12 @@ const Home: NextPage<IHomePage.IProps> = () => {
 
         await airvertiseContractService.createCampaign(
             "title",
+            "description",
             "name",
             100,
             "http://www.google.com",
             ["0x8626f6940E2eb28930eFb4CeF49B2d1F2C9C1199"],
+            0,
             { value, gasLimit }
         )
     }
@@ -59,9 +62,7 @@ const Home: NextPage<IHomePage.IProps> = () => {
     return (
         <React.Fragment>
             <NavigationBar isLoggedIn={false} onConnectWalletClicked={openConnectModal} />
-            <Button variant="contained" color="secondary" onClick={createCampaign}>
-                Create Campaign
-            </Button>
+            <CampaignForm />
         </React.Fragment>
     )
 }

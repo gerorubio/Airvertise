@@ -1,38 +1,23 @@
 import * as React from "react"
 import Avatar from "@mui/material/Avatar"
 import Button from "@mui/material/Button"
-import CssBaseline from "@mui/material/CssBaseline"
 import TextField from "@mui/material/TextField"
 import FormControlLabel from "@mui/material/FormControlLabel"
 import Checkbox from "@mui/material/Checkbox"
-import Link from "@mui/material/Link"
 import Grid from "@mui/material/Unstable_Grid2"
 import Box from "@mui/material/Box"
-import LockOutlinedIcon from "@mui/icons-material/LockOutlined"
+import Campaign from "@mui/icons-material/Campaign"
 import Typography from "@mui/material/Typography"
-import Container from "@mui/material/Container"
 import { useTranslation } from "next-i18next"
 import { ICampaignForm } from "./CampaignForm"
 import FormHelperText from "@mui/material/FormHelperText"
 import { useRootStore } from "@mobx/index"
 import { observer } from "mobx-react"
-import Chip from "@mui/material/Chip"
-import CloseIcon from "@mui/icons-material/Close"
-import {
-    Autocomplete,
-    FilledInput,
-    FormControl,
-    IconButton,
-    Input,
-    InputAdornment,
-    InputLabel,
-    OutlinedInput,
-} from "@mui/material"
+import { Autocomplete, FormControl, IconButton, InputAdornment } from "@mui/material"
 import { DateTimePicker } from "@mui/x-date-pickers/DateTimePicker"
 import { AdapterMoment } from "@mui/x-date-pickers/AdapterMoment"
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider"
 import CloudUploadIcon from "@mui/icons-material/CloudUpload"
-import ChipInput from "@Components/ChipInput"
 
 const CampaignForm: React.FunctionComponent<ICampaignForm.IProps> = observer(() => {
     const { t } = useTranslation()
@@ -65,10 +50,10 @@ const CampaignForm: React.FunctionComponent<ICampaignForm.IProps> = observer(() 
                             }}
                         >
                             <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
-                                <LockOutlinedIcon />
+                                <Campaign />
                             </Avatar>
                             <Typography component="h1" variant="h5">
-                                Let's start creating your campaign
+                                {t("campaignForm.formTitle")}
                             </Typography>
                         </Box>
                     </Grid>
@@ -139,7 +124,7 @@ const CampaignForm: React.FunctionComponent<ICampaignForm.IProps> = observer(() 
                             value={campaignStore.airdropValue}
                             name="airdropValue"
                             InputProps={{
-                                startAdornment: <InputAdornment position="start">wei</InputAdornment>,
+                                startAdornment: <InputAdornment position="start">{t("common.wei")}</InputAdornment>,
                             }}
                             autoFocus
                         />

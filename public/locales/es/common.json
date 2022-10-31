@@ -1,7 +1,8 @@
 {
   "locale": "es",
   "common": {
-    "airvertise": "Airvertise"
+    "airvertise": "Airvertise",
+    "wei": "Wei"
   },
   "components": {
     "navigationBar": {
@@ -9,6 +10,7 @@
     }
   },
   "campaignForm": {
+    "formTitle": "Let's start creating your campaign",
     "title": {
       "label": "Title",
       "helperText": "The campaign title, to be displayed when users claim the airdrop."

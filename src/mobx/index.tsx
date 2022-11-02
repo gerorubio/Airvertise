@@ -1,11 +1,14 @@
 import React from "react"
 
-import { createRootStore } from "./stores"
+import { RootStore } from "./stores"
+import { IRoot } from "./stores/store"
 
-const StoreContext = React.createContext<ReturnType<typeof createRootStore> | undefined>(undefined)
+let store: IRoot
+
+const StoreContext = React.createContext<RootStore | undefined>(undefined)
 
 export const RootStoreProvider = ({ children }: { children: React.ReactNode }) => {
-    const root = createRootStore()
+    const root = store ?? new RootStore()
 
     return <StoreContext.Provider value={root}>{children}</StoreContext.Provider>
 }

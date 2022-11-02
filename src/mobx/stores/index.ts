@@ -1,11 +1,11 @@
-import { types } from "mobx-state-tree";
-import { CounterStore } from "./counter";
+import { ICampaignStore } from "./campaign/campaign.d"
+import { CampaignStore } from "./campaign/index"
+import { IRoot } from "./store"
 
-export const RootStore = types.model("RootStore", {
-  counterStore: CounterStore,
-});
+export class RootStore implements IRoot {
+    campaignStore: ICampaignStore
 
-export const createRootStore = () =>
-  RootStore.create({
-    counterStore: CounterStore.create(),
-  });
+    constructor() {
+        this.campaignStore = new CampaignStore()
+    }
+}

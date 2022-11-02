@@ -14,7 +14,7 @@
     "format": "npm run lint -- --fix",
     "analyze": "cross-env BUNDLE_ANALYZE=both npm run build",
     "generate-abis-types": "typechain --target=ethers-v5 'src/Contracts/Abis/*.json'",
-    "postinstall":"yarn generate-abis-types"
+    "postinstall": "yarn generate-abis-types"
   },
   "husky": {
     "hooks": {
@@ -41,6 +41,7 @@
     "@mui/icons-material": "^5.10.6",
     "@mui/lab": "^5.0.0-alpha.101",
     "@mui/material": "^5.10.7",
+    "@mui/x-date-pickers": "^5.0.5",
     "@next/bundle-analyzer": "^12.3.1",
     "@walletconnect/web3-provider": "^1.8.0",
     "@web3modal/ethereum": "^2.0.0-alpha.5",

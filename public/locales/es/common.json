@@ -1,11 +1,57 @@
 {
   "locale": "es",
   "common": {
-    "airvertise": "Airvertise"
+    "airvertise": "Airvertise",
+    "chains": {
+      "polygon": "Polygon",
+      "optimism": "Optimism",
+      "arbitrum": "Arbitrum",
+      "skale": "Skale"
+    }
   },
   "components": {
     "navigationBar": {
       "connectWallet": "Connect Wallet"
     }
+  },
+  "campaignForm": {
+    "formTitle": "Let's start creating your campaign",
+    "title": {
+      "label": "Title",
+      "helperText": "The campaign title, to be displayed when users claim the airdrop."
+    },
+    "name": {
+      "label": "Campaign ID",
+      "helperText": "This is just visible to you, to identify your campaign internally."
+    },
+    "description": {
+      "label": "Description",
+      "helperText": "The campaign description, to be displayed when users claim the airdrop. You can include additional information about your ad."
+    },
+    "startDateTime": {
+      "label": "Campaign start date",
+      "helperText": "Your campaign audience will be able to claim airdrops after this date time."
+    }, 
+    "endDateTime": {
+      "label": "Campaign end date",
+      "helperText": "Your campaign audience won't be able to claim airdrops after this date time."
+    },
+    "endCampaign": {
+      "label": "Do not end the campaign for now"
+    },
+    "upload": {
+      "button": "Upload",
+      "label": "Upload an image",
+      "helperText": "Your advertisement flyer, in png/jpeg format."
+    },
+    "destinations": {
+      "label": "Addresses",
+      "helperText": "To whom do you want to send the advertisement?"
+    },
+    "airdropValue": {
+      "label": "Value",
+      "helperText": "value (in matic) for each individual airdrop."
+    },
+    "createCampaign": "Create Campaign"
   }
 }

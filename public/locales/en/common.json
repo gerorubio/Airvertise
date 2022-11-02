@@ -46,7 +46,7 @@
     },
     "destinations": {
       "label": "Addresses",
-      "helperText": "To whom do you want to send the advertisement?"
+      "helperText": "List of addresses you want to airdrop"
     },
     "airdropValue": {
       "label": "Value",

@@ -18,6 +18,7 @@ export interface ICampaignStore {
     setStartDateTime: (date: Date) => void
     createCampaignData(): CampaignRequest
     setDestinations: (destinations: string[]) => void
+    setAdvertisementUri: (value: string) => void
 }
 
 export interface CampaignRequest {

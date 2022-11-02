@@ -27,10 +27,29 @@ import { DateTimePicker } from "@mui/x-date-pickers/DateTimePicker"
 import { AdapterMoment } from "@mui/x-date-pickers/AdapterMoment"
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider"
 import CloudUploadIcon from "@mui/icons-material/CloudUpload"
+import { IpfsService } from "@Services"
+import { IUploadImageIpfsPayload } from "src/Pages/Ipfs/IUploadImageIpfsPayload"
 
 const CampaignForm: React.FunctionComponent<ICampaignForm.IProps> = observer(() => {
     const { t } = useTranslation()
+    const [imageSelected, setImageSelected] = React.useState<File>(null)
     const { campaignStore } = useRootStore()
+
+    const uploadImage = async (image: File) => {
+        const body = new FormData()
+        body.append("file", image)
+
+        const response = await IpfsService.UploadImage(body)
+        if (response.data.path) {
+            campaignStore.setAdvertisementUri(response.data.path)
+        }
+    }
+
+    React.useEffect(() => {
+        if (imageSelected != null) {
+            uploadImage(imageSelected)
+        }
+    }, [imageSelected])
 
     const handleStartDateChange = (newDate: any) => {
         campaignStore.setStartDateTime(newDate)
@@ -39,8 +58,6 @@ const CampaignForm: React.FunctionComponent<ICampaignForm.IProps> = observer(() 
     const handleEndDateChange = (newDate: any) => {
         campaignStore.setEndDateTime(newDate)
     }
-
-    const handleClickUploadFile = () => {}
 
     function validateFormAndContinue(): void {
         // TODO: Add validations: https://trello.com/c/Tz2jPCMY/66-add-airvertise-validations
@@ -157,7 +174,18 @@ const CampaignForm: React.FunctionComponent<ICampaignForm.IProps> = observer(() 
                                         <Stack direction="row" alignItems="center" spacing={2}>
                                             <Button variant="contained" component="label">
                                                 {t("campaignForm.upload.button")}
-                                                <input hidden accept="image/*" multiple type="file" />
+                                                <input
+                                                    hidden
+                                                    accept="image/png, image/jpeg"
+                                                    type="file"
+                                                    id="file"
+                                                    name="file"
+                                                    onChange={event => {
+                                                        if (event.target.files && event.target.files[0]) {
+                                                            setImageSelected(event.target.files[0])
+                                                        }
+                                                    }}
+                                                />
                                             </Button>
                                         </Stack>
                                     </InputAdornment>

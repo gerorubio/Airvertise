@@ -61,7 +61,7 @@ export class CampaignStore implements ICampaignStore {
         this.endDateTime = value
     }
 
-    setIsCampaignEndlessSelected(enabled: boolean) {
+    setIsCampaignEndlessSelected = (enabled: boolean) => {
         this.isCampaignEndlessSelected = enabled
     }
 
@@ -72,7 +72,7 @@ export class CampaignStore implements ICampaignStore {
             description: this.description,
             airdropValue: ethers.utils.parseUnits((this.airdropValue * this.maticWeiValue).toString(), "wei"),
             name: this.name,
-            advertisementUri: "TODO: https://trello.com/c/Z86PX7sk/4-implement-ipfs",
+            advertisementUri: this.advertisementUri,
             destinations: this.destinations,
             endDateTime: endDateTime,
         }

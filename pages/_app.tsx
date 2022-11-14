@@ -11,7 +11,7 @@ import { chains, providers } from "@web3modal/ethereum"
 import type { ConfigOptions } from "@web3modal/react"
 import { Web3Modal } from "@web3modal/react"
 import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3"
-import { RootStoreProvider } from "src/mobx"
+import { RootStoreProvider } from "@mobx"
 
 interface AirvertiseProps extends AppProps {
     walletConnectProjectId?: string

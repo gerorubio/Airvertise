@@ -53,5 +53,13 @@
       "helperText": "value (in matic) for each individual airdrop."
     },
     "createCampaign": "Create Campaign"
+  },
+  "home": {
+    "heroTitle": "Engage your customers",
+    "heroInfo1": "Hero ",
+    "heroInfo2": "info ",
+    "heroInfo3": "More ",
+    "heroInfo4": "info",
+    "heroButton": "Start campaign"
   }
 }

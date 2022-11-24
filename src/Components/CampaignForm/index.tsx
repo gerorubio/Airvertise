@@ -28,7 +28,6 @@ import { AdapterMoment } from "@mui/x-date-pickers/AdapterMoment"
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider"
 import CloudUploadIcon from "@mui/icons-material/CloudUpload"
 import { IpfsService } from "@Services"
-import { IUploadImageIpfsPayload } from "src/Pages/Ipfs/IUploadImageIpfsPayload"
 
 const CampaignForm: React.FunctionComponent<ICampaignForm.IProps> = observer(() => {
     const { t } = useTranslation()

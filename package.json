@@ -78,6 +78,7 @@
     "react-google-recaptcha-v3": "^1.10.0",
     "react-markdown": "^8.0.3",
     "sass": "^1.55.0",
+    "styled-components": "^5.3.6",
     "tss-react": "^4.1.4",
     "validator": "^13.7.0"
   },

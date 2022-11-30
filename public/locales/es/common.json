@@ -55,11 +55,14 @@
     "createCampaign": "Create Campaign"
   },
   "home": {
-    "heroTitle": "Engage your customers",
-    "heroInfo1": "Hero ",
-    "heroInfo2": "info ",
-    "heroInfo3": "More ",
-    "heroInfo4": "info",
-    "heroButton": "Start campaign"
+    "heroTitle": "Identificar segmentos de audiencia",
+    "heroInfo": "La clave para escalar tu negocio es construir una audiencia. Identificar a tu audiencia objetivo y segmentarlos es el primer paso para lograrlo. Esto te ayudará a crear campañas a medida para ellos y aumentar tu base de clientes.",
+    "heroButton": "Iniciar",
+    "featureTitle1": "Sistema descentralizado y transparente",
+    "feature1": "Nuestra etapa inicial de MVP ofrece a los clientes la posibilidad de lanzar campañas publicitarias a través de airdrop junto con la tarifa de incentivo elegida a un conjunto determinado de direcciones que interactúan con un contrato determinado.",
+    "featureTitle2": "Gestión avanzada",
+    "feature2": "Nuestras características posteriores al MVP incluyen la implementación de categorías para contratos, descubrimiento de contratos, un panel de análisis de marketing y la posibilidad de enviar fondos no reclamados a los usuarios como funcionalidad de calificación de calidad de campaña de los usuarios finales.",
+    "featureTitle3": "Exclusividad",
+    "feature3": "Enviar invitaciones a eventos"
   }
 }

@@ -55,11 +55,15 @@
     "createCampaign": "Create Campaign"
   },
   "home": {
-    "heroTitle": "Engage your customers",
-    "heroInfo1": "Hero ",
-    "heroInfo2": "info ",
-    "heroInfo3": "More ",
-    "heroInfo4": "info",
-    "heroButton": "Start campaign"
+    "heroTitle": "Identifying Audience Segments",
+    "heroInfo": "The key to scaling your business is to build an audience. Identifying your target audience and segmenting them is the first step in doing that. This will help you create campaigns tailored to them and increase your customer base.",
+    "heroButton": "Start",
+    "feature": "Feature",
+    "featureTitle1": "Decentralized and transparent system",
+    "feature1": "Our initial MVP stage offers customers the ability to launch advertisement campaigns via airdrop along with the chosen incentive fee to a determined set of addresses that interact with a given contract. ",
+    "featureTitle2": "Advance managment",
+    "feature2": "Our post MVP features include implementing categories for contracts, contract discovery, a marketing analytics dashboard, and the possibility to send unclaimed funds back to the users as campaign quality rating functionality from end users.",
+    "featureTitle3": "Exclusiveness",
+    "feature3": "Send invitations to events"
   }
 }

@@ -13,6 +13,24 @@ import { Signer } from "ethers"
 import { Typography, Box, Grid, Container, Stack, Button, Card, CardMedia, CardContent, CardActions, CardActionArea } from "@mui/material";
 import Image from "next/image"
 
+const features = [
+    {
+        "title": "home.featureTitle1",
+        "text": "home.feature1",
+        "img": "..."
+    },
+    {
+        "title": "home.featureTitle2",
+        "text": "home.feature2",
+        "img": "..."
+    },
+    {
+        "title": "home.featureTitle3",
+        "text": "home.feature3",
+        "img": "..."
+    }
+];
+
 const Home: NextPage<IHomePage.IProps> = () => {
     const router = useRouter()
     const { t } = useTranslation()
@@ -49,13 +67,13 @@ const Home: NextPage<IHomePage.IProps> = () => {
                             }
                         }}>
                             <Typography variant="h3" gutterBottom>
-                                Amazing title in this section
+                                {t("home.heroTitle")}
                             </Typography>
                             <Typography variant="subtitle2" gutterBottom>
-                                Ullamco esse dolor et enim mollit fugiat pariatur nisi est sint. Deserunt fugiat labore labore amet laboris.
+                                {t("home.heroInfo")}
                             </Typography>
                             <Button variant="contained">
-                                Start
+                                {t("home.heroButton")}
                             </Button>
                         </Box>
                     </Grid>
@@ -65,84 +83,34 @@ const Home: NextPage<IHomePage.IProps> = () => {
             <Box py={4}>
                 <Container>
                     <Grid container>
-                        <Grid item md={4}>
-                            <Card sx={{ width: '90%', mx: 'auto', height:'100%' }}>
-                                <CardActionArea>
-                                    <CardMedia
-                                    component="img"
-                                    height="200"
-                                    image="https://rabbithole.gg/home/artisan.png"
-                                    alt="green iguana"
-                                    />
-                                    <CardContent>
-                                    <Typography gutterBottom variant="h5" component="div">
-                                        Features
-                                    </Typography>
-                                    <Typography variant="body2" color="text.secondary">
-                                        Nisi pariatur ea consectetur do proident et. Sit culpa elit voluptate ea exercitation.
-                                    </Typography>
-                                    </CardContent>
-                                </CardActionArea>
-                                <CardActions>
-                                    <Button size="small" color="primary" variant="contained" sx={{ width: '100%' }}>
-                                    Share
-                                    </Button>
-                                </CardActions>
-                            </Card>
-                        </Grid>
-                        <Grid item md={4}>
-                            <Card sx={{ width: '90%', mx: 'auto', height:'100%' }}>
-                                <CardActionArea>
-                                    <CardMedia
-                                    component="img"
-                                    height="200"
-                                    image="https://rabbithole.gg/home/artisan.png"
-                                    alt="green iguana"
-                                    />
-                                    <CardContent>
-                                    <Typography gutterBottom variant="h5" component="div">
-                                        Features
-                                    </Typography>
-                                    <Typography variant="body2" color="text.secondary">
-                                        Nisi pariatur ea consectetur do proident et. Sit culpa elit voluptate ea exercitation.
-                                    </Typography>
-                                    </CardContent>
-                                </CardActionArea>
-                                <CardActions>
-                                    <Button size="small" color="primary" variant="contained" sx={{ width: '100%' }}>
-                                    Share
-                                    </Button>
-                                </CardActions>
-                            </Card>
-                        </Grid>
-                        <Grid item md={4}>
-                            <Card sx={{ width: '90%', mx: 'auto', height:'100%' }}>
-                                <CardActionArea>
-                                    <CardMedia
-                                    component="img"
-                                    height="200"
-                                    image="https://rabbithole.gg/home/artisan.png"
-                                    alt="green iguana"
-                                    />
-                                    <CardContent>
-                                    <Typography gutterBottom variant="h5" component="div">
-                                        Features
-                                    </Typography>
-                                    <Typography variant="body2" color="text.secondary">
-                                        Nisi pariatur ea consectetur do proident et. Sit culpa elit voluptate ea exercitation.
-                                    </Typography>
-                                    </CardContent>
-                                </CardActionArea>
-                                <CardActions>
-                                    <Button size="small" color="primary" variant="contained" sx={{ width: '100%' }}>
-                                    Share
-                                    </Button>
-                                </CardActions>
-                            </Card>
-                        </Grid>
+                        {
+                            features.map((feature) => (
+                                <Grid item md={4}>
+                                    <Card sx={{ width: '90%', mx: 'auto', height:'100%' }}>
+                                        <CardActionArea>
+                                            <CardMedia
+                                                component="img"
+                                                height="200"
+                                                image="https://rabbithole.gg/home/artisan.png"
+                                                alt="green iguana"
+                                            />
+                                            <CardContent>
+                                            <Typography gutterBottom variant="h5" component="div">
+                                                {t(feature.title)}
+                                            </Typography>
+                                            <Typography variant="body2" color="text.secondary">
+                                                {t(feature.text)}
+                                            </Typography>
+                                            </CardContent>
+                                        </CardActionArea>
+                                    </Card>
+                                </Grid>
+                            ))
+                        }
                     </Grid>
                 </Container>
             </Box>
+            {/* Chains */}
             <Box py={5} bgcolor={'#181818'}>
                 <Container>
                     <Typography variant="h4" textAlign={'center'} gutterBottom pb={5}>

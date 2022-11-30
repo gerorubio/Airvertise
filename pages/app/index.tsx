@@ -14,7 +14,7 @@ import { ethers } from "ethers"
 import { Signer } from "ethers"
 import CampaignForm from "@Components/CampaignForm"
 
-const Home: NextPage<IHomePage.IProps> = () => {
+const App: NextPage<IHomePage.IProps> = () => {
     const router = useRouter()
     const { t } = useTranslation()
     const { open: openConnectModal } = useConnectModal()
@@ -75,4 +75,4 @@ export const getServerSideProps = async ({ locale }) => {
     }
 }
 
-export default Home
+export default App

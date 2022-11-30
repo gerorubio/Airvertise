@@ -1,11 +1,11 @@
 import * as React from "react";
-import { AppBar, Box, Toolbar, Typography, Button, IconButton, Divider, List, ListItem, ListItemText, ListItemButton, Drawer } from "@mui/material";
+import { AppBar, Box, Toolbar, Typography, Button, IconButton, Divider, List, ListItem, ListItemText, ListItemButton, Drawer, Link } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import { INavigationBar } from "./NavigationBar";
 import { useTranslation } from "next-i18next";
 
 const drawerWidth = 240;
-const navItems = ['Home', 'Campaign', 'About'];
+const navItems = ['home', 'app', 'about'];
 
 const NavigationBar: React.FunctionComponent<INavigationBar.IProps> = ({ onConnectWalletClicked }) => {
     const { t } = useTranslation()
@@ -58,9 +58,7 @@ const NavigationBar: React.FunctionComponent<INavigationBar.IProps> = ({ onConne
                     </Button>
                     <Box sx={{ display: { xs: 'none', sm: 'block' }, width: '50%', margin: 'auto' }}>
                         {navItems.map((item) => (
-                        <Button key={item} sx={{ color: '#fff' }}>
-                            {item}
-                        </Button>
+                            <Link href={'/' + item} underline='none' px={1} sx={{color: '#fff', textTransform:'uppercase', fontWeight: 600}}>{item}</Link>
                         ))}
                     </Box>
                     <Button variant="contained" onClick={onConnectWalletClicked} sx={{ display: { xs: 'none', sm: 'block' } }}>

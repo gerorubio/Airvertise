@@ -58,7 +58,7 @@ const NavigationBar: React.FunctionComponent<INavigationBar.IProps> = ({ onConne
                     </Button>
                     <Box sx={{ display: { xs: 'none', sm: 'block' }, width: '50%', margin: 'auto' }}>
                         {navItems.map((item) => (
-                            <Link href={'/' + item} underline='none' px={1} sx={{color: '#fff', textTransform:'uppercase', fontWeight: 600}}>{item}</Link>
+                            <Link key={item} href={'/' + item} underline='none' px={1} sx={{color: '#fff', textTransform:'uppercase', fontWeight: 600}}>{item}</Link>
                         ))}
                     </Box>
                     <Button variant="contained" onClick={onConnectWalletClicked} sx={{ display: { xs: 'none', sm: 'block' } }}>

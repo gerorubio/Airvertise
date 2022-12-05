@@ -55,14 +55,36 @@
     "createCampaign": "Create Campaign"
   },
   "home": {
-    "heroTitle": "Identificar segmentos de audiencia",
-    "heroInfo": "La clave para escalar tu negocio es construir una audiencia. Identificar a tu audiencia objetivo y segmentarlos es el primer paso para lograrlo. Esto te ayudará a crear campañas a medida para ellos y aumentar tu base de clientes.",
+    "heroTitle": "Sistema descentralizado y transparente",
+    "heroInfo": "Nuestra etapa inicial de MVP ofrece a los clientes la posibilidad de lanzar campañas publicitarias a través de airdrop junto con la tarifa de incentivo elegida a un conjunto determinado de direcciones que interactúan con un contrato determinado.",
     "heroButton": "Iniciar",
-    "featureTitle1": "Sistema descentralizado y transparente",
-    "feature1": "Nuestra etapa inicial de MVP ofrece a los clientes la posibilidad de lanzar campañas publicitarias a través de airdrop junto con la tarifa de incentivo elegida a un conjunto determinado de direcciones que interactúan con un contrato determinado.",
+    "featureTitle1": "Identificar segmentos de audiencia",
+    "feature1": "La clave para escalar tu negocio es construir una audiencia. Identificar a tu audiencia objetivo y segmentarlos es el primer paso para lograrlo. Esto te ayudará a crear campañas a medida para ellos y aumentar tu base de clientes.",
     "featureTitle2": "Gestión avanzada",
     "feature2": "Nuestras características posteriores al MVP incluyen la implementación de categorías para contratos, descubrimiento de contratos, un panel de análisis de marketing y la posibilidad de enviar fondos no reclamados a los usuarios como funcionalidad de calificación de calidad de campaña de los usuarios finales.",
     "featureTitle3": "Exclusividad",
-    "feature3": "Enviar invitaciones a eventos. Participar en eventos es una excelente manera de difundir su producto y hacer que la gente hable de él. También es una excelente manera de construir relaciones con clientes potenciales."
+    "feature3": "Enviar invitaciones a eventos. Participar en eventos es una excelente manera de difundir su producto y hacer que la gente hable de él. También es una excelente manera de construir relaciones con clientes potenciales.",
+    "leftImageText": "",
+    "rightImageText": "",
+    "roadmap": {
+      "roadmap": "Roadmap",
+      "events": {
+        "title1": "Title 1",
+        "text1": "Text 1",
+        "date1": "Date 1",
+        "title2": "Title 2",
+        "text2": "Text 2",
+        "date2": "Date 2",
+        "title3": "Title 3",
+        "text3": "Text 3",
+        "date3": "Date 3",
+        "title4": "Title 4",
+        "text4": "Text 4",
+        "date4": "Date 4",
+        "title5": "Title 5",
+        "text5": "Text 5",
+        "date5": "Date 5"
+      }
+    }
   }
 }

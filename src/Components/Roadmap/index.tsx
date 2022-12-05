@@ -16,159 +16,73 @@ const Roadmap: React.FunctionComponent<IRoadmap.IProps> = () => {
     const theme = useTheme();
     const matches = useMediaQuery(theme.breakpoints.up('md'));
 
+    const events = [
+        {
+            "title": "home.roadmap.events.title1",
+            "text": "home.roadmap.events.text1",
+            "date": "home.roadmap.events.date1"
+        },
+        {
+            "title": "home.roadmap.events.title2",
+            "text": "home.roadmap.events.text2",
+            "date": "home.roadmap.events.date2"
+        },
+        {
+            "title": "home.roadmap.events.title3",
+            "text": "home.roadmap.events.text3",
+            "date": "home.roadmap.events.date3"
+        },
+        {
+            "title": "home.roadmap.events.title4",
+            "text": "home.roadmap.events.text4",
+            "date": "home.roadmap.events.date4"
+        },
+        {
+            "title": "home.roadmap.events.title5",
+            "text": "home.roadmap.events.text5",
+            "date": "home.roadmap.events.date5"
+        }
+    ]
+
+    const eventItems = events.map(item => {
+        return(
+            <TimelineItem key={item.title}>
+                <TimelineOppositeContent
+                    sx={{ m: 'auto 0', display: {xs: 'none', md: 'block'} }}
+                    align="right"
+                    variant="body2"
+                >
+                    <Typography variant="h5">
+                        {t(item.date)}
+                    </Typography>
+                </TimelineOppositeContent>
+                <TimelineSeparator>
+                    <TimelineConnector />
+                        <TimelineDot color="primary">
+                            <CalendarMonthIcon />
+                        </TimelineDot>
+                    <TimelineConnector />
+                </TimelineSeparator>
+                <TimelineContent sx={{ py: '12px', px: 2 }}>
+                    <Typography sx={{display: {md: 'none'}}}>
+                        {t(item.date)}
+                    </Typography>
+                    <Typography variant="h6" component="span">
+                        {t(item.title)}
+                    </Typography>
+                    <Typography variant="body2">
+                        {t(item.text)}
+                    </Typography>
+                </TimelineContent>
+            </TimelineItem>
+        )
+    })
+
     return (
         <Container sx={{paddingY: '2rem'}}>
-            <Typography variant="h2" align="center" textTransform={'uppercase'}>Roadmap</Typography>
+            <Typography variant="h2" align="center" textTransform={'uppercase'}>{t('home.roadmap.roadmap')}</Typography>
             <Timeline position={matches?'alternate':'right'}>
-                <TimelineItem>
-                    <TimelineOppositeContent
-                        sx={{ m: 'auto 0', display: {xs: 'none', md: 'block'} }}
-                        align="right"
-                        variant="body2"
-                    >
-                        <Typography sx={{}}>
-                            24/11
-                        </Typography>
-                    </TimelineOppositeContent>
-                    <TimelineSeparator>
-                        <TimelineConnector />
-                            <TimelineDot color="primary">
-                                <CalendarMonthIcon />
-                            </TimelineDot>
-                        <TimelineConnector />
-                    </TimelineSeparator>
-                    <TimelineContent sx={{ py: '12px', px: 2 }}>
-                        <Typography sx={{display: {md: 'none'}}}>
-                            24/11
-                        </Typography>
-                        <Typography variant="h6" component="span">
-                            Great event title
-                        </Typography>
-                        <Typography>
-                            Description of the great event. Magna Lorem magna qui veniam excepteur exercitation. Aute sint quis incididunt aliqua consectetur irure Lorem aliqua. Officia reprehenderit reprehenderit consequat cillum excepteur velit nisi aute aliqua aliquip Lorem enim.
-                        </Typography>
-                    </TimelineContent>
-                </TimelineItem>
-
-                <TimelineItem>
-                    <TimelineOppositeContent
-                        sx={{ m: 'auto 0', display: {xs: 'none', md: 'block'} }}
-                        align="right"
-                        variant="body2"
-                    >
-                        <Typography sx={{}}>
-                            24/11
-                        </Typography>
-                    </TimelineOppositeContent>
-                    <TimelineSeparator>
-                        <TimelineConnector />
-                            <TimelineDot color="primary">
-                                <CalendarMonthIcon />
-                            </TimelineDot>
-                        <TimelineConnector />
-                    </TimelineSeparator>
-                    <TimelineContent sx={{ py: '12px', px: 2 }}>
-                        <Typography sx={{display: {md: 'none'}}}>
-                            24/11
-                        </Typography>
-                        <Typography variant="h6" component="span">
-                            Great event title
-                        </Typography>
-                        <Typography>
-                            Description of the great event. Magna Lorem magna qui veniam excepteur exercitation. Aute sint quis incididunt aliqua consectetur irure Lorem aliqua. Officia reprehenderit reprehenderit consequat cillum excepteur velit nisi aute aliqua aliquip Lorem enim.
-                        </Typography>
-                    </TimelineContent>
-                </TimelineItem>
-
-                <TimelineItem>
-                    <TimelineOppositeContent
-                        sx={{ m: 'auto 0', display: {xs: 'none', md: 'block'} }}
-                        align="right"
-                        variant="body2"
-                    >
-                        <Typography sx={{}}>
-                            24/11
-                        </Typography>
-                    </TimelineOppositeContent>
-                    <TimelineSeparator>
-                        <TimelineConnector />
-                            <TimelineDot color="primary">
-                                <CalendarMonthIcon />
-                            </TimelineDot>
-                        <TimelineConnector />
-                    </TimelineSeparator>
-                    <TimelineContent sx={{ py: '12px', px: 2 }}>
-                        <Typography sx={{display: {md: 'none'}}}>
-                            24/11
-                        </Typography>
-                        <Typography variant="h6" component="span">
-                            Great event title
-                        </Typography>
-                        <Typography>
-                            Description of the great event. Magna Lorem magna qui veniam excepteur exercitation. Aute sint quis incididunt aliqua consectetur irure Lorem aliqua. Officia reprehenderit reprehenderit consequat cillum excepteur velit nisi aute aliqua aliquip Lorem enim.
-                        </Typography>
-                    </TimelineContent>
-                </TimelineItem>
-
-                <TimelineItem>
-                    <TimelineOppositeContent
-                        sx={{ m: 'auto 0', display: {xs: 'none', md: 'block'} }}
-                        align="right"
-                        variant="body2"
-                    >
-                        <Typography sx={{}}>
-                            24/11
-                        </Typography>
-                    </TimelineOppositeContent>
-                    <TimelineSeparator>
-                        <TimelineConnector />
-                            <TimelineDot color="primary">
-                                <CalendarMonthIcon />
-                            </TimelineDot>
-                        <TimelineConnector />
-                    </TimelineSeparator>
-                    <TimelineContent sx={{ py: '12px', px: 2 }}>
-                        <Typography sx={{display: {md: 'none'}}}>
-                            24/11
-                        </Typography>
-                        <Typography variant="h6" component="span">
-                            Great event title
-                        </Typography>
-                        <Typography>
-                            Description of the great event. Magna Lorem magna qui veniam excepteur exercitation. Aute sint quis incididunt aliqua consectetur irure Lorem aliqua. Officia reprehenderit reprehenderit consequat cillum excepteur velit nisi aute aliqua aliquip Lorem enim.
-                        </Typography>
-                    </TimelineContent>
-                </TimelineItem>
-
-                <TimelineItem>
-                    <TimelineOppositeContent
-                        sx={{ m: 'auto 0', display: {xs: 'none', md: 'block'} }}
-                        align="right"
-                        variant="body2"
-                    >
-                        <Typography sx={{}}>
-                            24/11
-                        </Typography>
-                    </TimelineOppositeContent>
-                    <TimelineSeparator>
-                        <TimelineConnector />
-                            <TimelineDot color="primary">
-                                <CalendarMonthIcon />
-                            </TimelineDot>
-                        <TimelineConnector />
-                    </TimelineSeparator>
-                    <TimelineContent sx={{ py: '12px', px: 2 }}>
-                        <Typography sx={{display: {md: 'none'}}}>
-                            24/11
-                        </Typography>
-                        <Typography variant="h6" component="span">
-                            Great event title
-                        </Typography>
-                        <Typography>
-                            Description of the great event. Magna Lorem magna qui veniam excepteur exercitation. Aute sint quis incididunt aliqua consectetur irure Lorem aliqua. Officia reprehenderit reprehenderit consequat cillum excepteur velit nisi aute aliqua aliquip Lorem enim.
-                        </Typography>
-                    </TimelineContent>
-                </TimelineItem>
+                {eventItems}
             </Timeline>
         </Container>
     )

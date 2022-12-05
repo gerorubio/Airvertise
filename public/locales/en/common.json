@@ -55,15 +55,37 @@
     "createCampaign": "Create Campaign"
   },
   "home": {
-    "heroTitle": "Identifying Audience Segments",
-    "heroInfo": "The key to scaling your business is to build an audience. Identifying your target audience and segmenting them is the first step in doing that. This will help you create campaigns tailored to them and increase your customer base.",
+    "heroTitle": "Decentralized and transparent system",
+    "heroInfo": "We offer customers the ability to launch advertisement campaigns via airdrop along with the chosen incentive fee to a determined set of addresses that interact with a given contract.",
     "heroButton": "Start",
     "feature": "Feature",
-    "featureTitle1": "Decentralized and transparent system",
-    "feature1": "Our initial MVP stage offers customers the ability to launch advertisement campaigns via airdrop along with the chosen incentive fee to a determined set of addresses that interact with a given contract. ",
-    "featureTitle2": "Advance managment",
-    "feature2": "Our post MVP features include implementing categories for contracts, contract discovery, a marketing analytics dashboard, and the possibility to send unclaimed funds back to the users as campaign quality rating functionality from end users.",
-    "featureTitle3": "Exclusiveness",
-    "feature3": "Send invitations to events. Participating in events is a great way to spread the word about your product and get people talking about it. It’s also a great way to build relationships with potential customers."
+    "featureTitle1": "Events tickets",
+    "feature1": "NFTs is a revolutionary way of accessing events. The provide a secure and tamper-proof tickets, eliminating the possibility of counterfeit and scalping. NFTs also provide a secure and reliable resold system on the open market for a fair price.",
+    "featureTitle2": "Promote NFT collection",
+    "feature2": "Airdrops are great way for spreading the word about your collection and providing an incentive for people to engage with it. Offer exclusive airdrops as small rewards so people keep up with the collection.",
+    "featureTitle3": "Exclusive subscriptions",
+    "feature3": "Token gated access for digital products where an NFT functions as a subscription for users",
+    "leftImageText": "Start scaling your business by identifying and building an audience. Knowing your audience will help you create campaigns and increase your customer base.",
+    "rightImageText": "Send invitations to events. Participating in events is a great way to spread the word about your product and get people talking about it. It’s also a great way to build relationships with potential customers.",
+    "roadmap": {
+      "roadmap": "Roadmap",
+      "events": {
+        "title1": "Product launch",
+        "text1": "Launch application for starting a campaign",
+        "date1": "24/12",
+        "title2": "Catalog of contracts",
+        "text2": "Cool description 2",
+        "date2": "24/01",
+        "title3": "Marketing analytics dashboard",
+        "text3": "Cool description 3",
+        "date3": "24/02",
+        "title4": "Campaign quality rating",
+        "text4": "Cool description 4",
+        "date4": "24/03",
+        "title5": "Title 5",
+        "text5": "Cool description 5",
+        "date5": "24/04"
+      }
+    }
   }
 }

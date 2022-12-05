@@ -3,11 +3,16 @@ import { AppBar, Box, Toolbar, Typography, Button, IconButton, Divider, List, Li
 import MenuIcon from "@mui/icons-material/Menu";
 import { INavigationBar } from "./NavigationBar";
 import { useTranslation } from "next-i18next";
+import { useRouter } from "next/router";
 
 const drawerWidth = 240;
 const navItems = ['home', 'app', 'about'];
 
 const NavigationBar: React.FunctionComponent<INavigationBar.IProps> = ({ onConnectWalletClicked }) => {
+    const router = useRouter();
+
+    const path = router.pathname;
+
     const { t } = useTranslation()
     const [mobileOpen, setMobileOpen] = React.useState(false);
 
@@ -61,9 +66,15 @@ const NavigationBar: React.FunctionComponent<INavigationBar.IProps> = ({ onConne
                             <Link key={item} href={'/' + item} underline='none' px={1} sx={{color: '#fff', textTransform:'uppercase', fontWeight: 600}}>{item}</Link>
                         ))}
                     </Box>
-                    <Button variant="contained" onClick={onConnectWalletClicked} sx={{ display: { xs: 'none', sm: 'block' } }}>
-                        {t("components.navigationBar.connectWallet")}
-                    </Button>
+                    { path == '/app' ?
+                        <Button variant="contained" onClick={onConnectWalletClicked} sx={{ display: { xs: 'none', sm: 'block' } }}>
+                            {t("components.navigationBar.connectWallet")}
+                        </Button>
+                        :
+                        <Button href="/app" variant="contained" sx={{ display: { xs: 'none', sm: 'block' } }}>
+                            Launch App
+                        </Button>
+                    }
                 </Toolbar>
             </AppBar>
             <Box component="nav">

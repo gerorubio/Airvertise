@@ -55,9 +55,30 @@
     "createCampaign": "Create Campaign"
   },
   "home": {
-    "heroTitle": "Decentralized and transparent system",
+    "heroTitle": {
+      "1": "Decentralized ",
+      "2": "Transparent "
+    },
+    "heroSystem": "system",
     "heroInfo": "We offer customers the ability to launch advertisement campaigns via airdrop along with the chosen incentive fee to a determined set of addresses that interact with a given contract.",
     "heroButton": "Start",
+    "processes": {
+      "process1": {
+        "id": "01",
+        "title": "Select target",
+        "info": "Select target addresses by providing a contract address, and upload promotional flyer to IPFS."
+      },
+      "process2": {
+        "id": "02",
+        "title": "Create campaign",
+        "info": "Campaign is created via a transaction to Airvertise contract, including campaign information along target addresses and individual fees."
+      },
+      "process3": {
+        "id": "03",
+        "title": "Claim reward",
+        "info": "Users get notified about airdrop, they open the flyer and they collect the fee."
+      }
+    },
     "feature": "Feature",
     "featureTitle1": "Events tickets",
     "feature1": "NFTs is a revolutionary way of accessing events. The provide a secure and tamper-proof tickets, eliminating the possibility of counterfeit and scalping. NFTs also provide a secure and reliable resold system on the open market for a fair price.",

@@ -13,6 +13,8 @@ import { Typography, Box, Grid, Container, Stack, Button, Card, CardMedia, CardC
 import Image from "next/image"
 import FooterBar from "@Components/FooterBar"
 import Roadmap from "@Components/Roadmap"
+import Hero from "@Components/Hero"
+import ProcessSection from "@Components/ProcessSection"
 
 
 const features = [
@@ -53,30 +55,8 @@ const Home: NextPage<IHomePage.IProps> = () => {
     return (
         <React.Fragment>
             <NavigationBar isLoggedIn={false} onConnectWalletClicked={openConnectModal} />
-            {/* Hero */}
-            <Container>
-                <Grid container
-                    spacing={5}
-                    alignItems="center"
-                    justifyContent="center"
-                    style={{ minHeight: '60vh' }}
-                >
-                    <Grid item sm={12} md={7} sx={{ width: { xs: '95%', md: '75%' }}}>
-                            <Typography variant="h3" gutterBottom>
-                                {t("home.heroTitle")}
-                            </Typography>
-                            <Typography variant="subtitle1" gutterBottom>
-                                {t("home.heroInfo")}
-                            </Typography>
-                            <Button variant="contained" sx={{marginTop: '1rem'}}>
-                                {t("home.heroButton")}
-                            </Button>
-                    </Grid>
-                    <Grid item sm={12} md={5}>
-                        <img src="https://rabbithole.gg/home/artisan.png" style={{width: '100%'}}/>
-                    </Grid>
-                </Grid>
-            </Container>
+            <Hero />
+            <ProcessSection />
             {/* Features */}
             <Box py={4}>
                 <Container>

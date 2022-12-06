@@ -80,6 +80,7 @@
     "sass": "^1.55.0",
     "styled-components": "^5.3.6",
     "tss-react": "^4.1.4",
+    "typewriter-effect": "^2.19.0",
     "validator": "^13.7.0"
   },
   "devDependencies": {

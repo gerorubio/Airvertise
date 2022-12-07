@@ -15,6 +15,7 @@ import FooterBar from "@Components/FooterBar"
 import Roadmap from "@Components/Roadmap"
 import Hero from "@Components/Hero"
 import ProcessSection from "@Components/ProcessSection"
+import ContactForm from "@Components/ContactForm"
 
 
 const features = [
@@ -55,94 +56,97 @@ const Home: NextPage<IHomePage.IProps> = () => {
     return (
         <React.Fragment>
             <NavigationBar isLoggedIn={false} onConnectWalletClicked={openConnectModal} />
-            <Hero />
-            <ProcessSection />
-            {/* Features */}
-            <Box py={4}>
-                <Container>
-                    <Grid container>
-                        {features.map((feature) => (
-                            <Grid key={feature.title} item md={4} paddingY={'1rem'}>
-                                <Card sx={{ width: '90%', mx: 'auto', height:'100%' }}>
-                                    <CardMedia
-                                        component="img"
-                                        height="200"
-                                        image="https://rabbithole.gg/home/artisan.png"
-                                        alt="green iguana"
-                                    />
-                                    <CardContent>
-                                    <Typography gutterBottom variant="h5" component="div">
-                                        {t(feature.title)}
-                                    </Typography>
-                                    <Typography variant="subtitle1" color="text.secondary">
-                                        {t(feature.text)}
-                                    </Typography>
-                                    </CardContent>
-                                </Card>
+            <div style={{ background: 'linear-gradient(-14deg, #121212 82%, #FE7B26 90%, #FB145E 100%)' }}>
+                <Hero />
+                <ProcessSection />
+                {/* Features */}
+                <Box py={4}>
+                    <Container>
+                        <Grid container>
+                            {features.map((feature) => (
+                                <Grid key={feature.title} item md={4} paddingY={'1rem'}>
+                                    <Card sx={{ width: '90%', mx: 'auto', height:'100%' }}>
+                                        <CardMedia
+                                            component="img"
+                                            height="200"
+                                            image="https://rabbithole.gg/home/artisan.png"
+                                            alt="green iguana"
+                                        />
+                                        <CardContent>
+                                        <Typography gutterBottom variant="h5" component="div">
+                                            {t(feature.title)}
+                                        </Typography>
+                                        <Typography variant="subtitle1" color="text.secondary">
+                                            {t(feature.text)}
+                                        </Typography>
+                                        </CardContent>
+                                    </Card>
+                                </Grid>
+                            ))}
+                        </Grid>
+                    </Container>
+                </Box>
+                {/* More info */}
+                <Box px={5}>
+                    <Grid container spacing={0}
+                        alignItems="center"
+                        justifyContent="center"
+                        style={{ minHeight: '60vh' }}>
+                        <Grid item md={1} />
+                        <Grid item md={3}>
+                            <Container sx={{width: {sx: '50%', lg: '75%'}, marginX: 'auto'}}>
+                                <Typography variant="h6">{t("home.leftImageText")}</Typography>
+                            </Container>
+                        </Grid>
+                        <Grid item md={4}>
+                            <img src="https://static.vecteezy.com/system/resources/previews/008/506/601/original/money-and-finances-3d-icon-3d-rendering-png.png" style={{width: '100%'}}/>
+                        </Grid>
+                        <Grid item md={3}>
+                            <Container sx={{width: {sx: '50%', lg: '75%'}, marginX: 'auto'}}>
+                                <Typography variant="h6">{t("home.rightImageText")}</Typography>
+                            </Container>
+                        </Grid>
+                        <Grid item md={1} />
+                    </Grid>
+                </Box>
+                {/* Roadmap */}
+                <Roadmap />
+                {/* Chains */}
+                <Box py={5} bgcolor={'#181818'}>
+                    <Container>
+                        <Typography variant="h4" textAlign={'center'} gutterBottom pb={5}>
+                            Supported chains
+                        </Typography>
+                        <Grid container>
+                            <Grid item xs={3}>
+                                <Stack spacing={2} alignItems="center">
+                                    <img src="https://pbs.twimg.com/profile_images/1366339686432579587/THNz1DZm_400x400.png" width={'50%'} height={'auto'}  />
+                                    {t("common.chains.polygon")}
+                                </Stack>
                             </Grid>
-                        ))}
-                    </Grid>
-                </Container>
-            </Box>
-            {/* More info */}
-            <Box px={5}>
-                <Grid container spacing={0}
-                    alignItems="center"
-                    justifyContent="center"
-                    style={{ minHeight: '60vh' }}>
-                    <Grid item md={1} />
-                    <Grid item md={3}>
-                        <Container sx={{width: {sx: '50%', lg: '75%'}, marginX: 'auto'}}>
-                            <Typography variant="h6">{t("home.leftImageText")}</Typography>
-                        </Container>
-                    </Grid>
-                    <Grid item md={4}>
-                        <img src="https://static.vecteezy.com/system/resources/previews/008/506/601/original/money-and-finances-3d-icon-3d-rendering-png.png" style={{width: '100%'}}/>
-                    </Grid>
-                    <Grid item md={3}>
-                        <Container sx={{width: {sx: '50%', lg: '75%'}, marginX: 'auto'}}>
-                            <Typography variant="h6">{t("home.rightImageText")}</Typography>
-                        </Container>
-                    </Grid>
-                    <Grid item md={1} />
-                </Grid>
-            </Box>
-            {/* Roadmap */}
-            <Roadmap />
-            {/* Chains */}
-            <Box py={5} bgcolor={'#181818'}>
-                <Container>
-                    <Typography variant="h4" textAlign={'center'} gutterBottom pb={5}>
-                        Supported chains
-                    </Typography>
-                    <Grid container>
-                        <Grid item xs={3}>
-                            <Stack spacing={2} alignItems="center">
-                                <img src="https://pbs.twimg.com/profile_images/1366339686432579587/THNz1DZm_400x400.png" width={'50%'} height={'auto'}  />
-                                {t("common.chains.polygon")}
-                            </Stack>
+                            <Grid item xs={3}>
+                                <Stack spacing={2} alignItems="center">
+                                    <img src="https://gateway.optimism.io/static/media/optimism.caeb9392.svg" width={'50%'} height={'auto'}  />
+                                    {t("common.chains.optimism")}
+                                </Stack>
+                            </Grid>
+                            <Grid item xs={3}>
+                                <Stack spacing={2} alignItems="center">
+                                    <img src="https://chainbase.online/assets/chain/Arbitrum-logo.png" width={'50%'} height={'auto'}  />
+                                    {t("common.chains.arbitrum")}
+                                </Stack>
+                            </Grid>
+                            <Grid item xs={3}>
+                                <Stack spacing={2} alignItems="center">
+                                    <img src="https://s2.coinmarketcap.com/static/img/coins/200x200/5691.png" width={'50%'} height={'auto'}  />
+                                    {t("common.chains.skale")}
+                                </Stack>
+                            </Grid>
                         </Grid>
-                        <Grid item xs={3}>
-                            <Stack spacing={2} alignItems="center">
-                                <img src="https://gateway.optimism.io/static/media/optimism.caeb9392.svg" width={'50%'} height={'auto'}  />
-                                {t("common.chains.optimism")}
-                            </Stack>
-                        </Grid>
-                        <Grid item xs={3}>
-                            <Stack spacing={2} alignItems="center">
-                                <img src="https://chainbase.online/assets/chain/Arbitrum-logo.png" width={'50%'} height={'auto'}  />
-                                {t("common.chains.arbitrum")}
-                            </Stack>
-                        </Grid>
-                        <Grid item xs={3}>
-                            <Stack spacing={2} alignItems="center">
-                                <img src="https://s2.coinmarketcap.com/static/img/coins/200x200/5691.png" width={'50%'} height={'auto'}  />
-                                {t("common.chains.skale")}
-                            </Stack>
-                        </Grid>
-                    </Grid>
-                </Container>
-            </Box>
+                    </Container>
+                </Box>
+                <ContactForm />
+            </div>
             <FooterBar />
         </React.Fragment>
     )

@@ -64,12 +64,10 @@ function WebApp(props: AirvertiseProps) {
                 >
                     <ThemeProvider theme={lightTheme}>
                         <CssBaseline />
-                        <div style={{
-                            background: "linear-gradient(#FE7B26, #FB145E, #010101);"
-                        }}>
+                        <>
                             <Component {...pageProps} />
                             <Web3Modal config={modalConfig} />
-                        </div>
+                        </>
                     </ThemeProvider>
                 </GoogleReCaptchaProvider>
             </RootStoreProvider>

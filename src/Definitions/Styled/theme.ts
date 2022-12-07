@@ -10,10 +10,10 @@ const lightThemeOptions: ThemeOptions = {
     palette: {
         mode: "dark",
         primary: {
-            main: '#740658',
+            main: '#770659',
         },
-          secondary: {
-            main: '#f50057',
+        secondary: {
+            main: '#FE7B26',
         },
     },
 }

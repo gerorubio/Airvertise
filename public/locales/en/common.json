@@ -56,10 +56,10 @@
   },
   "home": {
     "heroTitle": {
-      "1": "Decentralized ",
-      "2": "Transparent "
+      "1": "Decentralized",
+      "2": "Transparent"
     },
-    "heroSystem": "system",
+    "heroSystem": "System",
     "heroInfo": "We offer customers the ability to launch advertisement campaigns via airdrop along with the chosen incentive fee to a determined set of addresses that interact with a given contract.",
     "heroButton": "Start",
     "processes": {

@@ -20,7 +20,7 @@ const Hero: React.FunctionComponent<IHero.IProps> = () => {
           style={{ minHeight: '60vh' }}
         >
           <Grid item sm={12} md={7} sx={{ width: { xs: '95%', md: '75%' }}}>
-            <Typography variant="h3" gutterBottom>
+            <Typography variant="h2" sx={{ fontWeight: 'bold' }} gutterBottom>
               <Typewriter
                 options={{
                   strings: [
@@ -32,12 +32,14 @@ const Hero: React.FunctionComponent<IHero.IProps> = () => {
                   deleteSpeed: 10,
                 }}
               />
+            </Typography>
+            <Typography variant="h2" gutterBottom>
               { t("home.heroSystem")}
             </Typography>
-            <Typography variant="subtitle1" gutterBottom>
+            <Typography variant="h5" gutterBottom>
               {t("home.heroInfo")}
             </Typography>
-            <Button variant="contained" sx={{marginTop: '1rem'}}>
+            <Button variant="contained" size="large" sx={{marginTop: '1rem'}}>
               {t("home.heroButton")}
             </Button>
           </Grid>

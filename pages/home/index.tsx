@@ -62,6 +62,7 @@ const Home: NextPage<IHomePage.IProps> = () => {
                 {/* Features */}
                 <Box py={4}>
                     <Container>
+                        <Typography variant="h3" align="center" gutterBottom>{t('home.feature')}</Typography>
                         <Grid container>
                             {features.map((feature) => (
                                 <Grid key={feature.title} item md={4} paddingY={'1rem'}>

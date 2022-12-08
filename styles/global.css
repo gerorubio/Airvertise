@@ -1,14 +1,22 @@
+@font-face {
+    font-family: 'Bahnschrift';
+    src: url('/Bahnschrift/Bahnschrift.TTF');
+}
+
 html {
     scroll-behavior: smooth;
 }
 body {
     padding: 0;
     margin: 0;
-    font-family: 'Comfortaa', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-      Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 * {
     box-sizing: border-box;
+    font-family: 'Bahnschrift';
+}
+
+.MuiTypography-root {
+    font-family: 'Bahnschrift';
 }
 
 .inputRounded .MuiOutlinedInput-root{

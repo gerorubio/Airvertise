@@ -119,28 +119,22 @@ const Home: NextPage<IHomePage.IProps> = () => {
                             Supported chains
                         </Typography>
                         <Grid container>
-                            <Grid item xs={3}>
+                            <Grid item xs={4}>
                                 <Stack spacing={2} alignItems="center">
                                     <img src="https://pbs.twimg.com/profile_images/1366339686432579587/THNz1DZm_400x400.png" width={'50%'} height={'auto'}  />
                                     {t("common.chains.polygon")}
                                 </Stack>
                             </Grid>
-                            <Grid item xs={3}>
+                            <Grid item xs={4}>
                                 <Stack spacing={2} alignItems="center">
                                     <img src="https://gateway.optimism.io/static/media/optimism.caeb9392.svg" width={'50%'} height={'auto'}  />
                                     {t("common.chains.optimism")}
                                 </Stack>
                             </Grid>
-                            <Grid item xs={3}>
+                            <Grid item xs={4}>
                                 <Stack spacing={2} alignItems="center">
                                     <img src="https://chainbase.online/assets/chain/Arbitrum-logo.png" width={'50%'} height={'auto'}  />
                                     {t("common.chains.arbitrum")}
-                                </Stack>
-                            </Grid>
-                            <Grid item xs={3}>
-                                <Stack spacing={2} alignItems="center">
-                                    <img src="https://s2.coinmarketcap.com/static/img/coins/200x200/5691.png" width={'50%'} height={'auto'}  />
-                                    {t("common.chains.skale")}
                                 </Stack>
                             </Grid>
                         </Grid>

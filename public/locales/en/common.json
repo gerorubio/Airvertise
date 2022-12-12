@@ -5,8 +5,7 @@
     "chains": {
       "polygon": "Polygon",
       "optimism": "Optimism",
-      "arbitrum": "Arbitrum",
-      "skale": "Skale"
+      "arbitrum": "Arbitrum"
     }
   },
   "components": {
@@ -59,8 +58,8 @@
       "1": "Decentralized",
       "2": "Transparent"
     },
-    "heroSystem": "System",
-    "heroInfo": "We offer customers the ability to launch advertisement campaigns via airdrop along with the chosen incentive fee to a determined set of addresses that interact with a given contract.",
+    "heroSystem": "Marketing",
+    "heroInfo": "Launch targeted advertisement campaigns via airdrops along with economic incentives.",
     "heroButton": "Start",
     "processes": {
       "process1": {
@@ -79,9 +78,9 @@
         "info": "Users get notified about airdrop, they open the flyer and they collect the fee."
       }
     },
-    "feature": "Features",
+    "feature": "Use cases",
     "featureTitle1": "Events tickets",
-    "feature1": "NFTs is a revolutionary way of accessing events. The provide a secure and tamper-proof tickets, eliminating the possibility of counterfeit and scalping. NFTs also provide a secure and reliable resold system on the open market for a fair price.",
+    "feature1": "NFTs is a revolutionary way of accessing events. The provide a secure and tamper-proof tickets, eliminating the possibility of counterfeit and scalping.",
     "featureTitle2": "Promote NFT collection",
     "feature2": "Airdrops are great way for spreading the word about your collection and providing an incentive for people to engage with it. Offer exclusive airdrops as small rewards so people keep up with the collection.",
     "featureTitle3": "Exclusive subscriptions",

@@ -16,25 +16,10 @@ import Roadmap from "@Components/Roadmap"
 import Hero from "@Components/Hero"
 import ProcessSection from "@Components/ProcessSection"
 import ContactForm from "@Components/ContactForm"
+import { AnimationOnScroll } from "react-animation-on-scroll"
+import UseCases from "@Components/UseCases"
 
 
-const features = [
-    {
-        "title": "home.featureTitle1",
-        "text": "home.feature1",
-        "img": "..."
-    },
-    {
-        "title": "home.featureTitle2",
-        "text": "home.feature2",
-        "img": "..."
-    },
-    {
-        "title": "home.featureTitle3",
-        "text": "home.feature3",
-        "img": "..."
-    }
-];
 
 const Home: NextPage<IHomePage.IProps> = () => {
     const { t } = useTranslation()
@@ -60,33 +45,7 @@ const Home: NextPage<IHomePage.IProps> = () => {
                 <Hero />
                 <ProcessSection />
                 {/* Features */}
-                <Box py={4}>
-                    <Container>
-                        <Typography variant="h3" align="center" gutterBottom>{t('home.feature')}</Typography>
-                        <Grid container>
-                            {features.map((feature) => (
-                                <Grid key={feature.title} item md={4} paddingY={'1rem'}>
-                                    <Card sx={{ width: '90%', mx: 'auto', height:'100%' }}>
-                                        <CardMedia
-                                            component="img"
-                                            height="200"
-                                            image="https://rabbithole.gg/home/artisan.png"
-                                            alt="green iguana"
-                                        />
-                                        <CardContent>
-                                        <Typography gutterBottom variant="h5" component="div">
-                                            {t(feature.title)}
-                                        </Typography>
-                                        <Typography variant="subtitle1" color="text.secondary">
-                                            {t(feature.text)}
-                                        </Typography>
-                                        </CardContent>
-                                    </Card>
-                                </Grid>
-                            ))}
-                        </Grid>
-                    </Container>
-                </Box>
+                <UseCases />
                 {/* More info */}
                 <Box px={5}>
                     <Grid container spacing={0}

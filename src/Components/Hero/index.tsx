@@ -17,15 +17,16 @@ const Hero: React.FunctionComponent<IHero.IProps> = () => {
           spacing={5}
           alignItems="center"
           justifyContent="center"
-          style={{ minHeight: '60vh' }}
+          style={{ minHeight: '100vh' }}
         >
           <Grid item sm={12} md={7} sx={{ width: { xs: '95%', md: '75%' }}}>
-            <Typography variant="h2" sx={{ fontWeight: 'bold' }} gutterBottom>
+            <Typography variant="h3" sx={{ fontWeight: 'bold' }} >
               <Typewriter
                 options={{
                   strings: [
                     t("home.heroTitle.1"),
-                    t("home.heroTitle.2")
+                    t("home.heroTitle.2"),
+                    t("home.heroTitle.3")
                   ],
                   autoStart: true,
                   loop: true,
@@ -33,13 +34,13 @@ const Hero: React.FunctionComponent<IHero.IProps> = () => {
                 }}
               />
             </Typography>
-            <Typography variant="h2" gutterBottom>
+            <Typography variant="h3" gutterBottom>
               { t("home.heroSystem")}
             </Typography>
             <Typography variant="h5" gutterBottom>
               {t("home.heroInfo")}
             </Typography>
-            <Button variant="contained" size="large" sx={{marginTop: '1rem'}}>
+            <Button href="/app" variant="contained" size="large" sx={{marginTop: '1rem'}}>
               {t("home.heroButton")}
             </Button>
           </Grid>

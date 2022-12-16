@@ -12,6 +12,8 @@ import type { ConfigOptions } from "@web3modal/react"
 import { Web3Modal } from "@web3modal/react"
 import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3"
 import { RootStoreProvider } from "@mobx"
+// Animation on scroll styles
+import "animate.css/animate.min.css";
 
 interface AirvertiseProps extends AppProps {
     walletConnectProjectId?: string

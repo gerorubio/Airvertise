@@ -55,7 +55,12 @@
     "createCampaign": "Create Campaign"
   },
   "home": {
-    "heroTitle": "Sistema descentralizado y transparente",
+    "heroTitle": {
+      "1": "Decentralized",
+      "2": "Transparent",
+      "3": "Crypto"
+    },
+    "heroSystem": "Marketing",
     "heroInfo": "Nuestra etapa inicial de MVP ofrece a los clientes la posibilidad de lanzar campañas publicitarias a través de airdrop junto con la tarifa de incentivo elegida a un conjunto determinado de direcciones que interactúan con un contrato determinado.",
     "heroButton": "Iniciar",
     "processes": {

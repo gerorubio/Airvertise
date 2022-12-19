@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Container, Grid, Stack, Typography, Box } from "@mui/material";
+import { Container, Grid, Stack, Typography, Box, Card, CardContent, CardMedia } from "@mui/material";
 import KeyboardDoubleArrowDownIcon from '@mui/icons-material/KeyboardDoubleArrowDown';
 import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
 import { IProcessSection } from "./ProcessSection";
@@ -30,44 +30,69 @@ const ProcessSection: React.FunctionComponent<IProcessSection.IProps> = () => {
       }
     ]
 
+    // const stepsDisplay = steps.map(step => {
+    //   return(
+    //     <Grid key={step.id} item xs={12} md={4} paddingY={5}>
+    //       <AnimationOnScroll animateIn="animate__fadeInLeft">
+    //         <Box sx={{
+    //           width: '95%',
+    //           marginX: 'auto',
+    //           background: step.color,
+    //           paddingX: '1.75rem', borderRadius: '1rem',
+    //           outline: '0.125rem solid white',
+    //           outlineOffset: '-0.5rem',
+    //         }}>
+    //           <Stack spacing={1}
+    //             sx={{
+    //               minHeight: {
+    //                 xs: 'auto',
+    //                 md: '30rem'
+    //               },
+    //               textAlign: 'center',
+    //               justifyContent: 'center',
+    //               paddingY: '1rem'
+    //             }}
+    //           >
+    //             <Typography variant="h3">{ t(step.id) }</Typography>
+    //             <KeyboardDoubleArrowRightIcon sx={{display: {xs: 'none', md: 'block'}, fontSize: '4.5rem', alignSelf: 'center'}} />
+    //             <Typography variant="h4">{ t(step.title) }</Typography>
+    //             <Typography textAlign={'justify'}>{ t(step.info) }</Typography>
+    //             <KeyboardDoubleArrowDownIcon sx={{display: {xs: 'block', md: 'none'}, fontSize: '4.5rem', alignSelf: 'center'}} />
+    //           </Stack>
+    //         </Box>
+    //       </AnimationOnScroll>
+    //     </Grid>
+    //   );
+    // })
+
     const stepsDisplay = steps.map(step => {
       return(
         <Grid key={step.id} item xs={12} md={4} paddingY={5}>
-          <AnimationOnScroll animateIn="animate__fadeInLeft">
-            <Box sx={{
-              width: '95%',
-              marginX: 'auto',
-              background: step.color,
-              paddingX: '1.75rem', borderRadius: '1rem',
-              outline: '0.125rem solid white',
-              outlineOffset: '-0.5rem',
-            }}>
-              <Stack spacing={1}
-                sx={{
-                  minHeight: {
-                    xs: 'auto',
-                    md: '30rem'
-                  },
-                  textAlign: 'center',
-                  justifyContent: 'center',
-                  paddingY: '1rem'
-                }}
-              >
-                <Typography variant="h3">{ t(step.id) }</Typography>
-                <KeyboardDoubleArrowRightIcon sx={{display: {xs: 'none', md: 'block'}, fontSize: '4.5rem', alignSelf: 'center'}} />
-                <Typography variant="h4">{ t(step.title) }</Typography>
-                <Typography textAlign={'justify'}>{ t(step.info) }</Typography>
-                <KeyboardDoubleArrowDownIcon sx={{display: {xs: 'block', md: 'none'}, fontSize: '4.5rem', alignSelf: 'center'}} />
-              </Stack>
-            </Box>
+          <AnimationOnScroll animateIn="animate__fadeInLeft" animateOnce>
+            <Card sx={{ height: '30rem' }}>
+              <CardMedia
+                component={'img'}
+                src='https://rabbithole.gg/home/artisan.png'
+                sx={{ maxHeight: '14rem' }}
+              />
+              <CardContent>
+                <Stack>
+                  <Typography variant="h4" align="center">{ t(step.title) }</Typography>
+                  <KeyboardDoubleArrowRightIcon sx={{display: {xs: 'none', md: 'block'}, fontSize: '4.5rem', alignSelf: 'center'}} />
+                  <Typography textAlign={'justify'}>{ t(step.info) }</Typography>
+                  <KeyboardDoubleArrowDownIcon sx={{display: {xs: 'block', md: 'none'}, fontSize: '4.5rem', alignSelf: 'center'}} />
+                </Stack>
+              </CardContent>
+            </Card>
           </AnimationOnScroll>
         </Grid>
       );
-    })
+    });
 
     return (
       <Container>
-        <Grid container spacing={9}>
+        <Typography variant="h3" align="center" sx={{ paddingBottom: '2rem' }} gutterBottom>How it works?</Typography>
+        <Grid container spacing={5}>
           { stepsDisplay }
         </Grid>
       </Container>

@@ -5,8 +5,7 @@
     "chains": {
       "polygon": "Polygon",
       "optimism": "Optimism",
-      "arbitrum": "Arbitrum",
-      "skale": "Skale"
+      "arbitrum": "Arbitrum"
     }
   },
   "components": {
@@ -80,7 +79,7 @@
         "info": "Users get notified about airdrop, they open the flyer and they collect the fee."
       }
     },
-    "feature": "Feature",
+    "feature": "Use cases",
     "featureTitle1": "Identificar segmentos de audiencia",
     "feature1": "La clave para escalar tu negocio es construir una audiencia. Identificar a tu audiencia objetivo y segmentarlos es el primer paso para lograrlo. Esto te ayudará a crear campañas a medida para ellos y aumentar tu base de clientes.",
     "featureTitle2": "Gestión avanzada",

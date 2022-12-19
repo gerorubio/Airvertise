@@ -57,7 +57,7 @@ const NavigationBar: React.FunctionComponent<INavigationBar.IProps> = ({ onConne
                         </Grid>
                         {/* Logo */}
                         <Grid item xs={8} md={2}>
-                            <img src="/assets/logo/LogoNameAirvertiseTexture.png" style={{ maxWidth: '100%', height: 'auto', margin: 0, padding: 0 }} />
+                            <img src="/assets/logo/LogoNameAirvertiseTexture.png" style={{ maxWidth: '75%', height: 'auto', margin: 0, padding: 0 }} />
                         </Grid>
                         {/* Buton en drawer */}
                         <Grid item xs={2} md={'auto'}>

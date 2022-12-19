@@ -47,7 +47,7 @@ const Roadmap: React.FunctionComponent<IRoadmap.IProps> = () => {
 
     const eventItems = events.map((item, index) => {
         return(
-            <AnimationOnScroll animateIn={index % 2 == 0 ? 'animate__fadeInLeft' : 'animate__fadeInRight'}>
+            <AnimationOnScroll animateIn={index % 2 == 0 ? 'animate__fadeInLeft' : 'animate__fadeInRight'} animateOnce>
                 <TimelineItem key={item.title}>
                     <TimelineOppositeContent
                         sx={{ m: 'auto 0', display: {xs: 'none', md: 'block'} }}

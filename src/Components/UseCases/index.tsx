@@ -2,14 +2,6 @@ import * as React from "react";
 import { Typography, Container, useTheme, useMediaQuery, Grid, Box, Card, CardMedia ,CardContent} from "@mui/material";
 import { IUseCases } from "./UseCases";
 import { useTranslation } from "next-i18next";
-import Timeline from '@mui/lab/Timeline';
-import TimelineItem from '@mui/lab/TimelineItem';
-import TimelineSeparator from '@mui/lab/TimelineSeparator';
-import TimelineConnector from '@mui/lab/TimelineConnector';
-import TimelineContent from '@mui/lab/TimelineContent';
-import TimelineOppositeContent from '@mui/lab/TimelineOppositeContent';
-import TimelineDot from '@mui/lab/TimelineDot';
-import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import { AnimationOnScroll } from "react-animation-on-scroll";
 
 const features = [
@@ -45,7 +37,7 @@ const UseCases: React.FunctionComponent<IUseCases.IProps> = () => {
                     <Grid container>
                         {features.map((feature) => (
                             <Grid key={feature.title} item md={12} paddingY={'1rem'}>
-                                <AnimationOnScroll animateIn="animate__fadeIn">
+                                <AnimationOnScroll animateIn="animate__fadeIn" animateOnce>
                                     <Card sx={{ width: '75%', mx: 'auto', height:'auto' }}>
                                         <CardContent>
                                         <Typography gutterBottom variant="h5" component="div">

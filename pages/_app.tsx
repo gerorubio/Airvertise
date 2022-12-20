@@ -1,4 +1,8 @@
 import * as React from "react"
+import 'nprogress/nprogress.css';
+import NProgress from 'nprogress';
+import Router, { useRouter } from 'next/router'
+import { useState, useEffect } from 'react';
 import "../styles/global.css"
 import { AppProps } from "next/app"
 import { appWithTranslation } from "next-i18next"
@@ -20,6 +24,10 @@ interface AirvertiseProps extends AppProps {
     infuraApiKey?: string
 }
 const serverSideEmotionCache = createEmotionCache()
+
+Router.events.on('routeChangeStart', () =>  console.log('AAAA'));
+Router.events.on('routeChangeComplete', () => console.log('AAAA'));
+Router.events.on('routeChangeError', () => console.log('AAAA'));
 
 function WebApp(props: AirvertiseProps) {
     const { Component, pageProps } = props

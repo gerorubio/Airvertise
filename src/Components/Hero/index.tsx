@@ -20,7 +20,7 @@ const Hero: React.FunctionComponent<IHero.IProps> = () => {
           style={{ minHeight: '100vh' }}
         >
           <Grid item sm={12} md={7} sx={{ width: { xs: '95%', md: '75%' }}}>
-            <Typography variant="h3" sx={{ fontWeight: 'bold' }} >
+            <Typography variant="h2" sx={{ fontWeight: 'bold' }} >
               <Typewriter
                 options={{
                   strings: [
@@ -34,18 +34,22 @@ const Hero: React.FunctionComponent<IHero.IProps> = () => {
                 }}
               />
             </Typography>
-            <Typography variant="h3" gutterBottom>
+            <Typography variant="h2" gutterBottom>
               { t("home.heroSystem")}
             </Typography>
             <Typography variant="h5" gutterBottom>
               {t("home.heroInfo")}
             </Typography>
-            <Button href="/app" variant="contained" size="large" sx={{marginTop: '1rem'}}>
-              {t("home.heroButton")}
-            </Button>
+            <Stack direction={'row'} spacing={3}>
+              <Button href="/app" variant="contained" size="large">
+                {t("home.heroButton")}
+              </Button>
+              <Button href="#Process" variant="contained" size="large">Learn more</Button>
+            </Stack>
+              
           </Grid>
           <Grid item sm={12} md={5}>
-            <img src="https://rabbithole.gg/home/artisan.png" style={{width: '100%'}}/>
+            <img src="/assets/logo/LogoA.png" style={{width: '100%'}}/>
           </Grid>
         </Grid>
       </Container>

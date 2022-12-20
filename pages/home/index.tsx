@@ -41,7 +41,7 @@ const Home: NextPage<IHomePage.IProps> = () => {
     return (
         <React.Fragment>
             <NavigationBar isLoggedIn={false} onConnectWalletClicked={openConnectModal} />
-            <div style={{ background: 'linear-gradient(-14deg, #121212 82%, #FE7B26 90%, #FB145E 100%)' }}>
+            <div style={{ background: 'linear-gradient(-14deg, #121212 87%, #FE7B26 92%, #FB145E 100%)' }}>
                 <Hero />
                 <ProcessSection />
                 {/* Features */}

@@ -7,7 +7,7 @@ const ContactForm: React.FunctionComponent<IContactForm.IProps> = () => {
     const { t } = useTranslation()
 
     return (
-        <Container maxWidth={'xl'} sx={{ paddingY: '4.5rem' }}>
+        <Container maxWidth={'xl'} sx={{ paddingY: '4rem' }}>
             <FormControl fullWidth>
                     <Typography variant="h3" align="center" gutterBottom>Have some questions?</Typography>
                     <Typography variant="subtitle1" align="center" gutterBottom>Please fill out the quick form and we will be in touch with lighting speed.</Typography>
@@ -16,7 +16,7 @@ const ContactForm: React.FunctionComponent<IContactForm.IProps> = () => {
                         <img src="/newsletter.png" style={{ maxWidth: '35%', height: 'auto' }} />
                     </Grid>
                     <Grid xs={12} md={6} item>
-                        <Grid container direction={"column"} spacing={3}>
+                        <Grid container direction={"column"} spacing={3} paddingTop={5}>
                             <Grid item>
                                 <TextField
                                     label="Name"

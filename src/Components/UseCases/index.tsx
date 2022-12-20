@@ -29,6 +29,7 @@ const UseCases: React.FunctionComponent<IUseCases.IProps> = () => {
     return (
         <Container sx={{ py: '5rem' }}>
             <Typography variant="h3" align="center" gutterBottom>{t('home.feature')}</Typography>
+            <Typography variant="h6" align="center">{t("home.leftImageText")}</Typography>
             <Grid container paddingTop={5}>
                 <Grid item md={6}>
                     <img src="https://thesmsworks.co.uk/cdn-cgi/image/format=auto,onerror=redirect/public/images/free-SMS-reply-number.webp" style={{ maxWidth: '100%', height: 'auto' }} />

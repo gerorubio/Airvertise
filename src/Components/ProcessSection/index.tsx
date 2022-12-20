@@ -90,11 +90,13 @@ const ProcessSection: React.FunctionComponent<IProcessSection.IProps> = () => {
     });
 
     return (
-      <Container>
-        <Typography variant="h3" align="center" sx={{ paddingBottom: '2rem' }} gutterBottom id={'Process'}>How it works?</Typography>
-        <Grid container spacing={5}>
-          { stepsDisplay }
-        </Grid>
+      <Container sx={{ height: { md: '100vh' }, display: 'flex', justifyContent: 'center', alignItems: 'center' }} id={'Process'}>
+        <Box>
+          <Typography variant="h3" align="center" sx={{ paddingBottom: '2rem' }} gutterBottom >How it works?</Typography>
+          <Grid container spacing={5}>
+            { stepsDisplay }
+          </Grid>
+        </Box>
       </Container>
     );
 }

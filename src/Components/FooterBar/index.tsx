@@ -13,20 +13,9 @@ const FooterBar: React.FunctionComponent<IFooterBar.IProps> = () => {
     
     return (
         <Box sx={{ backgroundImage: 'url(/assets/logo/Texture.png)', backgroundSize: 'cover', color: '#121212', paddingY: '0.5rem' }}>
-            <div style={{ display: 'flex', justifyContent: 'center', paddingBottom: '2rem' }}>
+            <div style={{ display: 'flex', justifyContent: 'center', paddingBottom: '1rem' }}>
                 <img src="/assets/logo/LogoNameAirvertiseBlack.png" style={{ width: '12%', marginRight: 'auto', marginLeft: 'auto' }} />
             </div>
-            <Stack
-                direction="row"
-                divider={<Divider orientation="vertical" sx={{ backgroundColor: '#121212' }} flexItem />}
-                spacing={4}
-                justifyContent={'center'}
-                pb={4}
-            >
-                <Link underline="none" color={'black'}>Legal Stuff</Link>
-                <Link underline="none" color={'black'}>Privacy Policy</Link>
-                <Link underline="none" color={'black'}>Security</Link>
-            </Stack>
             <Stack direction={'row'} justifyContent={'center'} spacing={3} pb={3}>
                 <IconButton sx={{ color: '#121212', "&:hover": { color: "#00acee", background: 'none' } }}>
                     <BsTwitter style={{ fontSize: '2rem' }}/>

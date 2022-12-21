@@ -21,15 +21,13 @@ const FooterBar: React.FunctionComponent<IFooterBar.IProps> = () => {
                         <Typography variant="subtitle1" align="center">Copyright © 2022 Airvertise Inc.</Typography>
                     </Stack>
                 </Grid>
-                <Grid item md={3} display={'flex'} alignContent='center' >
-                    <Stack direction={'row'} spacing={0.5} justifyContent={'center'}>
-                        <IconButton sx={{ color: '#121212', "&:hover": { color: "#5865F2", background: 'none' } }}>
-                            <FaDiscord style={{ fontSize: '2.75rem' }}/>
-                        </IconButton>
-                        <IconButton sx={{ color: '#121212', "&:hover": { color: "#00acee", background: 'none' } }}>
-                            <BsTwitter style={{ fontSize: '2.75rem' }}/>
-                        </IconButton>
-                    </Stack>
+                <Grid item md={3} sx={{ display: 'flex', justifyContent: 'center' }} >
+                    <IconButton sx={{ color: '#121212', "&:hover": { color: "#5865F2", background: 'none' } }}>
+                        <FaDiscord style={{ fontSize: '2.75rem' }}/>
+                    </IconButton>
+                    <IconButton sx={{ color: '#121212', "&:hover": { color: "#00acee", background: 'none' } }}>
+                        <BsTwitter style={{ fontSize: '2.75rem' }}/>
+                    </IconButton>
                 </Grid>
             </Grid>
             

@@ -40,56 +40,41 @@ const NavigationBar: React.FunctionComponent<INavigationBar.IProps> = ({ onConne
 
     return (
         <Box sx={{ display: 'flex' }}>
-            <AppBar component="nav" position="sticky" sx={{ paddingY: '0.5rem' }}>
-                <Toolbar sx={{width: {xs: '100%', sm: '90%', md: '75%'}, margin: 'auto'}} >
-                    <Grid container>
-                        {/* Menu hamburguesa */}
-                        <Grid item xs={2} md={'auto'}>
-                            <IconButton
-                                color="inherit"
-                                aria-label="open drawer"
-                                edge="start"
-                                onClick={handleDrawerToggle}
-                                sx={{ mr: 2, display: { sm: 'none' } }}
-                            >
-                                <MenuIcon />
-                            </IconButton>
-                        </Grid>
-                        {/* Logo */}
-                        <Grid item xs={8} md={2}>
-                            <img src="/assets/logo/LogoNameAirvertiseTexture.png" style={{ maxWidth: '75%', height: 'auto', margin: 0, marginTop: '1remrem' }} />
-                        </Grid>
-                        {/* Buton en drawer */}
-                        <Grid item xs={2} md={'auto'}>
-                            { path == '/app' ?
-                                <Button variant="contained" onClick={onConnectWalletClicked} sx={{ display: { xs: 'block', sm: 'none' } }}>
-                                    {t("components.navigationBar.connectWallet")}
-                                </Button>
-                                :
-                                <Button href="/app" variant="contained" sx={{ display: { xs: 'block', sm: 'none' } }}>
-                                    Launch App
-                                </Button>
-                            }
-                        </Grid>
-                        {/* Links */}
-                        <Grid item xs={'auto'} md={7} sx={{ display: 'flex', justifyContent: 'center', width: '50%', margin: 'auto' }}>
-                            {navItems.map((item) => (
-                                <Link key={item} href={'/' + item} underline='none' px={4} sx={{color: '#fff', textTransform:'uppercase', fontWeight: 600}}>{item}</Link>
-                            ))}
-                        </Grid>
-                        {/* Button */}
-                        <Grid item xs={'auto'} md={2} sx={{ display: 'flex', alignItems: 'center' }}>
-                            { path == '/app' ?
-                                <Button variant="contained" onClick={onConnectWalletClicked} sx={{ display: { xs: 'none', sm: 'block' } }}>
-                                    {t("components.navigationBar.connectWallet")}
-                                </Button>
-                                :
-                                <Button href="/app" variant="contained">
-                                    Launch App
-                                </Button>
-                            }
-                        </Grid>
-                    </Grid>
+            <AppBar component="nav" position="sticky" sx={{ paddingY: '0.25rem' }}>
+                <Toolbar sx={{ display: 'flex', justifyContent: 'space-between', width: {xs: '100%', md: '75%'}, margin: 'auto'}} >
+                <IconButton
+                    color="inherit"
+                    aria-label="open drawer"
+                    edge="start"
+                    onClick={handleDrawerToggle}
+                    sx={{ display: { sm: 'none' } }}
+                >
+                    <MenuIcon />
+                </IconButton>
+                <img src="/assets/logo/LogoNameAirvertiseTexture.png" style={{ maxHeight: '4rem' }}/>
+                { path == '/app' ?
+                    <Button variant="contained" onClick={onConnectWalletClicked} sx={{ display: { sm: 'none' } }}>
+                        {t("components.navigationBar.connectWallet")}
+                    </Button>
+                    :
+                    <Button href="/app" variant="contained" sx={{ display: { sm: 'none' } }}>
+                        Launch App
+                    </Button>
+                }
+                <Box sx={{ display: {xs: 'none', sm: 'block'} }}>
+                    {navItems.map((item) => (
+                        <Link key={item} href={'/' + item} underline='none' px={4} sx={{color: '#fff', textTransform:'uppercase', fontWeight: 600}}>{item}</Link>
+                    ))}
+                </Box>
+                { path == '/app' ?
+                    <Button variant="contained" onClick={onConnectWalletClicked} sx={{ display: { xs: 'none', sm: 'block' } }}>
+                        {t("components.navigationBar.connectWallet")}
+                    </Button>
+                    :
+                    <Button href="/app" variant="contained" sx={{ display: { xs: 'none', sm: 'block' } }}>
+                        Launch App
+                    </Button>
+                }
                 </Toolbar>
             </AppBar>
             <Box component="nav">
@@ -101,7 +86,7 @@ const NavigationBar: React.FunctionComponent<INavigationBar.IProps> = ({ onConne
                     keepMounted: true, // Better open performance on mobile.
                 }}
                 sx={{
-                    display: { xs: 'block', sm: 'none' },
+                    display: { xs: 'block', lg: 'none' },
                     '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
                 }}
                 >

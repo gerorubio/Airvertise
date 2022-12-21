@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Box, Typography, Divider, Link, Stack, IconButton, Icon } from "@mui/material";
+import { Box, Typography, Divider, Link, Stack, IconButton, Icon, Grid } from "@mui/material";
 import { IFooterBar } from "./FooterBar";
 import { useTranslation } from "next-i18next";
 import { BsTwitter } from "react-icons/bs";
@@ -12,19 +12,28 @@ const FooterBar: React.FunctionComponent<IFooterBar.IProps> = () => {
     const { t } = useTranslation()
     
     return (
-        <Box sx={{ backgroundImage: 'url(/assets/logo/Texture.png)', backgroundSize: 'cover', color: '#121212', paddingY: '0.5rem' }}>
-            <div style={{ display: 'flex', justifyContent: 'center', paddingBottom: '1rem' }}>
-                <img src="/assets/logo/LogoNameAirvertiseBlack.png" style={{ width: '12%', marginRight: 'auto', marginLeft: 'auto' }} />
-            </div>
-            <Stack direction={'row'} justifyContent={'center'} spacing={3} pb={3}>
-                <IconButton sx={{ color: '#121212', "&:hover": { color: "#00acee", background: 'none' } }}>
-                    <BsTwitter style={{ fontSize: '2rem' }}/>
-                </IconButton>
-                <IconButton sx={{ color: '#121212', "&:hover": { color: "#5865F2", background: 'none' } }}>
-                    <FaDiscord style={{ fontSize: '2rem' }}/>
-                </IconButton>
-            </Stack>
-            <Typography variant="subtitle1" align="center">Copyright © 2022 Airvertise Inc.</Typography>
+        <Box sx={{ backgroundImage: 'url(/assets/logo/Texture.png)', backgroundSize: 'cover', color: '#121212', paddingY: '1rem' }}>
+            <Grid container>
+                <Grid item md={3} />
+                <Grid item md={6} display={'flex'} justifyContent={'center'}>
+                    <Stack spacing={2}>
+                        <img src="/assets/logo/LogoNameAirvertiseBlack.png" style={{ width: '30%', marginRight: 'auto', marginLeft: 'auto' }} />
+                        <Typography variant="subtitle1" align="center">Copyright © 2022 Airvertise Inc.</Typography>
+                    </Stack>
+                </Grid>
+                <Grid item md={3} display={'flex'} alignContent='center' >
+                    <Stack direction={'row'} spacing={0.5} justifyContent={'center'}>
+                        <IconButton sx={{ color: '#121212', "&:hover": { color: "#5865F2", background: 'none' } }}>
+                            <FaDiscord style={{ fontSize: '2.75rem' }}/>
+                        </IconButton>
+                        <IconButton sx={{ color: '#121212', "&:hover": { color: "#00acee", background: 'none' } }}>
+                            <BsTwitter style={{ fontSize: '2.75rem' }}/>
+                        </IconButton>
+                    </Stack>
+                </Grid>
+            </Grid>
+            
+            
         </Box>
     )
 }

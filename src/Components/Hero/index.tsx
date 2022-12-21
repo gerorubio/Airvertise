@@ -19,8 +19,8 @@ const Hero: React.FunctionComponent<IHero.IProps> = () => {
           justifyContent="center"
           style={{ minHeight: '100vh' }}
         >
-          <Grid item sm={12} md={7} sx={{ width: { xs: '95%', md: '75%' }}}>
-            <Typography variant="h2" sx={{ fontWeight: 'bold' }} >
+          <Grid item>
+            <Typography variant="h2" sx={{ fontWeight: 'bold' }} align={'center'}>
               <Typewriter
                 options={{
                   strings: [
@@ -34,22 +34,19 @@ const Hero: React.FunctionComponent<IHero.IProps> = () => {
                 }}
               />
             </Typography>
-            <Typography variant="h2" gutterBottom>
+            <Typography variant="h2" align={'center'} gutterBottom>
               { t("home.heroSystem")}
             </Typography>
-            <Typography variant="h5" gutterBottom>
+            <Typography variant="h5" align={'center'} width={'75%'} marginX={'auto'} gutterBottom>
               {t("home.heroInfo")}
             </Typography>
-            <Stack direction={'row'} spacing={3}>
+            <Stack direction={'row'} spacing={3} justifyContent={'center'} py={3}>
               <Button href="/app" variant="contained" size="large">
                 {t("home.heroButton")}
               </Button>
               <Button href="#Process" variant="contained" size="large">Learn more</Button>
             </Stack>
               
-          </Grid>
-          <Grid item sm={12} md={5}>
-            <img src="/assets/logo/LogoA.png" style={{width: '100%'}}/>
           </Grid>
         </Grid>
       </Container>

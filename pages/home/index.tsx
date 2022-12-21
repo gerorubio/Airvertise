@@ -72,7 +72,7 @@ const Home: NextPage<IHomePage.IProps> = () => {
                 {/* Roadmap */}
                 <Roadmap />
                 {/* Chains */}
-                <Box py={5} bgcolor={'#181818'}>
+                <Box py={2} bgcolor={'#181818'}>
                     <Container>
                         <Typography variant="h4" textAlign={'center'} gutterBottom pb={2}>
                             Supported chains
@@ -80,19 +80,19 @@ const Home: NextPage<IHomePage.IProps> = () => {
                         <Grid container>
                             <Grid item xs={4}>
                                 <Stack spacing={2} alignItems="center">
-                                    <img src="https://pbs.twimg.com/profile_images/1366339686432579587/THNz1DZm_400x400.png" width={'40%'} height={'auto'}  />
+                                    <img src="https://pbs.twimg.com/profile_images/1366339686432579587/THNz1DZm_400x400.png" width={'35%'} height={'auto'}  />
                                     <Typography variant="h6">{t("common.chains.polygon")}</Typography>
                                 </Stack>
                             </Grid>
                             <Grid item xs={4}>
                                 <Stack spacing={2} alignItems="center">
-                                    <img src="https://gateway.optimism.io/static/media/optimism.caeb9392.svg" width={'40%'} height={'auto'}  />
+                                    <img src="https://gateway.optimism.io/static/media/optimism.caeb9392.svg" width={'35%'} height={'auto'}  />
                                     <Typography variant="h6">{t("common.chains.optimism")}</Typography>
                                 </Stack>
                             </Grid>
                             <Grid item xs={4}>
                                 <Stack spacing={2} alignItems="center">
-                                    <img src="https://chainbase.online/assets/chain/Arbitrum-logo.png" width={'40%'} height={'auto'}  />
+                                    <img src="https://chainbase.online/assets/chain/Arbitrum-logo.png" width={'35%'} height={'auto'}  />
                                     <Typography variant="h6">{t("common.chains.arbitrum")}</Typography>
                                 </Stack>
                             </Grid>

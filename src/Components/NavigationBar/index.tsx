@@ -23,7 +23,9 @@ const NavigationBar: React.FunctionComponent<INavigationBar.IProps> = ({ onConne
     const drawer = (
         <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }} color="secondary" >
             <Container>
-                <img src="/assets/logo/LogoNameAirvertiseTexture.png" style={{ maxWidth: '100%', height: 'auto', margin: 0, padding: 0 }} />
+                <Link href="/home">
+                    <img src="/assets/logo/LogoNameAirvertiseTexture.png" style={{ maxWidth: '100%', height: 'auto', margin: 0, padding: 0 }} />
+                </Link>
             </Container>
             <Divider />
             <List>
@@ -51,7 +53,9 @@ const NavigationBar: React.FunctionComponent<INavigationBar.IProps> = ({ onConne
                 >
                     <MenuIcon />
                 </IconButton>
-                <img src="/assets/logo/LogoNameAirvertiseTexture.png" style={{ maxHeight: '4rem' }}/>
+                <Link href="/home">
+                    <img src="/assets/logo/LogoNameAirvertiseTexture.png" style={{ maxHeight: '4rem' }}/>
+                </Link>
                 { path == '/app' ?
                     <Button variant="contained" onClick={onConnectWalletClicked} sx={{ display: { sm: 'none' } }}>
                         {t("components.navigationBar.connectWallet")}

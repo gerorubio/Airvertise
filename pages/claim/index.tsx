@@ -9,11 +9,9 @@ import NavigationBar from "@Components/NavigationBar"
 import { useConnectModal } from "@web3modal/react"
 import { useSigner } from "@web3modal/react"
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3"
-import { Http } from "@Services/API/Http"
-import { HttpResponse } from "@Services/API/Http/SimpleErrorResponse"
-import axios from "axios"
 import { ClaimNftService } from "@Services"
 import { IClaimNftPayload } from "src/Pages/ClaimNft/IClaimNftPayload"
+import { Container, Box, Stack, Card, CardMedia, CardContent } from "@mui/material"
 
 const ClaimNft: NextPage<IClaimNftPage.IProps> = ({ pageReference }) => {
     const [recaptchaToken, setRecaptchaToken] = useState("")
@@ -57,9 +55,20 @@ const ClaimNft: NextPage<IClaimNftPage.IProps> = ({ pageReference }) => {
     return (
         <React.Fragment>
             <NavigationBar isLoggedIn={false} onConnectWalletClicked={openConnectModal} />
-            <Button variant="contained" color="secondary" onClick={getRecaptchaToken}>
-                Claim Nft
-            </Button>
+            <Container sx={{ display: 'flex', alignItems: 'center', height: '90vh', backgroundImage: "url('/assets/logo/Texture.png')", backgroundSize: 'fill', backgroundRepeat: 'no-repeat' }}>
+                <Card sx={{ position: 'relative', width: '100%', height: '40rem', padding: '2rem' }}>
+                    <CardMedia
+                        component="img"
+                        sx={{ height: '80%', width: 'auto', marginX: 'auto' }}
+                        image='/assets/logo/LogoA.png'
+                    />
+                    <CardContent sx={{ display: 'flex', justifyContent: 'center', alignContent: 'center' }}>
+                        <Button variant="contained" color="secondary" onClick={getRecaptchaToken}>
+                            Claim Nft
+                        </Button>
+                    </CardContent>
+                </Card>
+            </Container>
         </React.Fragment>
     )
 }

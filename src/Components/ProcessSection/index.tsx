@@ -29,7 +29,7 @@ const ProcessSection: React.FunctionComponent<IProcessSection.IProps> = () => {
         id: "home.processes.process3.id",
         title: "home.processes.process3.title",
         info: "home.processes.process3.info",
-        image: "https://static.vecteezy.com/system/resources/previews/008/506/601/original/money-and-finances-3d-icon-3d-rendering-png.png"
+        image: "https://media.istockphoto.com/id/1370059541/es/vector/concepto-de-programa-de-fidelizaci%C3%B3n-cash-back.jpg?s=612x612&w=0&k=20&c=vc-Ugx1VAYIfyN3k8NPQY0IUbEK_u7WU9w81pZLspGk="
       }
     ]
 
@@ -45,7 +45,7 @@ const ProcessSection: React.FunctionComponent<IProcessSection.IProps> = () => {
               />
               <CardContent>
                 <Stack>
-                  <Typography variant="h4" align="center">{ t(step.title) }</Typography>
+                  <Typography variant="h4" align="center">{ t(step.id) } { t(step.title) }</Typography>
                   <KeyboardDoubleArrowRightIcon sx={{display: {xs: 'none', md: 'block'}, fontSize: '4.5rem', alignSelf: 'center'}} />
                   <Typography textAlign={'justify'}>{ t(step.info) }</Typography>
                   <KeyboardDoubleArrowDownIcon sx={{display: {xs: 'block', md: 'none'}, fontSize: '4.5rem', alignSelf: 'center'}} />

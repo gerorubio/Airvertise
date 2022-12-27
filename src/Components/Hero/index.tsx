@@ -45,6 +45,7 @@ const Hero: React.FunctionComponent<IHero.IProps> = () => {
                 {t("home.heroButton")}
               </Button>
               <Button href="#Process" variant="contained" size="large">Learn more</Button>
+              <Button href="/claim" variant="contained" size="large">Claim reward</Button>
             </Stack>
               
           </Grid>

@@ -64,17 +64,17 @@
     "heroButton": "Start",
     "processes": {
       "process1": {
-        "id": "01",
+        "id": "1.",
         "title": "Select target",
         "info": "Select target addresses by providing a contract address, and upload promotional flyer to IPFS."
       },
       "process2": {
-        "id": "02",
+        "id": "2.",
         "title": "Create campaign",
         "info": "Campaign is created via a transaction to Airvertise contract, including campaign information along target addresses and individual fees."
       },
       "process3": {
-        "id": "03",
+        "id": "3.",
         "title": "Claim reward",
         "info": "Users get notified about airdrop, they open the flyer and they collect the fee."
       }

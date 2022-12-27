@@ -25,10 +25,6 @@ interface AirvertiseProps extends AppProps {
 }
 const serverSideEmotionCache = createEmotionCache()
 
-Router.events.on('routeChangeStart', () =>  console.log('AAAA'));
-Router.events.on('routeChangeComplete', () => console.log('AAAA'));
-Router.events.on('routeChangeError', () => console.log('AAAA'));
-
 function WebApp(props: AirvertiseProps) {
     const { Component, pageProps } = props
     const lightTheme = createTheme(lightThemeOptions)

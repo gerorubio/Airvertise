@@ -1,5 +1,5 @@
 import * as React from "react";
-import { AppBar, Box, Container, Toolbar, Typography, Button, IconButton, Divider, List, ListItem, ListItemText, ListItemButton, Drawer, Link, Grid } from "@mui/material";
+import { AppBar, Box, Container, Toolbar, Typography, Button, IconButton, Divider, List, ListItem, ListItemText, ListItemButton, Drawer, Link, Stack } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import { INavigationBar } from "./NavigationBar";
 import { useTranslation } from "next-i18next";
@@ -30,10 +30,10 @@ const NavigationBar: React.FunctionComponent<INavigationBar.IProps> = ({ onConne
             <Divider />
             <List>
                 {navItems.map((item) => (
-                <ListItem key={item} disablePadding>
-                    <ListItemButton sx={{ textAlign: 'center' }}>
-                    <ListItemText sx={{ textTransform:'uppercase' }} primary={item} />
-                    </ListItemButton>
+                    <ListItem key={item} disablePadding>
+                        <ListItemButton sx={{ textAlign: 'center' }}>
+                        <ListItemText sx={{ textTransform:'uppercase' }} primary={item} />
+                        </ListItemButton>
                 </ListItem>
                 ))}
             </List>
@@ -70,15 +70,21 @@ const NavigationBar: React.FunctionComponent<INavigationBar.IProps> = ({ onConne
                         <Link key={item} href={'/' + item} underline='none' px={4} sx={{color: '#fff', textTransform:'uppercase', fontWeight: 600}}>{item}</Link>
                     ))}
                 </Box>
-                { path == '/app' ?
-                    <Button variant="contained" onClick={onConnectWalletClicked} sx={{ display: { xs: 'none', sm: 'block' } }}>
-                        {t("components.navigationBar.connectWallet")}
+                <Stack direction={'row'} spacing={1}>
+                    { path == '/app' ?
+                        <Button variant="contained" onClick={onConnectWalletClicked} sx={{ display: { xs: 'none', sm: 'block' } }}>
+                            {t("components.navigationBar.connectWallet")}
+                        </Button>
+                        :
+                        <Button href="/app" variant="contained" sx={{ display: { xs: 'none', sm: 'block' } }}>
+                            Launch App
+                        </Button>
+                    }
+                    <Button href="/claim" variant="contained" sx={{ display: { xs: 'none', sm: 'block' } }}>
+                        Claim incentive
                     </Button>
-                    :
-                    <Button href="/app" variant="contained" sx={{ display: { xs: 'none', sm: 'block' } }}>
-                        Launch App
-                    </Button>
-                }
+                </Stack>
+                
                 </Toolbar>
             </AppBar>
             <Box component="nav">

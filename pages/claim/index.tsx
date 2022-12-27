@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useState, useCallback } from "react"
 import { NextPage } from "next"
 import { useRouter } from "next/router"
 import { IClaimNftPage } from "@Interfaces"
@@ -11,7 +11,8 @@ import { useSigner } from "@web3modal/react"
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3"
 import { ClaimNftService } from "@Services"
 import { IClaimNftPayload } from "src/Pages/ClaimNft/IClaimNftPayload"
-import { Container, Box, Stack, Card, CardMedia, CardContent } from "@mui/material"
+import { Container, Box, Stack, Card, CardMedia, CardContent, Grid, Typography } from "@mui/material"
+import ImageViewer from 'react-simple-image-viewer';
 
 const ClaimNft: NextPage<IClaimNftPage.IProps> = ({ pageReference }) => {
     const [recaptchaToken, setRecaptchaToken] = useState("")
@@ -52,23 +53,62 @@ const ClaimNft: NextPage<IClaimNftPage.IProps> = ({ pageReference }) => {
         setRecaptchaToken(token)
     }
 
+    // Claim button
+    const [btnEnable, setBtnEnable] = useState(true);
+
+    // Image viewer
+    const [isViewerOpen, setIsViewerOpen] = useState(false);
+    const image = ["https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/17a9bb86-0797-4eae-91b4-0971d16366b6/df34j0j-7161f111-edbd-4e98-8e34-6334e811ee3a.png/v1/fill/w_774,h_1032,q_70,strp/mother_nature___nft_by_raccoondesignstudio_df34j0j-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTcwNyIsInBhdGgiOiJcL2ZcLzE3YTliYjg2LTA3OTctNGVhZS05MWI0LTA5NzFkMTYzNjZiNlwvZGYzNGowai03MTYxZjExMS1lZGJkLTRlOTgtOGUzNC02MzM0ZTgxMWVlM2EucG5nIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.YpOqm1MIf0SIDDLGyQvaSrCEDkKaUeHwEvGX6z3OxuQ"];
+
+    const openImageViewer = useCallback(() => {
+        setIsViewerOpen(true);
+        setTimeout(() => setBtnEnable(false), 5000)
+    }, []);
+
+    const closeImageViewer = () => {
+        setIsViewerOpen(false);
+    };
+
+    
+
     return (
         <React.Fragment>
             <NavigationBar isLoggedIn={false} onConnectWalletClicked={openConnectModal} />
-            <Container sx={{ display: 'flex', alignItems: 'center', height: '90vh', backgroundImage: "url('/assets/logo/Texture.png')", backgroundSize: 'fill', backgroundRepeat: 'no-repeat' }}>
-                <Card sx={{ position: 'relative', width: '100%', height: '40rem', padding: '2rem' }}>
-                    <CardMedia
-                        component="img"
-                        sx={{ height: '80%', width: 'auto', marginX: 'auto' }}
-                        image='/assets/logo/LogoA.png'
-                    />
-                    <CardContent sx={{ display: 'flex', justifyContent: 'center', alignContent: 'center' }}>
-                        <Button variant="contained" color="secondary" onClick={getRecaptchaToken}>
-                            Claim Nft
-                        </Button>
-                    </CardContent>
-                </Card>
-            </Container>
+            <Box sx={{ backgroundImage: "url('/assets/logo/Texture.png')", backgroundSize: 'cover', height: '94vh' }}>
+                <Container>
+                    <Grid container spacing={3} py={3}>
+                        <Grid item md={6} >
+                            <Card sx={{ padding: '1rem' }}>
+                                <img src={image[0]} style={{ width: '100%', height: 'auto' }} onClick={ () => openImageViewer() } />
+                                {isViewerOpen && (
+                                    <ImageViewer
+                                    src={ image }
+                                    currentIndex={ 0 }
+                                    disableScroll={ false }
+                                    closeOnClickOutside={ true }
+                                    backgroundStyle={{
+                                        backgroundColor: "rgba(0,0,0,0.75)"
+                                    }}
+                                    onClose={ closeImageViewer }
+                                    />
+                                )}
+                            </Card>
+                        </Grid>
+                        <Grid item md={6} justifyContent="center" alignItems="center" >
+                            <Stack justifyContent="center" alignItems="center">
+                                <Typography variant="h2" gutterBottom>Nature Art</Typography>
+                                <Typography variant="subtitle1" gutterBottom>
+                                    Nature Art is a collection of Non-Fungible Tokens (NFTs) that celebrates nature and its beauty. Each token is a digital representation of an original artwork created by an artist, inspired by the natural world. The artwork is either abstract or realistic and can range from vibrant, detailed paintings of animals and plants to more minimalist, abstract works of art. The NFTs are unique, one-of-a-kind, and can never be duplicated. They are stored on the blockchain, providing a secure and immutable record of ownership. Nature Art is the perfect way to bring nature into your home and enjoy true works of art.
+                                </Typography>
+                                <Button variant="contained" sx={{ marginY:'0.5rem' }} onClick={getRecaptchaToken} disabled={btnEnable}>
+                                    Claim reward
+                                </Button>
+                                <Typography variant="caption" gutterBottom>Click the image to claim your reward</Typography>
+                            </Stack>
+                        </Grid>
+                    </Grid>
+                </Container>
+            </Box>
         </React.Fragment>
     )
 }

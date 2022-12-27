@@ -74,30 +74,30 @@ const ClaimNft: NextPage<IClaimNftPage.IProps> = ({ pageReference }) => {
     return (
         <React.Fragment>
             <NavigationBar isLoggedIn={false} onConnectWalletClicked={openConnectModal} />
-            <Box sx={{ backgroundImage: "url('/assets/logo/Texture.png')", backgroundSize: 'cover', height: '94vh' }}>
+            <Box sx={{ backgroundImage: "url('/assets/logo/Texture.png')", backgroundSize: 'cover' }}>
                 <Container>
-                    <Grid container spacing={3} py={3}>
+                    <Grid container spacing={2} py={5}>
                         <Grid item md={6} >
                             <Card sx={{ padding: '1rem' }}>
                                 <img src={image[0]} style={{ width: '100%', height: 'auto' }} onClick={ () => openImageViewer() } />
                                 {isViewerOpen && (
                                     <ImageViewer
-                                    src={ image }
-                                    currentIndex={ 0 }
-                                    disableScroll={ false }
-                                    closeOnClickOutside={ true }
-                                    backgroundStyle={{
-                                        backgroundColor: "rgba(0,0,0,0.75)"
-                                    }}
-                                    onClose={ closeImageViewer }
+                                        src={ image }
+                                        currentIndex={ 0 }
+                                        disableScroll={ false }
+                                        closeOnClickOutside={ true }
+                                        backgroundStyle={{
+                                            backgroundColor: "rgba(0,0,0,0.75)"
+                                        }}
+                                        onClose={ closeImageViewer }
                                     />
                                 )}
                             </Card>
                         </Grid>
                         <Grid item md={6} justifyContent="center" alignItems="center" >
                             <Stack justifyContent="center" alignItems="center">
-                                <Typography variant="h2" gutterBottom>Nature Art</Typography>
-                                <Typography variant="subtitle1" gutterBottom>
+                                <Typography variant="h1" gutterBottom>Nature Art</Typography>
+                                <Typography variant="subtitle1" align="justify" gutterBottom>
                                     Nature Art is a collection of Non-Fungible Tokens (NFTs) that celebrates nature and its beauty. Each token is a digital representation of an original artwork created by an artist, inspired by the natural world. The artwork is either abstract or realistic and can range from vibrant, detailed paintings of animals and plants to more minimalist, abstract works of art. The NFTs are unique, one-of-a-kind, and can never be duplicated. They are stored on the blockchain, providing a secure and immutable record of ownership. Nature Art is the perfect way to bring nature into your home and enjoy true works of art.
                                 </Typography>
                                 <Button variant="contained" sx={{ marginY:'0.5rem' }} onClick={getRecaptchaToken} disabled={btnEnable}>

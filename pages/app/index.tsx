@@ -6,9 +6,8 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations"
 import { useTranslation } from "next-i18next"
 import Button from "@mui/material/Button"
 import NavigationBar from "@Components/NavigationBar"
-import { useConnectModal } from "@web3modal/react"
-import { useProvider, useSigner } from "@web3modal/react"
-import { useAccount } from "@web3modal/react"
+import { useWeb3Modal  } from "@web3modal/react"
+import { useSigner } from "wagmi"
 import { AirvertiseContractService } from "@Services/Contracts/AirvertiseContractService"
 import { ethers } from "ethers"
 import { Signer } from "ethers"
@@ -17,7 +16,7 @@ import CampaignForm from "@Components/CampaignForm"
 const App: NextPage<IHomePage.IProps> = () => {
     const router = useRouter()
     const { t } = useTranslation()
-    const { open: openConnectModal } = useConnectModal()
+    const { open: openConnectModal } = useWeb3Modal ()
 
     const { data: walletConnectSigner } = useSigner()
 
@@ -61,7 +60,6 @@ const App: NextPage<IHomePage.IProps> = () => {
 
     return (
         <React.Fragment>
-            <NavigationBar isLoggedIn={false} onConnectWalletClicked={openConnectModal} />
             <CampaignForm />
         </React.Fragment>
     )

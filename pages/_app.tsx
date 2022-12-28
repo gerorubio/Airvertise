@@ -11,13 +11,45 @@ import { CacheProvider, EmotionCache } from "@emotion/react"
 import createEmotionCache from "../src/Definitions/Styled/createEmotionCache"
 import lightThemeOptions from "../src/Definitions/Styled/theme"
 import { ThemeProvider, CssBaseline, createTheme } from "@mui/material"
-import { chains, providers } from "@web3modal/ethereum"
-import type { ConfigOptions } from "@web3modal/react"
-import { Web3Modal } from "@web3modal/react"
 import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3"
 import { RootStoreProvider } from "@mobx"
 // Animation on scroll styles
 import "animate.css/animate.min.css";
+
+/**********************************************/
+/******************web3modal*******************/
+/**********************************************/
+
+import {
+    EthereumClient,
+    modalConnectors,
+    walletConnectProvider,
+} from "@web3modal/ethereum";
+import { Web3Modal } from "@web3modal/react";
+import { configureChains, createClient, WagmiConfig } from "wagmi";
+import { mainnet, polygonMumbai } from 'wagmi/chains'
+import NavigationBar from "@Components/NavigationBar";
+
+// 1. Get projectID at https://cloud.walletconnect.com
+if (!process.env.NEXT_PUBLIC_PROJECT_ID) {
+    throw new Error('You need to provide NEXT_PUBLIC_PROJECT_ID env variable')
+}
+
+const projectId = process.env.NEXT_PUBLIC_PROJECT_ID
+
+// 2. Configure wagmi client
+const chains = [mainnet, polygonMumbai]
+const { provider } = configureChains(chains, [walletConnectProvider({ projectId })])
+const wagmiClient = createClient({
+    autoConnect: true,
+    connectors: modalConnectors({ appName: 'web3Modal', chains }),
+    provider
+})
+
+// 3. Configure modal ethereum client
+export const ethereumClient = new EthereumClient(wagmiClient, chains)
+
+/**********************************************/
 
 interface AirvertiseProps extends AppProps {
     walletConnectProjectId?: string
@@ -30,24 +62,24 @@ function WebApp(props: AirvertiseProps) {
     const lightTheme = createTheme(lightThemeOptions)
 
     // Configure web3modal
-    const modalConfig: ConfigOptions = {
-        projectId: props.walletConnectProjectId,
-        theme: "dark",
-        accentColor: "default",
-        ethereum: {
-            appName: "airvertise",
-            autoConnect: true,
-            chains: [chains.polygonMumbai],
-            providers: [
-                providers.walletConnectProvider({
-                    projectId: props.walletConnectProjectId,
-                }),
-                providers.infuraProvider({
-                    apiKey: props.infuraApiKey,
-                }),
-            ],
-        },
-    }
+    // const modalConfig: ConfigOptions = {
+    //     projectId: props.walletConnectProjectId,
+    //     theme: "dark",
+    //     accentColor: "default",
+    //     ethereum: {
+    //         appName: "airvertise",
+    //         autoConnect: true,
+    //         chains: [chains.polygonMumbai],
+    //         providers: [
+    //             providers.walletConnectProvider({
+    //                 projectId: props.walletConnectProjectId,
+    //             }),
+    //             providers.infuraProvider({
+    //                 apiKey: props.infuraApiKey,
+    //             }),
+    //         ],
+    //     },
+    // }
 
     return (
         <CacheProvider value={serverSideEmotionCache}>
@@ -71,8 +103,16 @@ function WebApp(props: AirvertiseProps) {
                     <ThemeProvider theme={lightTheme}>
                         <CssBaseline />
                         <>
-                            <Component {...pageProps} />
-                            <Web3Modal config={modalConfig} />
+                            <WagmiConfig client={wagmiClient}>
+                                <NavigationBar />
+                                <Component {...pageProps} />
+                            </WagmiConfig>
+                            {/* <Web3Modal config={modalConfig} /> */}
+                            <Web3Modal
+                                projectId={projectId}
+                                ethereumClient={ethereumClient}
+                                themeColor="purple"
+                            />
                         </>
                     </ThemeProvider>
                 </GoogleReCaptchaProvider>

@@ -5,9 +5,6 @@ import { IClaimNftPage } from "@Interfaces"
 import { serverSideTranslations } from "next-i18next/serverSideTranslations"
 import { useTranslation } from "next-i18next"
 import Button from "@mui/material/Button"
-import NavigationBar from "@Components/NavigationBar"
-import { useConnectModal } from "@web3modal/react"
-import { useSigner } from "@web3modal/react"
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3"
 import { ClaimNftService } from "@Services"
 import { IClaimNftPayload } from "src/Pages/ClaimNft/IClaimNftPayload"
@@ -19,7 +16,6 @@ const ClaimNft: NextPage<IClaimNftPage.IProps> = ({ pageReference }) => {
 
     const router = useRouter()
     const { t } = useTranslation()
-    const { open: openConnectModal } = useConnectModal()
     const { executeRecaptcha } = useGoogleReCaptcha()
 
     useEffect(() => {
@@ -69,11 +65,8 @@ const ClaimNft: NextPage<IClaimNftPage.IProps> = ({ pageReference }) => {
         setIsViewerOpen(false);
     };
 
-    
-
     return (
         <React.Fragment>
-            <NavigationBar isLoggedIn={false} onConnectWalletClicked={openConnectModal} />
             <Box sx={{ backgroundImage: "url('/assets/logo/Texture.png')", backgroundSize: 'cover' }}>
                 <Container>
                     <Grid container spacing={2} py={5}>

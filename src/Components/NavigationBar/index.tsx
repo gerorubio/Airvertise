@@ -4,11 +4,12 @@ import MenuIcon from "@mui/icons-material/Menu";
 import { INavigationBar } from "./NavigationBar";
 import { useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
+import { Web3Button } from "@web3modal/react";
 
 const drawerWidth = 240;
 const navItems = ['home', 'app', 'about'];
 
-const NavigationBar: React.FunctionComponent<INavigationBar.IProps> = ({ onConnectWalletClicked }) => {
+const NavigationBar: React.FunctionComponent<INavigationBar.IProps> = () => {
     const router = useRouter();
 
     const path = router.pathname;
@@ -57,9 +58,12 @@ const NavigationBar: React.FunctionComponent<INavigationBar.IProps> = ({ onConne
                     <img src="/assets/logo/LogoNameAirvertiseTexture.png" style={{ maxHeight: '4rem' }}/>
                 </Link>
                 { path == '/app' ?
-                    <Button variant="contained" onClick={onConnectWalletClicked} sx={{ display: { sm: 'none' } }}>
-                        {t("components.navigationBar.connectWallet")}
-                    </Button>
+                    // <Button variant="contained" onClick={onConnectWalletClicked} sx={{ display: { sm: 'none' } }}>
+                    //     {t("components.navigationBar.connectWallet")}
+                    // </Button>
+                    <Box sx={{ display: { sm: 'none' } }}>
+                        <Web3Button />
+                    </Box>
                     :
                     <Button href="/app" variant="contained" sx={{ display: { sm: 'none' } }}>
                         Launch App
@@ -72,9 +76,12 @@ const NavigationBar: React.FunctionComponent<INavigationBar.IProps> = ({ onConne
                 </Box>
                 <Stack direction={'row'} spacing={1}>
                     { path == '/app' ?
-                        <Button variant="contained" onClick={onConnectWalletClicked} sx={{ display: { xs: 'none', sm: 'block' } }}>
-                            {t("components.navigationBar.connectWallet")}
-                        </Button>
+                        // <Button variant="contained" onClick={onConnectWalletClicked} sx={{ display: { xs: 'none', sm: 'block' } }}>
+                        //     {t("components.navigationBar.connectWallet")}
+                        // </Button>
+                        <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
+                            <Web3Button />
+                        </Box>
                         :
                         <Button href="/app" variant="contained" sx={{ display: { xs: 'none', sm: 'block' } }}>
                             Launch App

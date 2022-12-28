@@ -1,46 +1,28 @@
-import React, { useEffect } from "react"
+import React from "react"
 import { NextPage } from "next"
-import { useRouter } from "next/router"
 import { IHomePage } from "@Interfaces"
 import { serverSideTranslations } from "next-i18next/serverSideTranslations"
 import { useTranslation } from "next-i18next"
-import NavigationBar from "@Components/NavigationBar"
-import { useConnectModal } from "@web3modal/react"
-import { useProvider, useSigner } from "@web3modal/react"
+import { useSigner } from "wagmi"
 import { ethers } from "ethers"
 import { Signer } from "ethers"
 import { Typography, Box, Grid, Container, Stack, Button, Card, CardMedia, CardContent } from "@mui/material";
-import Image from "next/image"
 import FooterBar from "@Components/FooterBar"
 import Roadmap from "@Components/Roadmap"
 import Hero from "@Components/Hero"
 import ProcessSection from "@Components/ProcessSection"
 import ContactForm from "@Components/ContactForm"
-import { AnimationOnScroll } from "react-animation-on-scroll"
 import UseCases from "@Components/UseCases"
 
 
 
 const Home: NextPage<IHomePage.IProps> = () => {
     const { t } = useTranslation()
-    const { open: openConnectModal } = useConnectModal()
 
     const { data: walletConnectSigner } = useSigner()
 
-    function getDevelopmentSignerOrDefault(): Signer {
-        const isLocalDevelopmentEnabled = process.env.NEXT_PUBLIC_LOCAL_DEVELOPMENT_ENABLED === "true"
-        if (isLocalDevelopmentEnabled) {
-            return new ethers.providers.JsonRpcProvider(process.env.NEXT_PUBLIC_URL_RPC_PROVIDER).getSigner(
-                process.env.NEXT_PUBLIC_ADDRESS_SIGNER
-            )
-        }
-
-        return walletConnectSigner
-    }
-
     return (
         <React.Fragment>
-            <NavigationBar isLoggedIn={false} onConnectWalletClicked={openConnectModal} />
             <div style={{ background: 'linear-gradient(-14deg, #121212 87%, #FE7B26 92%, #FB145E 100%)' }}>
                 <Hero />
                 <ProcessSection />

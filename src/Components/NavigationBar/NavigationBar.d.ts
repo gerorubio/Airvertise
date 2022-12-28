@@ -1,8 +1,8 @@
 declare namespace INavigationBar {
     export interface IProps {
-        isLoggedIn: boolean
+        // isLoggedIn: boolean
         title?: string
-        onConnectWalletClicked: () => void
+        // onConnectWalletClicked: () => void
     }
 
     export interface IStateProps {}

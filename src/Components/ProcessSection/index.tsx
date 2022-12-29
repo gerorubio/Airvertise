@@ -35,9 +35,9 @@ const ProcessSection: React.FunctionComponent<IProcessSection.IProps> = () => {
 
     const stepsDisplay = steps.map(step => {
       return(
-        <Grid key={step.id} item xs={12} md={4} paddingY={5}>
+        <Grid key={step.id} item xs={12} md={4} lg={4} paddingY={5}>
           <AnimationOnScroll animateIn="animate__fadeInLeft" animateOnce>
-            <Card sx={{ height: '33rem' }}>
+            <Card sx={{ height: '40rem' }}>
               <CardMedia
                 component={'img'}
                 src={step.image}
@@ -45,10 +45,10 @@ const ProcessSection: React.FunctionComponent<IProcessSection.IProps> = () => {
               />
               <CardContent>
                 <Stack>
-                  <Typography variant="h4" align="center">{ t(step.id) } { t(step.title) }</Typography>
-                  <KeyboardDoubleArrowRightIcon sx={{display: {xs: 'none', md: 'block'}, fontSize: '4.5rem', alignSelf: 'center'}} />
-                  <Typography textAlign={'justify'}>{ t(step.info) }</Typography>
-                  <KeyboardDoubleArrowDownIcon sx={{display: {xs: 'block', md: 'none'}, fontSize: '4.5rem', alignSelf: 'center'}} />
+                  <Typography variant="h5" align="center">{ t(step.id) } { t(step.title) }</Typography>
+                  <KeyboardDoubleArrowRightIcon sx={{display: {xs: 'none', md: 'block'}, fontSize: '3.5rem', alignSelf: 'center'}} />
+                  <Typography variant="subtitle1" textAlign='justify'>{ t(step.info) }</Typography>
+                  <KeyboardDoubleArrowDownIcon sx={{display: {xs: 'block', md: 'none'}, fontSize: '3.5rem', alignSelf: 'center'}} />
                 </Stack>
               </CardContent>
             </Card>
@@ -60,7 +60,7 @@ const ProcessSection: React.FunctionComponent<IProcessSection.IProps> = () => {
     return (
       <Container sx={{ height: { md: '100vh' }, display: 'flex', justifyContent: 'center', alignItems: 'center' }} id={'Process'}>
         <Box>
-          <Typography variant="h3" align="center" sx={{ paddingBottom: '2rem' }} gutterBottom >How it works?</Typography>
+          <Typography variant="h3" align="center" sx={{ paddingY: '2rem' }} gutterBottom >How it works?</Typography>
           <Grid container spacing={4}>
             { stepsDisplay }
           </Grid>

@@ -19,35 +19,30 @@ const Roadmap: React.FunctionComponent<IRoadmap.IProps> = () => {
 
     const events = [
         {
-            "title": "home.roadmap.events.title1",
-            "text": "home.roadmap.events.text1",
-            "date": "home.roadmap.events.date1"
+            "title": "home.roadmap.events.event1.title",
+            "text": "home.roadmap.events.event1.text",
+            "date": "home.roadmap.events.event1.date"
         },
         {
-            "title": "home.roadmap.events.title2",
-            "text": "home.roadmap.events.text2",
-            "date": "home.roadmap.events.date2"
+            "title": "home.roadmap.events.event2.title",
+            "text": "home.roadmap.events.event2.text",
+            "date": "home.roadmap.events.event2.date"
         },
         {
-            "title": "home.roadmap.events.title3",
-            "text": "home.roadmap.events.text3",
-            "date": "home.roadmap.events.date3"
+            "title": "home.roadmap.events.event3.title",
+            "text": "home.roadmap.events.event3.text",
+            "date": "home.roadmap.events.event3.date"
         },
         {
-            "title": "home.roadmap.events.title4",
-            "text": "home.roadmap.events.text4",
-            "date": "home.roadmap.events.date4"
-        },
-        {
-            "title": "home.roadmap.events.title5",
-            "text": "home.roadmap.events.text5",
-            "date": "home.roadmap.events.date5"
+            "title": "home.roadmap.events.event4.title",
+            "text": "home.roadmap.events.event4.text",
+            "date": "home.roadmap.events.event4.date"
         }
     ]
 
     const eventItems = events.map((item, index) => {
         return(
-            <Box key={index} sx={{ overflow: 'hidden' }}>
+            <Box key={index}>
                 <AnimationOnScroll animateIn={index % 2 == 0 ? 'animate__fadeInLeft' : 'animate__fadeInRight'} animateOnce>
                     <TimelineItem key={item.title}>
                         <TimelineOppositeContent

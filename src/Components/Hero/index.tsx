@@ -1,6 +1,5 @@
 import * as React from "react";
-import { AppBar, Box, Toolbar, Typography, Button, IconButton, Divider, List, ListItem, ListItemText, ListItemButton, Drawer, Link, Container, Grid, Stack } from "@mui/material";
-import MenuIcon from "@mui/icons-material/Menu";
+import { Typography, Button, Container, Grid, Stack, Box, Card } from "@mui/material";
 import { IHero } from "./Hero";
 import { useTranslation } from "next-i18next";
 import Typewriter from "typewriter-effect";
@@ -12,12 +11,12 @@ const Hero: React.FunctionComponent<IHero.IProps> = () => {
     const { t } = useTranslation()
     
     return (
-      <Container>
+      <Box sx={{ margin: '1.75%', marginTop: '3rem', background: 'linear-gradient(150deg, #fe7b26, #ff5041, #fb145e, #ba0063, #770659)', boxShadow: 3, borderRadius: 4 }}>
         <Grid container
           spacing={5}
           alignItems="center"
           justifyContent="center"
-          style={{ minHeight: '100vh' }}
+          style={{ minHeight: '90vh' }}
         >
           <Grid item>
             <Typography variant="h3" sx={{ fontWeight: 'bold' }} align={'center'}>
@@ -40,18 +39,16 @@ const Hero: React.FunctionComponent<IHero.IProps> = () => {
             <Typography variant="h5" align={'center'} width={'75%'} marginX={'auto'} gutterBottom>
               {t("home.heroInfo")}
             </Typography>
-            <Stack direction={'row'} spacing={3} justifyContent={'center'} py={3}>
-              <Button href="/app" variant="contained" size="large">
+            <Grid container sx={{ width: { xs: '75%', sm: '50%' }, marginX: 'auto', display: 'flex', justifyContent: 'space-between', flexDirection: { xs: "column", md: "row"} }}>
+              <Button href="/app" variant="contained" size="large" sx={{ margin: '0.5rem', background: 'linear-gradient(to right, #770659 0%, #53346D 100%)', color: '#FEFEFE' }}>
                 {t("home.heroButton")}
               </Button>
-              <Button href="#Process" variant="contained" size="large">Learn more</Button>
-              <Button href="/claim" variant="contained" size="large">Claim reward</Button>
-            </Stack>
-              
+              <Button href="/claim" variant="contained" size="large" sx={{ margin: '0.5rem', background: 'linear-gradient(to right, #770659 0%, #53346D 100%)', color: '#FEFEFE' }}>Claim incentive</Button>
+              <Button href="#Process" variant="contained" size="large" sx={{ margin: '0.5rem', background: 'linear-gradient(to right, #770659 0%, #53346D 100%)', color: '#FEFEFE' }}>Learn more</Button>
+            </Grid>
           </Grid>
         </Grid>
-      </Container>
+      </Box>
     )
 }
-
-export default Hero
+export default Hero;

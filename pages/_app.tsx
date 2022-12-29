@@ -1,8 +1,5 @@
 import * as React from "react"
 import 'nprogress/nprogress.css';
-import NProgress from 'nprogress';
-import Router, { useRouter } from 'next/router'
-import { useState, useEffect } from 'react';
 import "../styles/global.css"
 import { AppProps } from "next/app"
 import { appWithTranslation } from "next-i18next"
@@ -10,16 +7,16 @@ import Head from "next/head"
 import { CacheProvider, EmotionCache } from "@emotion/react"
 import createEmotionCache from "../src/Definitions/Styled/createEmotionCache"
 import lightThemeOptions from "../src/Definitions/Styled/theme"
-import { ThemeProvider, CssBaseline, createTheme } from "@mui/material"
+import { ThemeProvider, CssBaseline, createTheme, Box } from "@mui/material"
 import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3"
 import { RootStoreProvider } from "@mobx"
+// Loading page
+import { useRouter } from 'next/router';
+import { useEffect } from 'react';
+import NProgress from 'nprogress';
 // Animation on scroll styles
 import "animate.css/animate.min.css";
-
-/**********************************************/
 /******************web3modal*******************/
-/**********************************************/
-
 import {
     EthereumClient,
     modalConnectors,
@@ -61,25 +58,14 @@ function WebApp(props: AirvertiseProps) {
     const { Component, pageProps } = props
     const lightTheme = createTheme(lightThemeOptions)
 
-    // Configure web3modal
-    // const modalConfig: ConfigOptions = {
-    //     projectId: props.walletConnectProjectId,
-    //     theme: "dark",
-    //     accentColor: "default",
-    //     ethereum: {
-    //         appName: "airvertise",
-    //         autoConnect: true,
-    //         chains: [chains.polygonMumbai],
-    //         providers: [
-    //             providers.walletConnectProvider({
-    //                 projectId: props.walletConnectProjectId,
-    //             }),
-    //             providers.infuraProvider({
-    //                 apiKey: props.infuraApiKey,
-    //             }),
-    //         ],
-    //     },
-    // }
+    const router = useRouter();
+
+    useEffect(() => {
+        router.events.on('routeChangeStart', () =>  console.log('start'));
+
+        router.events.on('routeChangeComplete', () =>  console.log('complete'));
+        router.events.on('routeChangeError', () =>  console.log('complete'));
+    }, []);
 
     return (
         <CacheProvider value={serverSideEmotionCache}>
@@ -105,9 +91,9 @@ function WebApp(props: AirvertiseProps) {
                         <>
                             <WagmiConfig client={wagmiClient}>
                                 <NavigationBar />
+                                {/* <Box sx={{ height: '4rem' }} /> */}
                                 <Component {...pageProps} />
                             </WagmiConfig>
-                            {/* <Web3Modal config={modalConfig} /> */}
                             <Web3Modal
                                 projectId={projectId}
                                 ethereumClient={ethereumClient}

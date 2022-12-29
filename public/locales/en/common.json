@@ -66,46 +66,51 @@
       "process1": {
         "id": "1.",
         "title": "Select target",
-        "info": "Select target addresses by providing a contract address, and upload promotional flyer to IPFS."
+        "info": "Target your desired audience for your DeFi product by simply providing a contract address. Choose from a variety of existing contracts to reach users from specific projects, and make sure your products or services are seen by the people who are most likely to explore your services."
       },
       "process2": {
         "id": "2.",
         "title": "Create campaign",
-        "info": "Campaign is created via a transaction to Airvertise contract, including campaign information along target addresses and individual fees."
+        "info": "Airvertise makes it easy to create a successful advertising campaign! Simply provide us with your campaign information, the target addresses from the previous step,  and the funds to transfer to users, and upload your promotional flyer to IPFS. We'll take care of the rest, delivering your content to the right people."
       },
       "process3": {
         "id": "3.",
         "title": "Claim reward",
-        "info": "Users get notified about airdrop, they open the flyer and they collect the fee."
+        "info": "Unlock rewards with just one click! Once you receive the airdrop notification, open the promotional flyer to collect your reward!"
       }
     },
     "feature": "Use cases",
-    "featureTitle1": "Events tickets",
-    "feature1": "NFTs is a revolutionary way of accessing events. The provide a secure and tamper-proof tickets, eliminating the possibility of counterfeit and scalping.",
-    "featureTitle2": "Promote NFT collection",
-    "feature2": "Airdrops are great way for spreading the word about your collection and providing an incentive for people to engage with it. Offer exclusive airdrops as small rewards so people keep up with the collection.",
-    "featureTitle3": "Exclusive subscriptions",
-    "feature3": "Token gated access for digital products where an NFT functions as a subscription for users",
+    "featureTitle1": "Promote NFT collection",
+    "feature1": "Airdrops are a great way for spreading the word about your collection and providing an incentive for people to engage with it. Target other similar collections to maximize the reach of your airdrops and get the most out of your promotion.",
+    "featureTitle2": "Advertise your product",
+    "feature2": "Are you looking to reach the right target audience and start getting users for your product, but don't know where to start? We can help you advertise your product in a highly cost-effective manner, so you can start seeing results right away!",
+    "featureTitle3": "Event tickets",
+    "feature3": "NFTs are a revolutionary way of accessing events. They provide secure and tamper-proof tickets, eliminating the possibility of counterfeiting and scalping. You can distribute tickets for your event using our contracts!",
     "leftImageText": "Start scaling your business by identifying and building an audience. Knowing your audience will help you create campaigns and increase your customer base.",
     "rightImageText": "Send invitations to events. Participating in events is a great way to spread the word about your product and get people talking about it. It’s also a great way to build relationships with potential customers.",
     "roadmap": {
       "roadmap": "Roadmap",
       "events": {
-        "title1": "Product launch",
-        "text1": "Launch application for starting a campaign",
-        "date1": "24/12",
-        "title2": "Catalog of contracts",
-        "text2": "Cool description 2",
-        "date2": "24/01",
-        "title3": "Marketing analytics dashboard",
-        "text3": "Cool description 3",
-        "date3": "24/02",
-        "title4": "Campaign quality rating",
-        "text4": "Cool description 4",
-        "date4": "24/03",
-        "title5": "Title 5",
-        "text5": "Cool description 5",
-        "date5": "24/04"
+        "event1": {
+          "title": "Product launch",
+          "text": "Fully supported advertising campaigns with a rewarding system for targeted users.",
+          "date": "Feb 23"
+        },
+        "event2": {
+          "title": "Catalog of contracts",
+          "text": "Choose between a selected list of the most popular contracts to target users that have interacted with these. ",
+          "date": "Q2 2023"
+        },
+        "event3": {
+          "title": "Marketing analytics dashboard",
+          "text": "Get insigths from your advertising campaign as viualization rate, visualization timeline and know exactly how effective your campaigns are.",
+          "date": "Q3 2024"
+        },
+        "event4": {
+          "title": "Campaign quality rating",
+          "text": "Users can rate the quality of the campaigns ad they receive to provide feedbakc to the advertiser.",
+          "date": "2024"
+        }
       }
     }    
   }

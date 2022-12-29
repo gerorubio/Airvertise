@@ -32,14 +32,14 @@ const UseCases: React.FunctionComponent<IUseCases.IProps> = () => {
             <Typography variant="h6" align="center">{t("home.leftImageText")}</Typography>
             <Grid container paddingTop={5}>
                 <Grid item md={6}>
-                    <img src="https://thesmsworks.co.uk/cdn-cgi/image/format=auto,onerror=redirect/public/images/free-SMS-reply-number.webp" style={{ maxWidth: '100%', height: 'auto' }} />
+                    <img src="https://static.vecteezy.com/system/resources/previews/008/506/601/original/money-and-finances-3d-icon-3d-rendering-png.png" style={{ maxWidth: '100%', height: 'auto' }} />
                 </Grid>
                 <Grid item md={6}>
-                    <Grid container>
+                    <Grid container spacing={1.5}>
                         {features.map((feature) => (
-                            <Grid key={feature.title} item md={12} paddingY={'1rem'}>
+                            <Grid key={feature.title} item md={12}>
                                 <AnimationOnScroll animateIn="animate__fadeIn" animateOnce>
-                                    <Card sx={{ width: '75%', mx: 'auto', height:'auto' }}>
+                                    <Card sx={{ width: '85%', mx: 'auto', height:'auto' }}>
                                         <CardContent>
                                         <Typography gutterBottom variant="h5" component="div">
                                             {t(feature.title)}

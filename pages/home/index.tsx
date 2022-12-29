@@ -23,7 +23,8 @@ const Home: NextPage<IHomePage.IProps> = () => {
 
     return (
         <React.Fragment>
-            <div style={{ background: 'linear-gradient(-14deg, #121212 87%, #FE7B26 92%, #FB145E 100%)' }}>
+            {/* <div style={{ background: 'linear-gradient(-14deg, #121212 87%, #FE7B26 92%, #FB145E 100%)' }}> */}
+            <>
                 <Hero />
                 <ProcessSection />
                 {/* Features */}
@@ -82,7 +83,7 @@ const Home: NextPage<IHomePage.IProps> = () => {
                     </Container>
                 </Box>
                 <ContactForm />
-            </div>
+            </>
             <FooterBar />
         </React.Fragment>
     )

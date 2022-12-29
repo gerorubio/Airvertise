@@ -42,75 +42,71 @@ const NavigationBar: React.FunctionComponent<INavigationBar.IProps> = () => {
     );
 
     return (
-        <Box sx={{ display: 'flex' }}>
-            <AppBar component="nav" position="sticky" sx={{ paddingY: '0.25rem' }}>
-                <Toolbar sx={{ display: 'flex', justifyContent: 'space-between', width: {xs: '100%', md: '75%'}, margin: 'auto'}} >
-                <IconButton
-                    color="inherit"
-                    aria-label="open drawer"
-                    edge="start"
-                    onClick={handleDrawerToggle}
-                    sx={{ display: { sm: 'none' } }}
-                >
-                    <MenuIcon />
-                </IconButton>
-                <Link href="/home">
-                    <img src="/assets/logo/LogoNameAirvertiseTexture.png" style={{ maxHeight: '4rem' }}/>
-                </Link>
-                { path == '/app' ?
-                    // <Button variant="contained" onClick={onConnectWalletClicked} sx={{ display: { sm: 'none' } }}>
-                    //     {t("components.navigationBar.connectWallet")}
-                    // </Button>
-                    <Box sx={{ display: { sm: 'none' } }}>
-                        <Web3Button />
-                    </Box>
-                    :
-                    <Button href="/app" variant="contained" sx={{ display: { sm: 'none' } }}>
-                        Launch App
-                    </Button>
-                }
-                <Box sx={{ display: {xs: 'none', sm: 'block'} }}>
-                    {navItems.map((item) => (
-                        <Link key={item} href={'/' + item} underline='none' px={4} sx={{color: '#fff', textTransform:'uppercase', fontWeight: 600}}>{item}</Link>
-                    ))}
-                </Box>
-                <Stack direction={'row'} spacing={1}>
+        <>
+            <AppBar component="nav" position="sticky">
+                <Toolbar sx={{ display: 'flex', justifyContent: 'space-between', width: {xs: '100%', md: '90%'}, marginX: 'auto'}} >
+                    {/* Menu de hamburguesa */}
+                    <IconButton
+                        color="inherit"
+                        aria-label="open drawer"
+                        edge="start"
+                        onClick={handleDrawerToggle}
+                        sx={{ display: { md: 'none' } }}
+                    >
+                        <MenuIcon />
+                    </IconButton>
+                    {/* Logo */}
+                    <Link href="/home">
+                        <img src="/assets/logo/LogoNameAirvertiseTexture.png" style={{ maxHeight: '4rem', margin: 'auto' }}/>
+                    </Link>
+
                     { path == '/app' ?
-                        // <Button variant="contained" onClick={onConnectWalletClicked} sx={{ display: { xs: 'none', sm: 'block' } }}>
-                        //     {t("components.navigationBar.connectWallet")}
-                        // </Button>
-                        <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
+                        <Box sx={{ display: { md: 'none' } }}>
                             <Web3Button />
                         </Box>
                         :
-                        <Button href="/app" variant="contained" sx={{ display: { xs: 'none', sm: 'block' } }}>
+                        <Button href="/app" variant="contained" sx={{ display: { md: 'none' } }}>
                             Launch App
                         </Button>
                     }
-                    <Button href="/claim" variant="contained" sx={{ display: { xs: 'none', sm: 'block' } }}>
-                        Claim incentive
-                    </Button>
-                </Stack>
-                
+                    <Box sx={{ display: {xs: 'none', md: 'block'} }}>
+                        {navItems.map((item) => (
+                            <Link key={item} href={'/' + item} underline='none' px={4} sx={{color: '#fff', textTransform:'uppercase', fontWeight: 600}}>{item}</Link>
+                        ))}
+                    </Box>
+                    <Stack direction={'row'} spacing={0.5}>
+                        { path == '/app' ?
+                            <Box sx={{ display: { xs: 'none', md: 'block' } }}>
+                                <Web3Button />
+                            </Box>
+                            :
+                            <Button href="/app" variant="contained" sx={{ display: { xs: 'none', md: 'block' } }}>
+                                Launch App
+                            </Button>
+                        }
+                        <Button href="/claim" variant="contained" sx={{ display: { xs: 'none', md: 'block' } }}>
+                            Claim incentive
+                        </Button>
+                    </Stack>
                 </Toolbar>
             </AppBar>
             <Box component="nav">
                 <Drawer
-                variant="temporary"
-                open={mobileOpen}
-                onClose={handleDrawerToggle}
-                ModalProps={{
-                    keepMounted: true, // Better open performance on mobile.
-                }}
-                sx={{
-                    display: { xs: 'block', lg: 'none' },
-                    '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
-                }}
+                    variant="temporary"
+                    open={mobileOpen}
+                    onClose={handleDrawerToggle}
+                    ModalProps={{
+                        keepMounted: true, // Better open performance on mobile.
+                    }}
+                    sx={{
+                        display: { xs: 'block', lg: 'none' },
+                        '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
+                    }}
                 >
-                {drawer}
+                    {drawer}
                 </Drawer>
             </Box>
-        </Box>
+        </>
     )
 }
 export default NavigationBar

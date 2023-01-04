@@ -21,32 +21,27 @@ const Roadmap: React.FunctionComponent<IRoadmap.IProps> = () => {
         {
             "title": "home.roadmap.events.event1.title",
             "text": "home.roadmap.events.event1.text",
-            "date": "home.roadmap.events.event1.date",
-            "color": "#FB145E"
+            "date": "home.roadmap.events.event1.date"
         },
         {
             "title": "home.roadmap.events.event2.title",
             "text": "home.roadmap.events.event2.text",
-            "date": "home.roadmap.events.event2.date",
-            "color": "#FE7B26"
+            "date": "home.roadmap.events.event2.date"
         },
         {
             "title": "home.roadmap.events.event3.title",
             "text": "home.roadmap.events.event3.text",
-            "date": "home.roadmap.events.event3.date",
-            "color": "#1470fb"
+            "date": "home.roadmap.events.event3.date"
         },
         {
             "title": "home.roadmap.events.event4.title",
             "text": "home.roadmap.events.event4.text",
-            "date": "home.roadmap.events.event4.date",
-            "color": "#c01caa"
+            "date": "home.roadmap.events.event4.date"
         },
         {
             "title": "home.roadmap.events.event5.title",
             "text": "home.roadmap.events.event5.text",
-            "date": "home.roadmap.events.event5.date",
-            "color": "#c01caa"
+            "date": "home.roadmap.events.event5.date"
         }
     ]
 
@@ -77,7 +72,7 @@ const Roadmap: React.FunctionComponent<IRoadmap.IProps> = () => {
                                         <Typography sx={{display: {md: 'none'}}}>
                                             {t(item.date)}
                                         </Typography>
-                                        <Typography variant="h5" component="span" textAlign={'justify'} sx={{ color: item.color }}>
+                                        <Typography variant="h5" component="span" textAlign={'justify'} sx={{ color: '#c01caa' }}>
                                             {t(item.title)}
                                         </Typography>
                                         <Typography variant="subtitle1">

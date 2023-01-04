@@ -68,40 +68,43 @@ const ClaimNft: NextPage<IClaimNftPage.IProps> = ({ pageReference }) => {
 
     return (
         <React.Fragment>
-            <Container sx={{ marginY: '1rem', padding: '1rem', backgroundImage: "url('/assets/logo/Texture.png')", backgroundSize: 'cover', borderRadius: '1rem' }}>
-                    <Grid container spacing={1}>
-                        <Grid item md={6} >
-                            <Card sx={{ padding: '0.75rem' }}>
-                                <img src={image[0]} style={{ width: '100%', height: 'auto' }} onClick={ () => openImageViewer() } />
-                                {isViewerOpen && (
-                                    <ImageViewer
-                                        src={ image }
-                                        currentIndex={ 0 }
-                                        disableScroll={ false }
-                                        closeOnClickOutside={ true }
-                                        backgroundStyle={{
-                                            backgroundColor: "rgba(0,0,0,0.75)"
-                                        }}
-                                        onClose={ closeImageViewer }
-                                    />
-                                )}
-                            </Card>
-                        </Grid>
-                        <Grid item md={6} justifyContent="center" alignItems="center" >
-                            <Stack justifyContent="center" alignItems="center">
-                                <Typography variant="h1" gutterBottom>Nature Art</Typography>
-                                <Typography variant="subtitle1" align="justify" gutterBottom>
-                                    Nature Art is a collection of Non-Fungible Tokens (NFTs) that celebrates nature and its beauty. Each token is a digital representation of an original artwork created by an artist, inspired by the natural world. The artwork is either abstract or realistic and can range from vibrant, detailed paintings of animals and plants to more minimalist, abstract works of art. The NFTs are unique, one-of-a-kind, and can never be duplicated. They are stored on the blockchain, providing a secure and immutable record of ownership. Nature Art is the perfect way to bring nature into your home and enjoy true works of art.
-                                </Typography>
-                                <Button variant="contained" sx={{ marginY:'0.5rem' }} onClick={getRecaptchaToken} disabled={btnEnable}>
-                                    Claim reward
-                                </Button>
-                                <Typography variant="caption" gutterBottom>Click the image to claim your reward</Typography>
-                            </Stack>
-                        </Grid>
-                    </Grid>
-            </Container>
-            <FooterBar />
+            <Box sx={{ backgroundImage: 'url("/assets/logo/Texture.png")', backgroundSize: 'cover', minHeight: '93vh', width: '100%', position: 'absolute', display: 'flex', alignItems: 'center' }}>
+                <Container>
+                    <Card sx={{ padding: '0.5rem' }}>
+                        <CardContent>
+                            <Grid container spacing={2}>
+                                <Grid item md={6} >
+                                    <img src={image[0]} style={{ width: '100%', height: 'auto' }} onClick={ () => openImageViewer() } />
+                                    {isViewerOpen && (
+                                        <ImageViewer
+                                            src={ image }
+                                            currentIndex={ 0 }
+                                            disableScroll={ false }
+                                            closeOnClickOutside={ true }
+                                            backgroundStyle={{
+                                                backgroundColor: "rgba(0,0,0,0.75)"
+                                            }}
+                                            onClose={ closeImageViewer }
+                                        />
+                                    )}
+                                </Grid>
+                                <Grid item md={6} display="flex" flexDirection="column" justifyContent="space-evenly" justifyItems="flex-end" alignItems="center">
+                                    <Typography variant="h1" gutterBottom>Nature Art</Typography>
+                                    <Typography variant="subtitle1" align="justify" gutterBottom>
+                                        Nature Art is a collection of Non-Fungible Tokens (NFTs) that celebrates nature and its beauty. Each token is a digital representation of an original artwork created by an artist, inspired by the natural world. The artwork is either abstract or realistic and can range from vibrant, detailed paintings of animals and plants to more minimalist, abstract works of art. The NFTs are unique, one-of-a-kind, and can never be duplicated. They are stored on the blockchain, providing a secure and immutable record of ownership. Nature Art is the perfect way to bring nature into your home and enjoy true works of art.
+                                    </Typography>
+                                    <Stack>
+                                        <Button variant="contained" sx={{ marginY:'0.5rem' }} onClick={getRecaptchaToken} disabled={btnEnable}>
+                                            Claim reward
+                                        </Button>
+                                        <Typography variant="caption" gutterBottom>Click the image to claim your reward</Typography>
+                                    </Stack>
+                                </Grid>
+                            </Grid>
+                        </CardContent>
+                    </Card>
+                </Container>
+            </Box>
         </React.Fragment>
     )
 }

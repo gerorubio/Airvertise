@@ -56,10 +56,9 @@ const NavigationBar: React.FunctionComponent<INavigationBar.IProps> = () => {
                         <MenuIcon />
                     </IconButton>
                     {/* Logo */}
-                    <Link href="/home">
-                        <img src="/assets/logo/LogoNameAirvertiseTexture.png" style={{ maxHeight: '4rem', margin: 'auto' }}/>
-                    </Link>
-
+                    <Box component={Link} href="/home" display='flex' justifyContent='center' p={0.5}>
+                        <img src="/assets/logo/LogoNameAirvertiseTexture.png" style={{ maxHeight: '4rem', height: '100%' }}/>
+                    </Box>
                     { path == '/app' ?
                         <Box sx={{ display: { md: 'none' } }}>
                             <Web3Button />
@@ -87,7 +86,7 @@ const NavigationBar: React.FunctionComponent<INavigationBar.IProps> = () => {
                         { path == '/app' ?
                             <></>
                             :
-                            <Button href="/claim" variant="contained" sx={{ display: { xs: 'none', md: 'block' }, backgroundImage: 'url("/assets/logo/Texture.png")', backgroundSize: 'cover', color: '#000000' }}>
+                            <Button href="/claim" variant="contained" sx={{ display: { xs: 'none', md: 'block' }, background: 'linear-gradient(170deg, rgba(251,20,94,1) 0%, rgba(254,123,38,1) 50%, rgba(119,6,89,1) 100%)', color: '#fafafa' }}>
                                 Claim incentive
                             </Button>
                         }

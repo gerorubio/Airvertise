@@ -17,7 +17,7 @@ const FooterBar: React.FunctionComponent<IFooterBar.IProps> = () => {
                 <Grid item md={3} />
                 <Grid item md={6} display={'flex'} justifyContent={'center'}>
                     <Stack spacing={2}>
-                        <img src="/assets/logo/LogoNameAirvertiseBlack.png" style={{ width: '30%', marginRight: 'auto', marginLeft: 'auto' }} />
+                        <img src="/assets/logo/LogoNameAirvertiseBlack.png" style={{ width: '25%', marginRight: 'auto', marginLeft: 'auto' }} />
                         <Typography variant="subtitle1" align="center">Copyright © 2022 Airvertise Inc.</Typography>
                     </Stack>
                 </Grid>

@@ -71,12 +71,12 @@
       "process2": {
         "id": "2.",
         "title": "Create campaign",
-        "info": "Airvertise makes it easy to create a successful advertising campaign! Simply provide us with your campaign information, the target addresses from the previous step,  and the funds to transfer to users, and upload your promotional flyer to IPFS. We'll take care of the rest, delivering your content to the right people."
+        "info": "Airvertise makes it easy to create a successful advertising campaign! Simply provide us with your campaign information, the target addresses from the previous step, the funds to transfer to users, and upload your promotional flyer to IPFS. We'll take care of the rest, delivering your content to the right people. Unclaimed airdrops can be later fully refunded to make your campaigns more cost-effective!"
       },
       "process3": {
         "id": "3.",
         "title": "Claim reward",
-        "info": "Unlock rewards with just one click! Once you receive the airdrop notification, open the promotional flyer to collect your reward!"
+        "info": "Users can unlock rewards with just one click! Once you receive the airdrop notification, open the promotional flyer to collect your reward!"
       }
     },
     "feature": "Use cases",
@@ -84,8 +84,8 @@
     "feature1": "Airdrops are a great way for spreading the word about your collection and providing an incentive for people to engage with it. Target other similar collections to maximize the reach of your airdrops and get the most out of your promotion.",
     "featureTitle2": "Advertise your product",
     "feature2": "Are you looking to reach the right target audience and start getting users for your product, but don't know where to start? We can help you advertise your product in a highly cost-effective manner, so you can start seeing results right away!",
-    "featureTitle3": "Event tickets",
-    "feature3": "NFTs are a revolutionary way of accessing events. They provide secure and tamper-proof tickets, eliminating the possibility of counterfeiting and scalping. You can distribute tickets for your event using our contracts!",
+    "featureTitle3": "Target event assistants",
+    "feature3": "By harnessing the power of innovative platforms that utilize NFTs as event tickets, you can easily reach and engage with individuals who have attended a particular event. This allows you to effectively target and connect with a specific group of people who have already demonstrated an interest in the type of experience or entertainment you offer.",
     "leftImageText": "Start scaling your business by identifying and building an audience. Knowing your audience will help you create campaigns and increase your customer base.",
     "rightImageText": "Send invitations to events. Participating in events is a great way to spread the word about your product and get people talking about it. It’s also a great way to build relationships with potential customers.",
     "roadmap": {
@@ -97,24 +97,24 @@
           "date": "Feb 23"
         },
         "event2": {
-          "title": "Catalog of contracts",
-          "text": "Choose between a selected list of the most popular contracts to target users that have interacted with these. ",
+          "title": "Extend supported blockchains",
+          "text": "Deploy Airvertise smart contracts to well-kwown blockchains so customers can choose deploy campaign ads to a wide variety of chains. Add support for airdrop notifications to end users.",
           "date": "Q2 2023"
         },
         "event3": {
-          "title": "Marketing analytics dashboard",
-          "text": "Get insigths from your advertising campaign as viualization rate, visualization timeline and know exactly how effective your campaigns are.",
-          "date": "Q3 2024"
+          "title": "Notifications and Catalog of contracts",
+          "text": "Users get a notification when the airdrop is received, also advertisers can choose between a selected list of the most popular contracts to target users that have interacted with these.",
+          "date": "Q3 2023"
         },
         "event4": {
-          "title": "Campaign quality rating",
-          "text": "Users can rate the quality of the campaigns ad they receive to provide feedbakc to the advertiser.",
-          "date": "2024"
+          "title": "Marketing analytics dashboard",
+          "text": "Get insights from your advertising campaign as viualization rate, visualization timeline and know exactly how effective your campaigns are.",
+          "date": "Q4 2024"
         },
         "event5": {
           "title": "Campaign quality rating",
           "text": "Users can rate the quality of the campaigns ad they receive to provide feedbakc to the advertiser.",
-          "date": "2024"
+          "date": "2025"
         }
       }
     }    

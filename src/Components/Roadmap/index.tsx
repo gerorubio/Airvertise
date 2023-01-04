@@ -41,6 +41,12 @@ const Roadmap: React.FunctionComponent<IRoadmap.IProps> = () => {
             "text": "home.roadmap.events.event4.text",
             "date": "home.roadmap.events.event4.date",
             "color": "#c01caa"
+        },
+        {
+            "title": "home.roadmap.events.event5.title",
+            "text": "home.roadmap.events.event5.text",
+            "date": "home.roadmap.events.event5.date",
+            "color": "#c01caa"
         }
     ]
 

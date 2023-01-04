@@ -84,9 +84,13 @@ const NavigationBar: React.FunctionComponent<INavigationBar.IProps> = () => {
                                 Launch App
                             </Button>
                         }
-                        <Button href="/claim" variant="contained" sx={{ display: { xs: 'none', md: 'block' } }}>
-                            Claim incentive
-                        </Button>
+                        { path == '/app' ?
+                            <></>
+                            :
+                            <Button href="/claim" variant="contained" sx={{ display: { xs: 'none', md: 'block' }, backgroundImage: 'url("/assets/logo/Texture.png")', backgroundSize: 'cover', color: '#000000' }}>
+                                Claim incentive
+                            </Button>
+                        }
                     </Stack>
                 </Toolbar>
             </AppBar>

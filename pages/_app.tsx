@@ -91,7 +91,6 @@ function WebApp(props: AirvertiseProps) {
                         <>
                             <WagmiConfig client={wagmiClient}>
                                 <NavigationBar />
-                                {/* <Box sx={{ height: '4rem' }} /> */}
                                 <Component {...pageProps} />
                             </WagmiConfig>
                             <Web3Modal

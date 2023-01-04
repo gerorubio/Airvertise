@@ -12,6 +12,7 @@ import { AirvertiseContractService } from "@Services/Contracts/AirvertiseContrac
 import { ethers } from "ethers"
 import { Signer } from "ethers"
 import CampaignForm from "@Components/CampaignForm"
+import { Box } from "@mui/material"
 
 const App: NextPage<IHomePage.IProps> = () => {
     const router = useRouter()
@@ -60,7 +61,9 @@ const App: NextPage<IHomePage.IProps> = () => {
 
     return (
         <React.Fragment>
-            <CampaignForm />
+            <Box sx={{ backgroundImage: 'url("/assets/logo/Texture.png")', backgroundSize: 'cover', minHeight: '100vh', width: '100%', position: 'absolute' }}>
+                <CampaignForm />
+            </Box>
         </React.Fragment>
     )
 }

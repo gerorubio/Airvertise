@@ -10,6 +10,7 @@ import { ClaimNftService } from "@Services"
 import { IClaimNftPayload } from "src/Pages/ClaimNft/IClaimNftPayload"
 import { Container, Box, Stack, Card, CardMedia, CardContent, Grid, Typography } from "@mui/material"
 import ImageViewer from 'react-simple-image-viewer';
+import FooterBar from "@Components/FooterBar"
 
 const ClaimNft: NextPage<IClaimNftPage.IProps> = ({ pageReference }) => {
     const [recaptchaToken, setRecaptchaToken] = useState("")
@@ -67,11 +68,10 @@ const ClaimNft: NextPage<IClaimNftPage.IProps> = ({ pageReference }) => {
 
     return (
         <React.Fragment>
-            <Box sx={{ backgroundImage: "url('/assets/logo/Texture.png')", backgroundSize: 'cover' }}>
-                <Container>
-                    <Grid container spacing={2} py={5}>
+            <Container sx={{ marginY: '1rem', padding: '1rem', backgroundImage: "url('/assets/logo/Texture.png')", backgroundSize: 'cover', borderRadius: '1rem' }}>
+                    <Grid container spacing={1}>
                         <Grid item md={6} >
-                            <Card sx={{ padding: '1rem' }}>
+                            <Card sx={{ padding: '0.75rem' }}>
                                 <img src={image[0]} style={{ width: '100%', height: 'auto' }} onClick={ () => openImageViewer() } />
                                 {isViewerOpen && (
                                     <ImageViewer
@@ -100,8 +100,8 @@ const ClaimNft: NextPage<IClaimNftPage.IProps> = ({ pageReference }) => {
                             </Stack>
                         </Grid>
                     </Grid>
-                </Container>
-            </Box>
+            </Container>
+            <FooterBar />
         </React.Fragment>
     )
 }

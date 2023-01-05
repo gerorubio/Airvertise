@@ -1,3 +1,7 @@
+@font-face {
+    font-family: "Bahnschrift";
+    src: local("Bahnschrift");
+}
 
 html {
     scroll-behavior: smooth;

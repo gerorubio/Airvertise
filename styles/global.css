@@ -16,7 +16,7 @@ body {
 }
 
 .MuiTypography-root {
-    font-family: 'Bahnschrift';
+    font-family: 'Bahnschrift', sans-serif;
 }
 
 .inputRounded .MuiOutlinedInput-root{

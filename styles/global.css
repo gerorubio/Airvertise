@@ -8,7 +8,7 @@ body {
 }
 * {
     box-sizing: border-box;
-    font-family: 'Bahnschrift';
+    font-family: 'Bahnschrift', sans-serif;
 }
 
 .MuiTypography-root {

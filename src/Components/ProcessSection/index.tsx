@@ -37,7 +37,7 @@ const ProcessSection: React.FunctionComponent<IProcessSection.IProps> = () => {
       return(
         <Grid key={step.id} item xs={12} md={4} lg={4} paddingY={5}>
           <AnimationOnScroll animateIn="animate__fadeInLeft" animateOnce>
-            <Card sx={{ height: '40rem' }}>
+            <Card sx={{ height: '38rem' }}>
               <CardMedia
                 component={'img'}
                 src={step.image}
@@ -47,8 +47,8 @@ const ProcessSection: React.FunctionComponent<IProcessSection.IProps> = () => {
                 <Stack>
                   <Typography variant="h5" align="center">{ t(step.id) } { t(step.title) }</Typography>
                   <KeyboardDoubleArrowRightIcon sx={{display: {xs: 'none', md: 'block'}, fontSize: '3.5rem', alignSelf: 'center'}} />
-                  <Typography variant="subtitle1" textAlign='justify'>{ t(step.info) }</Typography>
                   <KeyboardDoubleArrowDownIcon sx={{display: {xs: 'block', md: 'none'}, fontSize: '3.5rem', alignSelf: 'center'}} />
+                  <Typography textAlign='justify'>{ t(step.info) }</Typography>
                 </Stack>
               </CardContent>
             </Card>
@@ -61,7 +61,7 @@ const ProcessSection: React.FunctionComponent<IProcessSection.IProps> = () => {
       <Container sx={{ height: { md: '100vh' }, display: 'flex', justifyContent: 'center', alignItems: 'center' }} id={'Process'}>
         <Box>
           <Typography variant="h3" align="center" sx={{ paddingY: '2rem' }} gutterBottom >How it works?</Typography>
-          <Grid container spacing={4}>
+          <Grid container spacing={3}>
             { stepsDisplay }
           </Grid>
         </Box>

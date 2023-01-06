@@ -1,5 +1,6 @@
 import * as React from "react";
-import { AppBar, Box, Container, Toolbar, Typography, Button, IconButton, Divider, List, ListItem, ListItemText, ListItemButton, Drawer, Link, Stack } from "@mui/material";
+import Link from 'next/link';
+import { AppBar, Box, Container, Toolbar, Typography, Button, IconButton, Divider, List, ListItem, ListItemText, ListItemButton, Drawer, Link as MuiLink, Stack } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import { INavigationBar } from "./NavigationBar";
 import { useTranslation } from "next-i18next";
@@ -20,13 +21,13 @@ const NavigationBar: React.FunctionComponent<INavigationBar.IProps> = () => {
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
     };
-
+    
     const drawer = (
         <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }} color="secondary" >
             <Container>
-                <Link href="/home">
+                <MuiLink component={Link} href="/home">
                     <img src="/assets/logo/LogoNameAirvertiseTexture.png" style={{ maxWidth: '100%', height: 'auto', margin: 0, padding: 0 }} />
-                </Link>
+                </MuiLink>
             </Container>
             <Divider />
             <List>
@@ -64,31 +65,35 @@ const NavigationBar: React.FunctionComponent<INavigationBar.IProps> = () => {
                             <Web3Button />
                         </Box>
                         :
-                        <Button href="/app" variant="contained" sx={{ display: { md: 'none' } }}>
-                            Launch App
+                        <Button href="/claim" variant="contained" sx={{ display: { md: 'none' }, background: 'linear-gradient(170deg, rgba(251,20,94,1) 0%, rgba(254,123,38,1) 50%, rgba(119,6,89,1) 100%)', color: '#fafafa' }}>
+                            Claim incentive
                         </Button>
                     }
-                    <Box sx={{ display: {xs: 'none', md: 'block'} }}>
+                    <Box sx={{ display: {xs: 'none', md: 'flex'}, justifyContent: 'space-evenly', width: '50%' }}>
                         {navItems.map((item) => (
-                            <Link key={item} href={'/' + item} underline='none' px={4} sx={{color: '#fff', textTransform:'uppercase', fontWeight: 600}}>{item}</Link>
+                            <Link key={item} href={'/' + item} >
+                                <a style={{ color: '#fff', textTransform:'uppercase', fontWeight: 600, textDecoration: 'none' }}>
+                                    {item}
+                                </a>
+                            </Link>
                         ))}
                     </Box>
                     <Stack direction={'row'} spacing={0.5}>
-                        { path == '/app' ?
-                            <Box sx={{ display: { xs: 'none', md: 'block' } }}>
-                                <Web3Button />
-                            </Box>
-                            :
+                        { path == '/home' ?
                             <Button href="/app" variant="contained" sx={{ display: { xs: 'none', md: 'block' } }}>
                                 Launch App
                             </Button>
-                        }
-                        { path == '/app' ?
-                            <></>
                             :
+                            <Box sx={{ display: { xs: 'none', md: 'block' } }}>
+                                <Web3Button />
+                            </Box>
+                        }
+                        { path == '/home' ?
                             <Button href="/claim" variant="contained" sx={{ display: { xs: 'none', md: 'block' }, background: 'linear-gradient(170deg, rgba(251,20,94,1) 0%, rgba(254,123,38,1) 50%, rgba(119,6,89,1) 100%)', color: '#fafafa' }}>
                                 Claim incentive
                             </Button>
+                            :
+                            <></>
                         }
                     </Stack>
                 </Toolbar>

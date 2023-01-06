@@ -84,6 +84,7 @@
     "react-simple-image-viewer": "^1.2.2",
     "react-spinners": "^0.13.7",
     "sass": "^1.55.0",
+    "spinkit": "^2.0.1",
     "styled-components": "^5.3.6",
     "tss-react": "^4.1.4",
     "typewriter-effect": "^2.19.0",

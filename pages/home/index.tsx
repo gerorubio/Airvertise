@@ -29,29 +29,6 @@ const Home: NextPage<IHomePage.IProps> = () => {
                 <ProcessSection />
                 {/* Features */}
                 <UseCases />
-                {/* More info */}
-                {/* <Box px={5}>
-                    <Grid container spacing={0}
-                        alignItems="center"
-                        justifyContent="center"
-                        style={{ minHeight: '60vh' }}>
-                        <Grid item md={1} />
-                        <Grid item md={3}>
-                            <Container sx={{width: {sx: '50%', lg: '75%'}, marginX: 'auto'}}>
-                                <Typography variant="h6">{t("home.leftImageText")}</Typography>
-                            </Container>
-                        </Grid>
-                        <Grid item md={4}>
-                            <img src="https://static.vecteezy.com/system/resources/previews/008/506/601/original/money-and-finances-3d-icon-3d-rendering-png.png" style={{width: '100%'}}/>
-                        </Grid>
-                        <Grid item md={3}>
-                            <Container sx={{width: {sx: '50%', lg: '75%'}, marginX: 'auto'}}>
-                                <Typography variant="h6">{t("home.rightImageText")}</Typography>
-                            </Container>
-                        </Grid>
-                        <Grid item md={1} />
-                    </Grid>
-                </Box> */}
                 {/* Roadmap */}
                 <Roadmap />
                 {/* Chains */}

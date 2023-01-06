@@ -71,12 +71,12 @@
       "process2": {
         "id": "2.",
         "title": "Create campaign",
-        "info": "Airvertise makes it easy to create a successful advertising campaign! Simply provide us with your campaign information, the target addresses from the previous step, the funds to transfer to users, and upload your promotional flyer to IPFS. We'll take care of the rest, delivering your content to the right people. Unclaimed airdrops can be later fully refunded to make your campaigns more cost-effective!"
+        "info": "Airvertise makes it easy to create a successful advertising campaign! Simply provide us with your campaign information, the target addresses from the previous step, the funds to transfer to users, and upload your promotional flyer to IPFS. We'll take care of the rest, delivering your content to the right people. "
       },
       "process3": {
         "id": "3.",
         "title": "Claim reward",
-        "info": "Users can unlock rewards with just one click! Once you receive the airdrop notification, open the promotional flyer to collect your reward!"
+        "info": "Users can unlock rewards with just one click! Once you receive the airdrop notification, open the promotional flyer to collect your reward! Unclaimed airdrops can be later fully refunded to make your campaigns more cost-effective!"
       }
     },
     "feature": "Use cases",
@@ -113,7 +113,7 @@
         },
         "event5": {
           "title": "Campaign quality rating",
-          "text": "Users can rate the quality of the campaigns ad they receive to provide feedbakc to the advertiser.",
+          "text": "By rating the ads you receive, users can provide valuable feedback to the advertiser and help shape the future of their campaigns.",
           "date": "2025"
         }
       }

@@ -1,6 +1,6 @@
 import * as React from "react";
 import Link from 'next/link';
-import { AppBar, Box, Container, Toolbar, Typography, Button, IconButton, Divider, List, ListItem, ListItemText, ListItemButton, Drawer, Link as MuiLink, Stack } from "@mui/material";
+import { AppBar, Box, Container, Toolbar, Button, IconButton, Divider, List, ListItem, ListItemText, ListItemButton, Drawer, Link as MuiLink, Stack } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import { INavigationBar } from "./NavigationBar";
 import { useTranslation } from "next-i18next";
@@ -44,7 +44,7 @@ const NavigationBar: React.FunctionComponent<INavigationBar.IProps> = () => {
 
     return (
         <>
-            <AppBar component="nav" position="sticky">
+            <AppBar component="nav" position="sticky" sx={{ paddingY: '0.25rem' }}>
                 <Toolbar sx={{ display: 'flex', justifyContent: 'space-between', width: {xs: '100%', md: '90%'}, marginX: 'auto'}} >
                     {/* Menu de hamburguesa */}
                     <IconButton
@@ -65,9 +65,11 @@ const NavigationBar: React.FunctionComponent<INavigationBar.IProps> = () => {
                             <Web3Button />
                         </Box>
                         :
-                        <Button href="/claim" variant="contained" sx={{ display: { md: 'none' }, background: 'linear-gradient(170deg, rgba(251,20,94,1) 0%, rgba(254,123,38,1) 50%, rgba(119,6,89,1) 100%)', color: '#fafafa' }}>
-                            Claim incentive
-                        </Button>
+                        <Link href={'/claim'}>
+                            <Button variant="contained" sx={{ display: { md: 'none' }, background: 'linear-gradient(170deg, rgba(251,20,94,1) 0%, rgba(254,123,38,1) 50%, rgba(119,6,89,1) 100%)', color: '#fafafa' }}>
+                                Claim incentive
+                            </Button>
+                        </Link>
                     }
                     <Box sx={{ display: {xs: 'none', md: 'flex'}, justifyContent: 'space-evenly', width: '50%' }}>
                         {navItems.map((item) => (
@@ -80,18 +82,23 @@ const NavigationBar: React.FunctionComponent<INavigationBar.IProps> = () => {
                     </Box>
                     <Stack direction={'row'} spacing={0.5}>
                         { path == '/home' ?
-                            <Button href="/app" variant="contained" sx={{ display: { xs: 'none', md: 'block' } }}>
-                                Launch App
-                            </Button>
+                            <Link href={'/app'}>
+                                <Button href="/app" variant="contained" sx={{ display: { xs: 'none', md: 'block' } }}>
+                                    Launch App
+                                </Button>
+                            </Link>
                             :
                             <Box sx={{ display: { xs: 'none', md: 'block' } }}>
                                 <Web3Button />
                             </Box>
                         }
                         { path == '/home' ?
-                            <Button href="/claim" variant="contained" sx={{ display: { xs: 'none', md: 'block' }, background: 'linear-gradient(170deg, rgba(251,20,94,1) 0%, rgba(254,123,38,1) 50%, rgba(119,6,89,1) 100%)', color: '#fafafa' }}>
-                                Claim incentive
-                            </Button>
+                            <Link href={'/claim'}>
+                                <Button variant="contained" sx={{ display: { xs: 'none', md: 'block' }, background: 'linear-gradient(170deg, rgba(251,20,94,1) 0%, rgba(254,123,38,1) 50%, rgba(119,6,89,1) 100%)', color: '#fafafa' }}>
+                                    Claim incentive
+                                </Button>
+                            </Link>
+                            
                             :
                             <></>
                         }

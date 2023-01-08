@@ -61,16 +61,15 @@ function WebApp(props: AirvertiseProps) {
 
     const [loading, setLoading] = useState(false)
     useEffect(() => {
+        
         // Used for page transition
         const start = () => {
             setLoading(true);
-            console.log('start');
         }
         const end = () => {
             setTimeout(() => {
                 setLoading(false);
-            }, 2000);
-            console.log('end');
+            }, 1000);
         }
         Router.events.on("routeChangeStart", start)
         Router.events.on("routeChangeComplete", end)

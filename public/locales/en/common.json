@@ -10,7 +10,8 @@
   },
   "components": {
     "navigationBar": {
-      "connectWallet": "Connect Wallet"
+      "connectWallet": "Connect Wallet",
+      "claimIncentive": "Claim incentive"
     }
   },
   "campaignForm": {
@@ -54,29 +55,35 @@
     "createCampaign": "Create Campaign"
   },
   "home": {
-    "heroTitle": {
-      "1": "Decentralized",
-      "2": "Transparent",
-      "3": "Crypto"
+    "hero": {
+      "title": {
+        "1": "Decentralized",
+        "2": "Transparent",
+        "3": "Crypto"
+      },
+      "marketing": "Marketing",
+      "info": "Launch targeted advertisement campaigns via airdrops along with economic incentives.",
+      "start": "Start",
+      "learn": "Learn more"
     },
-    "heroSystem": "Marketing",
-    "heroInfo": "Launch targeted advertisement campaigns via airdrops along with economic incentives.",
-    "heroButton": "Start",
-    "processes": {
-      "process1": {
-        "id": "1.",
-        "title": "Select target",
-        "info": "Target your desired audience for your DeFi product by simply providing a contract address. Choose from a variety of existing contracts to reach users from specific projects, and make sure your products or services are seen by the people who are most likely to explore your services."
-      },
-      "process2": {
-        "id": "2.",
-        "title": "Create campaign",
-        "info": "Airvertise makes it easy to create a successful advertising campaign! Simply provide us with your campaign information, the target addresses from the previous step, the funds to transfer to users, and upload your promotional flyer to IPFS. We'll take care of the rest, delivering your content to the right people. "
-      },
-      "process3": {
-        "id": "3.",
-        "title": "Claim reward",
-        "info": "Users can unlock rewards with just one click! Once you receive the airdrop notification, open the promotional flyer to collect your reward! Unclaimed airdrops can be later fully refunded to make your campaigns more cost-effective!"
+    "process": {
+      "title": "How does it work?",
+      "processes": {
+        "process1": {
+          "id": "1.",
+          "title": "Select target",
+          "info": "Target your desired audience for your DeFi product by simply providing a contract address. Choose from a variety of existing contracts to reach users from specific projects, and make sure your products or services are seen by the people who are most likely to explore your services."
+        },
+        "process2": {
+          "id": "2.",
+          "title": "Create campaign",
+          "info": "Airvertise makes it easy to create a successful advertising campaign! Simply provide us with your campaign information, the target addresses from the previous step, the funds to transfer to users, and upload your promotional flyer to IPFS. We'll take care of the rest, delivering your content to the right people. "
+        },
+        "process3": {
+          "id": "3.",
+          "title": "Claim reward",
+          "info": "Users can unlock rewards with just one click! Once you receive the airdrop notification, open the promotional flyer to collect your reward! Unclaimed airdrops can be later fully refunded to make your campaigns more cost-effective!"
+        }
       }
     },
     "feature": "Use cases",

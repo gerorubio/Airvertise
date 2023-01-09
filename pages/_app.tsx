@@ -69,7 +69,7 @@ function WebApp(props: AirvertiseProps) {
         const end = () => {
             setTimeout(() => {
                 setLoading(false);
-            }, 1000);
+            }, 750);
         }
         Router.events.on("routeChangeStart", start)
         Router.events.on("routeChangeComplete", end)
@@ -118,6 +118,7 @@ function WebApp(props: AirvertiseProps) {
                                     :
                                     <>
                                         <NavigationBar />
+                                        <Box sx={{ height: '7vh' }} />
                                         <Component {...pageProps} />
                                     </>
                                 }

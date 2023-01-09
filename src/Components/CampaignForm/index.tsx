@@ -1,10 +1,9 @@
-import * as React from "react"
+import React, { useState, useEffect } from "react"
 import Avatar from "@mui/material/Avatar"
 import Button from "@mui/material/Button"
 import TextField from "@mui/material/TextField"
 import FormControlLabel from "@mui/material/FormControlLabel"
 import Checkbox from "@mui/material/Checkbox"
-import Grid from "@mui/material/Unstable_Grid2"
 import Box from "@mui/material/Box"
 import Campaign from "@mui/icons-material/Campaign"
 import Typography from "@mui/material/Typography"
@@ -15,21 +14,50 @@ import { useRootStore } from "@mobx/index"
 import { observer } from "mobx-react"
 import {
     Autocomplete,
-    Card,
+    Grid,
     FormControl,
-    IconButton,
     InputAdornment,
-    InputLabel,
-    MenuItem,
-    Select,
     Stack,
+    styled,
+    Container,
+    Card
 } from "@mui/material"
 import { DateTimePicker } from "@mui/x-date-pickers/DateTimePicker"
 import { AdapterMoment } from "@mui/x-date-pickers/AdapterMoment"
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider"
-import CloudUploadIcon from "@mui/icons-material/CloudUpload"
 import { IpfsService } from "@Services"
-import { Container } from "@mui/system"
+
+const FormWrapper = styled(Container)`
+    /* background: rgba(119, 6, 89, 0.40);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(119, 6, 89, 0.1);
+    padding: 0.5rem; */
+    
+    /* background: rgba(254, 123, 38, 0.48);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(254, 123, 38, 0.3); */
+
+    /* background: rgba(251, 20, 94, 0.48);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(251, 20, 94, 0.1); */
+
+    background: rgba(18, 18, 18, 0.32);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+
+    padding: 1rem;
+`;
 
 const CampaignForm: React.FunctionComponent<ICampaignForm.IProps> = observer(() => {
     const { t } = useTranslation()
@@ -67,30 +95,28 @@ const CampaignForm: React.FunctionComponent<ICampaignForm.IProps> = observer(() 
         console.log(JSON.stringify(request))
     }
 
+    // Image preview
+    const [selectedImage, setSelectedImage] = useState(null);
+    const [imageUrl, setImageUrl] = useState(null);
+    useEffect(() => {
+        if (selectedImage) {
+          setImageUrl(URL.createObjectURL(selectedImage));
+        }
+      }, [selectedImage]);
+
     return (
-        <Container>
-            <Card sx={{ marginTop: '3rem'}}>
+        <Box sx={{ minHeight: '93vh', display: 'flex', alignItems: 'center' }}>
+            <FormWrapper>
                 <LocalizationProvider dateAdapter={AdapterMoment}>
                     <FormControl>
-                        <Grid container spacing={2} margin={1}>
-                            <Grid xs={12}>
-                                <Box
-                                    sx={{
-                                        marginTop: 2,
-                                        display: "flex",
-                                        flexDirection: "column",
-                                        alignItems: "center",
-                                    }}
-                                >
-                                    <Avatar sx={{ m: 1, bgcolor: "primary.main" }}>
-                                        <Campaign />
-                                    </Avatar>
-                                    <Typography component="h1" variant="h5">
-                                        {t("campaignForm.formTitle")}
-                                    </Typography>
-                                </Box>
+                        <Grid container spacing={2} py={1}>
+                            <Grid item xs={12}>
+                                <Typography component="h1" variant="h5" textAlign={'center'}>
+                                    {t("campaignForm.formTitle")}
+                                </Typography>
                             </Grid>
-                            <Grid xs={12} sm={6}>
+                            <Grid item md={6}>
+                                {/* Title */}
                                 <TextField
                                     margin="normal"
                                     onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
@@ -107,8 +133,7 @@ const CampaignForm: React.FunctionComponent<ICampaignForm.IProps> = observer(() 
                                 <FormHelperText id="campaign-title-helper-text">
                                     {t("campaignForm.title.helperText")}
                                 </FormHelperText>
-                            </Grid>
-                            <Grid xs={12} sm={6}>
+                                {/* Description */}
                                 <TextField
                                     margin="normal"
                                     onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
@@ -125,44 +150,46 @@ const CampaignForm: React.FunctionComponent<ICampaignForm.IProps> = observer(() 
                                 <FormHelperText id="campaign-description-helper-text">
                                     {t("campaignForm.description.helperText")}
                                 </FormHelperText>
-                            </Grid>
-                            <Grid xs={12} sm={3}>
-                                <TextField
-                                    margin="normal"
-                                    onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
-                                        campaignStore.setName(event.target.value)
-                                    }}
-                                    required
-                                    fullWidth
-                                    id="name"
-                                    label={t("campaignForm.name.label")}
-                                    value={campaignStore.name}
-                                    name="name"
-                                    autoFocus
-                                />
-                                <FormHelperText id="campaign-name-helper-text">
-                                    {t("campaignForm.name.helperText")}
-                                </FormHelperText>
-                            </Grid>
-                            <Grid sx={{ alignItems: "center" }} xs={12} sm={3}>
-                                <TextField
-                                    margin="normal"
-                                    onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
-                                        campaignStore.setAirdropValue(event.target.value)
-                                    }}
-                                    required
-                                    fullWidth
-                                    id="airdropValue"
-                                    label={t("campaignForm.airdropValue.label")}
-                                    value={campaignStore.airdropValue}
-                                    name="airdropValue"
-                                    autoFocus
-                                />
-                                <FormHelperText id="campaign-airdropValue-helper-text">
-                                    {t("campaignForm.airdropValue.helperText")}
-                                </FormHelperText>
-                            </Grid>
-                            <Grid sx={{ alignItems: "center" }} xs={12} sm={6}>
+                                {/* Campaign ID & Value */}
+                                <Stack direction={'row'} spacing={1}>
+                                    <Box>
+                                        <TextField
+                                            margin="normal"
+                                            onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+                                                campaignStore.setName(event.target.value)
+                                            }}
+                                            required
+                                            fullWidth
+                                            id="name"
+                                            label={t("campaignForm.name.label")}
+                                            value={campaignStore.name}
+                                            name="name"
+                                            autoFocus
+                                        />
+                                        <FormHelperText id="campaign-name-helper-text">
+                                            {t("campaignForm.name.helperText")}
+                                        </FormHelperText>
+                                    </Box>
+                                    <Box>
+                                        <TextField
+                                            margin="normal"
+                                            onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+                                                campaignStore.setAirdropValue(event.target.value)
+                                            }}
+                                            required
+                                            fullWidth
+                                            id="airdropValue"
+                                            label={t("campaignForm.airdropValue.label")}
+                                            value={campaignStore.airdropValue}
+                                            name="airdropValue"
+                                            autoFocus
+                                        />
+                                        <FormHelperText id="campaign-airdropValue-helper-text">
+                                            {t("campaignForm.airdropValue.helperText")}
+                                        </FormHelperText>
+                                    </Box>
+                                </Stack>
+                                {/* Image */}
                                 <TextField
                                     margin="normal"
                                     required
@@ -171,6 +198,7 @@ const CampaignForm: React.FunctionComponent<ICampaignForm.IProps> = observer(() 
                                     label={t("campaignForm.upload.label")}
                                     value={campaignStore.advertisementUri}
                                     name="upload"
+                                    disabled
                                     InputProps={{
                                         endAdornment: (
                                             <InputAdornment position="start">
@@ -179,13 +207,14 @@ const CampaignForm: React.FunctionComponent<ICampaignForm.IProps> = observer(() 
                                                         {t("campaignForm.upload.button")}
                                                         <input
                                                             hidden
-                                                            accept="image/png, image/jpeg"
+                                                            accept="image/*"
                                                             type="file"
                                                             id="file"
                                                             name="file"
                                                             onChange={event => {
                                                                 if (event.target.files && event.target.files[0]) {
-                                                                    setImageSelected(event.target.files[0])
+                                                                    setImageSelected(event.target.files[0]);
+                                                                    setSelectedImage(event.target.files[0]);
                                                                 }
                                                             }}
                                                         />
@@ -199,39 +228,37 @@ const CampaignForm: React.FunctionComponent<ICampaignForm.IProps> = observer(() 
                                 <FormHelperText id="campaign-upload-helper-text">
                                     {t("campaignForm.upload.helperText")}
                                 </FormHelperText>
-                            </Grid>
-                            <Grid sx={{ alignItems: "center" }} xs={12} sm={6}>
-                                <DateTimePicker
-                                    label={t("campaignForm.startDateTime.label")}
-                                    value={campaignStore.startDateTime}
-                                    onChange={handleStartDateChange}
-                                    renderInput={params => <TextField margin="normal" {...params} fullWidth />}
-                                />
-                                <FormHelperText id="campaign-startDateTime-helper-text">
-                                    {t("campaignForm.startDateTime.helperText")}
-                                </FormHelperText>
-                            </Grid>
-                            <Grid sx={{ alignItems: "center" }} xs={12} sm={3}>
-                                <DateTimePicker
-                                    label={t("campaignForm.endDateTime.label")}
-                                    value={campaignStore.endDateTime}
-                                    disabled={campaignStore.isCampaignEndlessSelected}
-                                    onChange={handleEndDateChange}
-                                    renderInput={params => <TextField margin="normal" {...params} fullWidth />}
-                                />
-                                <FormHelperText id="campaign-endDateTime-helper-text">
-                                    {t("campaignForm.endDateTime.helperText")}
-                                </FormHelperText>
-                            </Grid>
-                            <Grid sx={{ alignSelf: "center" }} xs={12} sm={3} marginBottom={3}>
+                                <Stack direction={'row'} spacing={1}>
+                                    <Box>
+                                        <DateTimePicker
+                                            label={t("campaignForm.startDateTime.label")}
+                                            value={campaignStore.startDateTime}
+                                            onChange={handleStartDateChange}
+                                            renderInput={params => <TextField margin="normal" {...params} fullWidth />}
+                                        />
+                                        <FormHelperText id="campaign-startDateTime-helper-text">
+                                            {t("campaignForm.startDateTime.helperText")}
+                                        </FormHelperText>
+                                    </Box>
+                                    <Box>
+                                        <DateTimePicker
+                                            label={t("campaignForm.endDateTime.label")}
+                                            value={campaignStore.endDateTime}
+                                            disabled={campaignStore.isCampaignEndlessSelected}
+                                            onChange={handleEndDateChange}
+                                            renderInput={params => <TextField margin="normal" {...params} fullWidth />}
+                                        />
+                                        <FormHelperText id="campaign-endDateTime-helper-text">
+                                            {t("campaignForm.endDateTime.helperText")}
+                                        </FormHelperText>
+                                    </Box>
+                                </Stack>
                                 <FormControlLabel
                                     control={<Checkbox checked={campaignStore.isCampaignEndlessSelected} />}
                                     onChange={(_, checked) => campaignStore.setIsCampaignEndlessSelected(checked)}
                                     label={t("campaignForm.endCampaign.label")}
                                     id="endCampaignchecker"
                                 />
-                            </Grid>
-                            <Grid sx={{ alignItems: "center" }} xs={12} sm={12}>
                                 <Autocomplete
                                     multiple
                                     freeSolo
@@ -257,17 +284,21 @@ const CampaignForm: React.FunctionComponent<ICampaignForm.IProps> = observer(() 
                                     {t("campaignForm.destinations.helperText")}
                                 </FormHelperText>
                             </Grid>
-                            <Grid sx={{ textAlign: "end" }} xs={12}>
-                                <Button variant="contained" onClick={() => validateFormAndContinue()}>
-                                    {t("campaignForm.createCampaign")}
-                                </Button>
+                            <Grid item md={6}>
+                                <Box height={'100%'} display={'flex'} alignItems={'center'}>
+                                    {imageUrl && selectedImage && (
+                                        <img src={imageUrl} alt={selectedImage.name} style={{ width: '100%', height: 'auto' }} />
+                                    )}
+                                </Box>
                             </Grid>
                         </Grid>
+                        <Button variant="contained" onClick={() => validateFormAndContinue()}>
+                            {t("campaignForm.createCampaign")}
+                        </Button>
                     </FormControl>
                 </LocalizationProvider>
-            </Card>
-        </Container>
-        
+            </FormWrapper>
+        </Box>
     )
 })
 

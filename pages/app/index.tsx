@@ -61,7 +61,7 @@ const App: NextPage<IHomePage.IProps> = () => {
 
     return (
         <React.Fragment>
-            <Box sx={{ backgroundImage: 'url("/assets/logo/Texture.png")', backgroundSize: 'cover', minHeight: '100vh', width: '100%', position: 'absolute' }}>
+            <Box sx={{ backgroundImage: 'url("/assets/logo/Texture.png")', backgroundSize: 'cover', minHeight: '93vh', width: '100%', position: 'absolute' }}>
                 <CampaignForm />
             </Box>
         </React.Fragment>

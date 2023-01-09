@@ -44,7 +44,7 @@ const NavigationBar: React.FunctionComponent<INavigationBar.IProps> = () => {
 
     return (
         <>
-            <AppBar component="nav" position="sticky" sx={{ paddingY: '0.25rem' }}>
+            <AppBar component="nav" position="absolute" sx={{ paddingY: '0.25rem' }}>
                 <Toolbar sx={{ display: 'flex', justifyContent: 'space-between', width: {xs: '100%', md: '90%'}, marginX: 'auto'}} >
                     {/* Menu de hamburguesa */}
                     <IconButton

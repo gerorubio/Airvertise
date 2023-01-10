@@ -25,38 +25,6 @@ import { AdapterMoment } from "@mui/x-date-pickers/AdapterMoment"
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider"
 import { create, CID, IPFSHTTPClient } from "ipfs-http-client";
 
-const FormWrapper = styled(Container)`
-    /* background: rgba(119, 6, 89, 0.40);
-    border-radius: 16px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-    border: 1px solid rgba(119, 6, 89, 0.1);
-    padding: 0.5rem; */
-    
-    /* background: rgba(254, 123, 38, 0.48);
-    border-radius: 16px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-    border: 1px solid rgba(254, 123, 38, 0.3); */
-
-    /* background: rgba(251, 20, 94, 0.48);
-    border-radius: 16px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-    border: 1px solid rgba(251, 20, 94, 0.1); */
-
-    background: rgba(18, 18, 18, 0.32);
-    border-radius: 16px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-
-    padding: 1rem;
-`;
-
 const CampaignForm: React.FunctionComponent<ICampaignForm.IProps> = observer(() => {
     const { t } = useTranslation()
     const { campaignStore } = useRootStore()
@@ -127,7 +95,7 @@ const CampaignForm: React.FunctionComponent<ICampaignForm.IProps> = observer(() 
 
     return (
         <Box sx={{ minHeight: '93vh', display: 'flex', alignItems: 'center' }}>
-            <FormWrapper>
+            <Card component={Container} sx={{ padding: '1rem' }}>
                 <LocalizationProvider dateAdapter={AdapterMoment}>
                     <FormControl>
                         <Grid container spacing={2} py={1}>
@@ -319,7 +287,7 @@ const CampaignForm: React.FunctionComponent<ICampaignForm.IProps> = observer(() 
                         </Button>
                     </FormControl>
                 </LocalizationProvider>
-            </FormWrapper>
+            </Card>
         </Box>
     )
 })

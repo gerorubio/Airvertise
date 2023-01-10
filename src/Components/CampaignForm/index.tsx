@@ -71,9 +71,7 @@ const CampaignForm: React.FunctionComponent<ICampaignForm.IProps> = observer(() 
 
     // IPFS config
     const projectId = process.env.NEXT_PUBLIC_PROJECT_ID;
-    const projectSecret = process.env.NEXT_PUBLIC_PROJECT_SECRET;
-    // const projectId = "2K70ZZxkaYl7rrLOUQ9G9lMi9qx";
-    // const projectSecret = "b1794790993bfad931a4fae2d2b45c7e";
+    const projectSecret = process.env.NEXT_PUBLIC_INFURA_PROJECT_SECRET;
     const authorization = "Basic " + btoa(projectId + ":" + projectSecret);
   
     let ipfs: IPFSHTTPClient | undefined;

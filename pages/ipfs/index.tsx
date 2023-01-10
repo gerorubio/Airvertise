@@ -12,8 +12,8 @@ const Home: NextPage<IHomePage.IProps> = () => {
 
   const { data: walletConnectSigner } = useSigner()
 
-  const projectId = "2FgFEQMEW6KoUuEKBEL3kivLVOT";
-  const projectSecret = "e5fd77d7dba87a46b1ce585edb829441";
+  const projectId = "2K70ZZxkaYl7rrLOUQ9G9lMi9qx";
+  const projectSecret = "b1794790993bfad931a4fae2d2b45c7e";
   const authorization = "Basic " + btoa(projectId + ":" + projectSecret);
 
   let ipfs: IPFSHTTPClient | undefined;

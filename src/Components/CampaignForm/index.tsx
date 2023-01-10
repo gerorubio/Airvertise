@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from "react"
-import Avatar from "@mui/material/Avatar"
 import Button from "@mui/material/Button"
 import TextField from "@mui/material/TextField"
 import FormControlLabel from "@mui/material/FormControlLabel"
 import Checkbox from "@mui/material/Checkbox"
 import Box from "@mui/material/Box"
-import Campaign from "@mui/icons-material/Campaign"
 import Typography from "@mui/material/Typography"
 import { useTranslation } from "next-i18next"
 import { ICampaignForm } from "./CampaignForm"
@@ -25,7 +23,7 @@ import {
 import { DateTimePicker } from "@mui/x-date-pickers/DateTimePicker"
 import { AdapterMoment } from "@mui/x-date-pickers/AdapterMoment"
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider"
-import { IpfsService } from "@Services"
+import { create, CID, IPFSHTTPClient } from "ipfs-http-client";
 
 const FormWrapper = styled(Container)`
     /* background: rgba(119, 6, 89, 0.40);
@@ -61,38 +59,35 @@ const FormWrapper = styled(Container)`
 
 const CampaignForm: React.FunctionComponent<ICampaignForm.IProps> = observer(() => {
     const { t } = useTranslation()
-    const [imageSelected, setImageSelected] = React.useState<File>(null)
     const { campaignStore } = useRootStore()
 
-    const uploadImage = async (image: File) => {
-        const body = new FormData()
-        body.append("file", image)
-
-        const response = await IpfsService.UploadImage(body)
-        if (response.data.path) {
-            campaignStore.setAdvertisementUri(response.data.path)
-        }
-    }
-
-    React.useEffect(() => {
-        if (imageSelected != null) {
-            uploadImage(imageSelected)
-        }
-    }, [imageSelected])
-
+    // Date handle
     const handleStartDateChange = (newDate: any) => {
         campaignStore.setStartDateTime(newDate)
     }
-
     const handleEndDateChange = (newDate: any) => {
         campaignStore.setEndDateTime(newDate)
     }
 
-    function validateFormAndContinue(): void {
-        // TODO: Add validations: https://trello.com/c/Tz2jPCMY/66-add-airvertise-validations
-
-        const request = campaignStore.createCampaignData()
-        console.log(JSON.stringify(request))
+    // IPFS config
+    const projectId = process.env.NEXT_PUBLIC_PROJECT_ID;
+    const projectSecret = process.env.NEXT_PUBLIC_PROJECT_SECRET;
+    // const projectId = "2K70ZZxkaYl7rrLOUQ9G9lMi9qx";
+    // const projectSecret = "b1794790993bfad931a4fae2d2b45c7e";
+    const authorization = "Basic " + btoa(projectId + ":" + projectSecret);
+  
+    let ipfs: IPFSHTTPClient | undefined;
+    try {
+      ipfs = create({
+        url: "https://ipfs.infura.io:5001/api/v0",
+        headers: {
+          authorization,
+        }
+  
+      });
+    } catch (error) {
+      console.error("IPFS error ", error);
+      ipfs = undefined;
     }
 
     // Image preview
@@ -103,6 +98,34 @@ const CampaignForm: React.FunctionComponent<ICampaignForm.IProps> = observer(() 
           setImageUrl(URL.createObjectURL(selectedImage));
         }
       }, [selectedImage]);
+
+    // Submit form
+    const [images, setImages] = React.useState<{ cid: CID; path: string }[]>([]);
+    
+    const validateFormAndContinue = async() => {
+        // TODO: Add validations: https://trello.com/c/Tz2jPCMY/66-add-airvertise-validations
+        if(!selectedImage) {
+            return alert("No files selected");
+        }
+
+        const result = await (ipfs as IPFSHTTPClient).add(selectedImage);
+  
+        setImages([
+            ...images,
+            {
+                cid: result.cid,
+                path: result.path,
+            },
+        ]);
+
+
+        campaignStore.advertisementUri = "https://airvertise.infura-ipfs.io/ipfs/" + result.path;
+
+        const request = campaignStore.createCampaignData()
+        console.log(JSON.stringify(request))
+    }
+
+    
 
     return (
         <Box sx={{ minHeight: '93vh', display: 'flex', alignItems: 'center' }}>
@@ -152,6 +175,7 @@ const CampaignForm: React.FunctionComponent<ICampaignForm.IProps> = observer(() 
                                 </FormHelperText>
                                 {/* Campaign ID & Value */}
                                 <Stack direction={'row'} spacing={1}>
+                                    {/* ID */}
                                     <Box>
                                         <TextField
                                             margin="normal"
@@ -170,8 +194,10 @@ const CampaignForm: React.FunctionComponent<ICampaignForm.IProps> = observer(() 
                                             {t("campaignForm.name.helperText")}
                                         </FormHelperText>
                                     </Box>
+                                    {/* Value */}
                                     <Box>
                                         <TextField
+                                            type={'number'}
                                             margin="normal"
                                             onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
                                                 campaignStore.setAirdropValue(event.target.value)
@@ -196,9 +222,8 @@ const CampaignForm: React.FunctionComponent<ICampaignForm.IProps> = observer(() 
                                     fullWidth
                                     id="upload"
                                     label={t("campaignForm.upload.label")}
-                                    value={campaignStore.advertisementUri}
+                                    value={selectedImage.name}
                                     name="upload"
-                                    disabled
                                     InputProps={{
                                         endAdornment: (
                                             <InputAdornment position="start">
@@ -213,7 +238,6 @@ const CampaignForm: React.FunctionComponent<ICampaignForm.IProps> = observer(() 
                                                             name="file"
                                                             onChange={event => {
                                                                 if (event.target.files && event.target.files[0]) {
-                                                                    setImageSelected(event.target.files[0]);
                                                                     setSelectedImage(event.target.files[0]);
                                                                 }
                                                             }}
@@ -292,7 +316,7 @@ const CampaignForm: React.FunctionComponent<ICampaignForm.IProps> = observer(() 
                                 </Box>
                             </Grid>
                         </Grid>
-                        <Button variant="contained" onClick={() => validateFormAndContinue()}>
+                        <Button variant="contained" onClick={validateFormAndContinue}>
                             {t("campaignForm.createCampaign")}
                         </Button>
                     </FormControl>

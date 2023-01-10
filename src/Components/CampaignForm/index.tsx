@@ -220,7 +220,7 @@ const CampaignForm: React.FunctionComponent<ICampaignForm.IProps> = observer(() 
                                     fullWidth
                                     id="upload"
                                     label={t("campaignForm.upload.label")}
-                                    value={selectedImage.name}
+                                    value={selectedImage ? selectedImage.name : ''}
                                     name="upload"
                                     InputProps={{
                                         endAdornment: (

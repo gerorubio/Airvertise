@@ -25,7 +25,7 @@ const FooterBar: React.FunctionComponent<IFooterBar.IProps> = () => {
                     <IconButton sx={{ color: '#121212', "&:hover": { color: "#5865F2", background: 'none' } }}>
                         <FaDiscord style={{ fontSize: '2.75rem' }}/>
                     </IconButton>
-                    <IconButton sx={{ color: '#121212', "&:hover": { color: "#00acee", background: 'none' } }}>
+                    <IconButton target="_blank" href="https://twitter.com/AirvertiseMKT" sx={{ color: '#121212', "&:hover": { color: "#00acee", background: 'none' } }}>
                         <BsTwitter style={{ fontSize: '2.75rem' }}/>
                     </IconButton>
                 </Grid>

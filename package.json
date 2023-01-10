@@ -59,6 +59,7 @@
     "ethers": "^5.7.1",
     "express": "^4.18.1",
     "formidable": "^2.0.1",
+    "googleapis": "^110.0.0",
     "http-proxy": "^1.18.1",
     "http-proxy-middleware": "^2.0.6",
     "ipfs-http-client": "^59.0.0",

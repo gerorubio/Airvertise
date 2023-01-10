@@ -6,19 +6,16 @@ import { AnimationOnScroll } from "react-animation-on-scroll";
 
 const features = [
     {
-        "title": "home.featureTitle1",
-        "text": "home.feature1",
-        "img": "..."
+        "title": "home.useCase.useCases.useCase1.title",
+        "text": "home.useCase.useCases.useCase1.info"
     },
     {
-        "title": "home.featureTitle2",
-        "text": "home.feature2",
-        "img": "..."
+        "title": "home.useCase.useCases.useCase2.title",
+        "text": "home.useCase.useCases.useCase2.info"
     },
     {
-        "title": "home.featureTitle3",
-        "text": "home.feature3",
-        "img": "..."
+        "title": "home.useCase.useCases.useCase3.title",
+        "text": "home.useCase.useCases.useCase3.info"
     }
 ];
 
@@ -28,8 +25,8 @@ const UseCases: React.FunctionComponent<IUseCases.IProps> = () => {
     
     return (
         <Container sx={{ py: '5rem' }}>
-            <Typography variant="h3" align="center" gutterBottom>{t('home.feature')}</Typography>
-            <Typography variant="h6" align="center">{t("home.leftImageText")}</Typography>
+            <Typography variant="h3" align="center" gutterBottom>{t('home.useCase.title')}</Typography>
+            <Typography variant="h6" align="center">{t('home.useCase.subtitle')}</Typography>
             <Grid container paddingTop={5}>
                 <Grid item md={6}>
                     <img src="https://static.vecteezy.com/system/resources/previews/008/506/601/original/money-and-finances-3d-icon-3d-rendering-png.png" style={{ maxWidth: '100%', height: 'auto' }} />
@@ -39,7 +36,7 @@ const UseCases: React.FunctionComponent<IUseCases.IProps> = () => {
                         {features.map((feature) => (
                             <Grid key={feature.title} item md={12}>
                                 <AnimationOnScroll animateIn="animate__fadeIn" animateOnce>
-                                    <Card sx={{ width: '85%', mx: 'auto', height:'auto' }}>
+                                    <Card sx={{ width: '90%', mx: 'auto', height:'auto' }}>
                                         <CardContent>
                                         <Typography gutterBottom variant="h5" component="div">
                                             {t(feature.title)}

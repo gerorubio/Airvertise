@@ -4,9 +4,7 @@ import { IHomePage } from "@Interfaces"
 import { serverSideTranslations } from "next-i18next/serverSideTranslations"
 import { useTranslation } from "next-i18next"
 import { useSigner } from "wagmi"
-import { ethers } from "ethers"
-import { Signer } from "ethers"
-import { Typography, Box, Grid, Container, Stack, Button, Card, CardMedia, CardContent } from "@mui/material";
+import { Typography, Box, Grid, Container, Stack } from "@mui/material";
 import FooterBar from "@Components/FooterBar"
 import Roadmap from "@Components/Roadmap"
 import Hero from "@Components/Hero"
@@ -14,12 +12,8 @@ import ProcessSection from "@Components/ProcessSection"
 import ContactForm from "@Components/ContactForm"
 import UseCases from "@Components/UseCases"
 
-
-
 const Home: NextPage<IHomePage.IProps> = () => {
     const { t } = useTranslation()
-
-    const { data: walletConnectSigner } = useSigner()
 
     return (
         <React.Fragment>
@@ -35,7 +29,7 @@ const Home: NextPage<IHomePage.IProps> = () => {
                 <Box py={2} bgcolor={'#181818'}>
                     <Container>
                         <Typography variant="h4" textAlign={'center'} gutterBottom pb={2}>
-                            Supported chains
+                            {t("common.chains.title")}
                         </Typography>
                         <Grid container>
                             <Grid item xs={4}>

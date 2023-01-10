@@ -3,6 +3,7 @@
   "common": {
     "airvertise": "Airvertise",
     "chains": {
+      "title": "Supported chains",
       "polygon": "Polygon",
       "optimism": "Optimism",
       "arbitrum": "Arbitrum"
@@ -86,15 +87,24 @@
         }
       }
     },
-    "feature": "Use cases",
-    "featureTitle1": "Promote NFT collection",
-    "feature1": "Airdrops are a great way for spreading the word about your collection and providing an incentive for people to engage with it. Target other similar collections to maximize the reach of your airdrops and get the most out of your promotion.",
-    "featureTitle2": "Advertise your product",
-    "feature2": "Are you looking to reach the right target audience and start getting users for your product, but don't know where to start? We can help you advertise your product in a highly cost-effective manner, so you can start seeing results right away!",
-    "featureTitle3": "Target event assistants",
-    "feature3": "By harnessing the power of innovative platforms that utilize NFTs as event tickets, you can easily reach individuals who attended a particular event. This allows you to effectively target and connect with a specific group of people who have already demonstrated an interest in the field of your product or service.",
-    "leftImageText": "Start scaling your business by identifying and building an audience. Knowing your audience will help you create campaigns and increase your customer base.",
-    "rightImageText": "Send invitations to events. Participating in events is a great way to spread the word about your product and get people talking about it. It’s also a great way to build relationships with potential customers.",
+    "useCase": {
+      "title": "Use cases",
+      "subtitle": "Start scaling your business by identifying and building an audience. Knowing your audience will help you create campaigns and increase your customer base.",
+      "useCases": {
+        "useCase1": {
+          "title": "Promote NFT collection",
+          "info": "Airdrops are a great way for spreading the word about your collection and providing an incentive for people to engage with it. Target other similar collections to maximize the reach of your airdrops and get the most out of your promotion."
+        },
+        "useCase2": {
+          "title": "Advertise your product",
+          "info": "Are you looking to reach the right target audience and start getting users for your product, but don't know where to start? We can help you advertise your product in a highly cost-effective manner, so you can start seeing results right away!"
+        },
+        "useCase3": {
+          "title": "Target event attendants",
+          "info": "By harnessing the power of innovative platforms that utilize NFTs as event tickets, you can easily reach individuals who attended a particular event. This allows you to effectively target and connect with a specific group of people who have already demonstrated an interest in the field of your product or service."
+        }
+      }
+    },
     "roadmap": {
       "roadmap": "Roadmap",
       "events": {
@@ -124,6 +134,13 @@
           "date": "2025"
         }
       }
-    }    
+    },
+    "contact": {
+      "title": "Have some questions?",
+      "subtitle": "Fill out the quick form and we will be in touch with lighting speed.",
+      "nameLabel": "Name",
+      "emailLabel": "What's your email?",
+      "button": "Send contact information"
+    }
   }
 }
